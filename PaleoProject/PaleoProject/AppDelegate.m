@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "PaleoTabBarController.h"
+#import "PaleoCoreData.h"
 
 @implementation AppDelegate
 

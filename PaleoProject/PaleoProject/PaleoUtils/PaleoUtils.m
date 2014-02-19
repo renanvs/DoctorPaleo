@@ -7,6 +7,7 @@
 //
 
 #import "PaleoUtils.h"
+#import "PaleoCoreData.h"
 
 @implementation PaleoUtils
 @synthesize currentNavigationController;
@@ -19,6 +20,16 @@ static id _instance;
         }
     }
     return _instance;
+}
+
+-(id)init{
+    self = [super init];
+    
+    if (self) {
+        [PaleoCoreData sharedInstance];
+    }
+    
+    return self;
 }
 
 -(void)setCurrentNavigationController:(PaleoNavigationController *)_currentNavigationController{
