@@ -1,0 +1,545 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1E01CE9318B0BB9A00AD741B /* baseBarIcons in Resources */ = {isa = PBXBuildFile; fileRef = 1E01CE9118B0BB9A00AD741B /* baseBarIcons */; };
+		1E01CE9418B0BB9A00AD741B /* baseBarIcons@2x in Resources */ = {isa = PBXBuildFile; fileRef = 1E01CE9218B0BB9A00AD741B /* baseBarIcons@2x */; };
+		1E01CE9918B0C0F800AD741B /* FoodCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E01CE9718B0C0F800AD741B /* FoodCategoryViewController.m */; };
+		1E01CE9A18B0C0F800AD741B /* FoodCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E01CE9818B0C0F800AD741B /* FoodCategoryViewController.xib */; };
+		1E01CE9D18B0C1DD00AD741B /* PaleoNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E01CE9C18B0C1DD00AD741B /* PaleoNavigationController.m */; };
+		1E01CEA218B0C9F300AD741B /* FoodCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E01CEA118B0C9F300AD741B /* FoodCategoryCell.m */; };
+		1E01CEA418B0CA0B00AD741B /* FoodCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E01CEA318B0CA0B00AD741B /* FoodCategoryCell.xib */; };
+		1E01CEA718B0CBBE00AD741B /* FoodSubcategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E01CEA618B0CBBE00AD741B /* FoodSubcategoriesViewController.xib */; };
+		1E01CEAA18B0CC0A00AD741B /* FoodSubcategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E01CEA918B0CC0A00AD741B /* FoodSubcategoriesViewController.m */; };
+		1E01CEAE18B0CD0C00AD741B /* FoodSubcategoriesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E01CEAD18B0CD0C00AD741B /* FoodSubcategoriesCell.m */; };
+		1E01CEB018B0CD2800AD741B /* FoodSubcategoriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E01CEAF18B0CD2800AD741B /* FoodSubcategoriesCell.xib */; };
+		1E01CEB518B0D41400AD741B /* FoodItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E01CEB318B0D41400AD741B /* FoodItemViewController.m */; };
+		1E01CEB618B0D41400AD741B /* FoodItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E01CEB418B0D41400AD741B /* FoodItemViewController.xib */; };
+		1E56B1E418B432D1004E8523 /* PaleoItemTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E56B1E318B432D1004E8523 /* PaleoItemTableView.m */; };
+		1E56B1E818B43620004E8523 /* PaleoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E56B1E718B43620004E8523 /* PaleoUtils.m */; };
+		1E8EE26118B390C5000A01AF /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8EE25F18B390C5000A01AF /* FavoritesViewController.m */; };
+		1E8EE26218B390C5000A01AF /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E8EE26018B390C5000A01AF /* FavoritesViewController.xib */; };
+		1E8EE26818B3B902000A01AF /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8EE26618B3B902000A01AF /* SettingsViewController.m */; };
+		1E8EE26918B3B902000A01AF /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E8EE26718B3B902000A01AF /* SettingsViewController.xib */; };
+		1EC1253A18B2E7D60063C1CB /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC1253818B2E7D60063C1CB /* SearchViewController.m */; };
+		1EC1253E18B2E8680063C1CB /* PaleoTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC1253D18B2E8680063C1CB /* PaleoTabBarController.m */; };
+		1EC1254018B2E98F0063C1CB /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EC1253918B2E7D60063C1CB /* SearchViewController.xib */; };
+		1ECCC4CA18B06B7F0073992A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ECCC4C918B06B7F0073992A /* Foundation.framework */; };
+		1ECCC4CC18B06B7F0073992A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ECCC4CB18B06B7F0073992A /* CoreGraphics.framework */; };
+		1ECCC4CE18B06B7F0073992A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ECCC4CD18B06B7F0073992A /* UIKit.framework */; };
+		1ECCC4D418B06B7F0073992A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ECCC4D218B06B7F0073992A /* InfoPlist.strings */; };
+		1ECCC4D618B06B7F0073992A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECCC4D518B06B7F0073992A /* main.m */; };
+		1ECCC4DA18B06B7F0073992A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECCC4D918B06B7F0073992A /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1E01CE9118B0BB9A00AD741B /* baseBarIcons */ = {isa = PBXFileReference; lastKnownFileType = file; path = baseBarIcons; sourceTree = "<group>"; };
+		1E01CE9218B0BB9A00AD741B /* baseBarIcons@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "baseBarIcons@2x"; sourceTree = "<group>"; };
+		1E01CE9618B0C0F800AD741B /* FoodCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoodCategoryViewController.h; path = FoodViewController/FoodCategoryViewController.h; sourceTree = "<group>"; };
+		1E01CE9718B0C0F800AD741B /* FoodCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoodCategoryViewController.m; path = FoodViewController/FoodCategoryViewController.m; sourceTree = "<group>"; };
+		1E01CE9818B0C0F800AD741B /* FoodCategoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FoodCategoryViewController.xib; path = FoodViewController/FoodCategoryViewController.xib; sourceTree = "<group>"; };
+		1E01CE9B18B0C1DD00AD741B /* PaleoNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoNavigationController.h; path = FoodNavigationBar/PaleoNavigationController.h; sourceTree = "<group>"; };
+		1E01CE9C18B0C1DD00AD741B /* PaleoNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaleoNavigationController.m; path = FoodNavigationBar/PaleoNavigationController.m; sourceTree = "<group>"; };
+		1E01CEA018B0C9F300AD741B /* FoodCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoodCategoryCell.h; path = FoodCategoryCell/FoodCategoryCell.h; sourceTree = "<group>"; };
+		1E01CEA118B0C9F300AD741B /* FoodCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoodCategoryCell.m; path = FoodCategoryCell/FoodCategoryCell.m; sourceTree = "<group>"; };
+		1E01CEA318B0CA0B00AD741B /* FoodCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FoodCategoryCell.xib; path = FoodCategoryCell/FoodCategoryCell.xib; sourceTree = "<group>"; };
+		1E01CEA618B0CBBE00AD741B /* FoodSubcategoriesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FoodSubcategoriesViewController.xib; path = FoodSubcategoriesViewController/FoodSubcategoriesViewController.xib; sourceTree = "<group>"; };
+		1E01CEA818B0CC0A00AD741B /* FoodSubcategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoodSubcategoriesViewController.h; path = FoodSubcategoriesViewController/FoodSubcategoriesViewController.h; sourceTree = "<group>"; };
+		1E01CEA918B0CC0A00AD741B /* FoodSubcategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoodSubcategoriesViewController.m; path = FoodSubcategoriesViewController/FoodSubcategoriesViewController.m; sourceTree = "<group>"; };
+		1E01CEAC18B0CD0C00AD741B /* FoodSubcategoriesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoodSubcategoriesCell.h; path = FoodSubcategoriesCell/FoodSubcategoriesCell.h; sourceTree = "<group>"; };
+		1E01CEAD18B0CD0C00AD741B /* FoodSubcategoriesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoodSubcategoriesCell.m; path = FoodSubcategoriesCell/FoodSubcategoriesCell.m; sourceTree = "<group>"; };
+		1E01CEAF18B0CD2800AD741B /* FoodSubcategoriesCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FoodSubcategoriesCell.xib; path = FoodSubcategoriesCell/FoodSubcategoriesCell.xib; sourceTree = "<group>"; };
+		1E01CEB218B0D41400AD741B /* FoodItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoodItemViewController.h; path = FoodItemViewController/FoodItemViewController.h; sourceTree = "<group>"; };
+		1E01CEB318B0D41400AD741B /* FoodItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoodItemViewController.m; path = FoodItemViewController/FoodItemViewController.m; sourceTree = "<group>"; };
+		1E01CEB418B0D41400AD741B /* FoodItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FoodItemViewController.xib; path = FoodItemViewController/FoodItemViewController.xib; sourceTree = "<group>"; };
+		1E56B1E218B432D1004E8523 /* PaleoItemTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoItemTableView.h; path = PaleoProject/PaleoItemTableView/PaleoItemTableView.h; sourceTree = "<group>"; };
+		1E56B1E318B432D1004E8523 /* PaleoItemTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaleoItemTableView.m; path = PaleoProject/PaleoItemTableView/PaleoItemTableView.m; sourceTree = "<group>"; };
+		1E56B1E618B43620004E8523 /* PaleoUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoUtils.h; path = PaleoProject/PaleoUtils/PaleoUtils.h; sourceTree = "<group>"; };
+		1E56B1E718B43620004E8523 /* PaleoUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaleoUtils.m; path = PaleoProject/PaleoUtils/PaleoUtils.m; sourceTree = "<group>"; };
+		1E8EE25E18B390C5000A01AF /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesViewController.h; path = FavoritesViewController/FavoritesViewController.h; sourceTree = "<group>"; };
+		1E8EE25F18B390C5000A01AF /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesViewController.m; path = FavoritesViewController/FavoritesViewController.m; sourceTree = "<group>"; };
+		1E8EE26018B390C5000A01AF /* FavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FavoritesViewController.xib; path = FavoritesViewController/FavoritesViewController.xib; sourceTree = "<group>"; };
+		1E8EE26518B3B902000A01AF /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		1E8EE26618B3B902000A01AF /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		1E8EE26718B3B902000A01AF /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		1EC1253718B2E7D60063C1CB /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = SearchViewController/SearchViewController.h; sourceTree = "<group>"; };
+		1EC1253818B2E7D60063C1CB /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = SearchViewController/SearchViewController.m; sourceTree = "<group>"; };
+		1EC1253918B2E7D60063C1CB /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchViewController.xib; path = SearchViewController/SearchViewController.xib; sourceTree = "<group>"; };
+		1EC1253C18B2E8680063C1CB /* PaleoTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoTabBarController.h; path = PaleoProject/PeleoTabBarController/PaleoTabBarController.h; sourceTree = "<group>"; };
+		1EC1253D18B2E8680063C1CB /* PaleoTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaleoTabBarController.m; path = PaleoProject/PeleoTabBarController/PaleoTabBarController.m; sourceTree = "<group>"; };
+		1ECCC4C618B06B7F0073992A /* PaleoProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaleoProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1ECCC4C918B06B7F0073992A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1ECCC4CB18B06B7F0073992A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1ECCC4CD18B06B7F0073992A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1ECCC4D118B06B7F0073992A /* PaleoProject-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PaleoProject-Info.plist"; sourceTree = "<group>"; };
+		1ECCC4D318B06B7F0073992A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1ECCC4D518B06B7F0073992A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1ECCC4D718B06B7F0073992A /* PaleoProject-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PaleoProject-Prefix.pch"; sourceTree = "<group>"; };
+		1ECCC4D818B06B7F0073992A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		1ECCC4D918B06B7F0073992A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1ECCC4C318B06B7E0073992A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1ECCC4CC18B06B7F0073992A /* CoreGraphics.framework in Frameworks */,
+				1ECCC4CE18B06B7F0073992A /* UIKit.framework in Frameworks */,
+				1ECCC4CA18B06B7F0073992A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1E01CE9018B0BB9A00AD741B /* images */ = {
+			isa = PBXGroup;
+			children = (
+				1E01CE9118B0BB9A00AD741B /* baseBarIcons */,
+				1E01CE9218B0BB9A00AD741B /* baseBarIcons@2x */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		1E01CE9518B0C09700AD741B /* FoodViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1E01CE9F18B0C9BF00AD741B /* FoodCategoryCell */,
+				1E01CE9618B0C0F800AD741B /* FoodCategoryViewController.h */,
+				1E01CE9718B0C0F800AD741B /* FoodCategoryViewController.m */,
+				1E01CE9818B0C0F800AD741B /* FoodCategoryViewController.xib */,
+			);
+			name = FoodViewController;
+			sourceTree = "<group>";
+		};
+		1E01CE9E18B0C1E500AD741B /* PaleoNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				1E01CE9B18B0C1DD00AD741B /* PaleoNavigationController.h */,
+				1E01CE9C18B0C1DD00AD741B /* PaleoNavigationController.m */,
+			);
+			name = PaleoNavigationController;
+			path = PaleoProject;
+			sourceTree = "<group>";
+		};
+		1E01CE9F18B0C9BF00AD741B /* FoodCategoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				1E01CEA018B0C9F300AD741B /* FoodCategoryCell.h */,
+				1E01CEA118B0C9F300AD741B /* FoodCategoryCell.m */,
+				1E01CEA318B0CA0B00AD741B /* FoodCategoryCell.xib */,
+			);
+			name = FoodCategoryCell;
+			sourceTree = "<group>";
+		};
+		1E01CEA518B0CB8300AD741B /* FoodSubcategoriesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1E01CEAB18B0CCEE00AD741B /* FoodSubcategoriesCell */,
+				1E01CEA818B0CC0A00AD741B /* FoodSubcategoriesViewController.h */,
+				1E01CEA918B0CC0A00AD741B /* FoodSubcategoriesViewController.m */,
+				1E01CEA618B0CBBE00AD741B /* FoodSubcategoriesViewController.xib */,
+			);
+			name = FoodSubcategoriesViewController;
+			sourceTree = "<group>";
+		};
+		1E01CEAB18B0CCEE00AD741B /* FoodSubcategoriesCell */ = {
+			isa = PBXGroup;
+			children = (
+				1E01CEAC18B0CD0C00AD741B /* FoodSubcategoriesCell.h */,
+				1E01CEAD18B0CD0C00AD741B /* FoodSubcategoriesCell.m */,
+				1E01CEAF18B0CD2800AD741B /* FoodSubcategoriesCell.xib */,
+			);
+			name = FoodSubcategoriesCell;
+			sourceTree = "<group>";
+		};
+		1E01CEB118B0D3AB00AD741B /* FoodItemViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1E01CEB218B0D41400AD741B /* FoodItemViewController.h */,
+				1E01CEB318B0D41400AD741B /* FoodItemViewController.m */,
+				1E01CEB418B0D41400AD741B /* FoodItemViewController.xib */,
+			);
+			name = FoodItemViewController;
+			sourceTree = "<group>";
+		};
+		1E56B1E018B42C81004E8523 /* Paleo */ = {
+			isa = PBXGroup;
+			children = (
+				1E56B1E518B43609004E8523 /* PaleoUtils */,
+				1E56B1E118B4327B004E8523 /* PaleoItemTableView */,
+				1EC1253F18B2E8710063C1CB /* PeleoTabBarController */,
+				1E01CE9E18B0C1E500AD741B /* PaleoNavigationController */,
+			);
+			name = Paleo;
+			sourceTree = "<group>";
+		};
+		1E56B1E118B4327B004E8523 /* PaleoItemTableView */ = {
+			isa = PBXGroup;
+			children = (
+				1E56B1E218B432D1004E8523 /* PaleoItemTableView.h */,
+				1E56B1E318B432D1004E8523 /* PaleoItemTableView.m */,
+			);
+			name = PaleoItemTableView;
+			sourceTree = "<group>";
+		};
+		1E56B1E518B43609004E8523 /* PaleoUtils */ = {
+			isa = PBXGroup;
+			children = (
+				1E56B1E618B43620004E8523 /* PaleoUtils.h */,
+				1E56B1E718B43620004E8523 /* PaleoUtils.m */,
+			);
+			name = PaleoUtils;
+			sourceTree = "<group>";
+		};
+		1E8EE25D18B3909A000A01AF /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				1E8EE26318B3B8DA000A01AF /* FavoritesViewController */,
+			);
+			name = Favorites;
+			sourceTree = "<group>";
+		};
+		1E8EE26318B3B8DA000A01AF /* FavoritesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1E8EE25E18B390C5000A01AF /* FavoritesViewController.h */,
+				1E8EE25F18B390C5000A01AF /* FavoritesViewController.m */,
+				1E8EE26018B390C5000A01AF /* FavoritesViewController.xib */,
+			);
+			name = FavoritesViewController;
+			sourceTree = "<group>";
+		};
+		1E8EE26418B3B8EA000A01AF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1E8EE26518B3B902000A01AF /* SettingsViewController.h */,
+				1E8EE26618B3B902000A01AF /* SettingsViewController.m */,
+				1E8EE26718B3B902000A01AF /* SettingsViewController.xib */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		1EC1253418B2E7950063C1CB /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				1E01CEB118B0D3AB00AD741B /* FoodItemViewController */,
+				1E01CEA518B0CB8300AD741B /* FoodSubcategoriesViewController */,
+				1E01CE9518B0C09700AD741B /* FoodViewController */,
+			);
+			name = Food;
+			sourceTree = "<group>";
+		};
+		1EC1253518B2E7B10063C1CB /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				1EC1253618B2E7BD0063C1CB /* SearchViewController */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		1EC1253618B2E7BD0063C1CB /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1EC1253718B2E7D60063C1CB /* SearchViewController.h */,
+				1EC1253818B2E7D60063C1CB /* SearchViewController.m */,
+				1EC1253918B2E7D60063C1CB /* SearchViewController.xib */,
+			);
+			name = SearchViewController;
+			sourceTree = "<group>";
+		};
+		1EC1253F18B2E8710063C1CB /* PeleoTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				1EC1253C18B2E8680063C1CB /* PaleoTabBarController.h */,
+				1EC1253D18B2E8680063C1CB /* PaleoTabBarController.m */,
+			);
+			name = PeleoTabBarController;
+			sourceTree = "<group>";
+		};
+		1ECCC4BD18B06B7E0073992A = {
+			isa = PBXGroup;
+			children = (
+				1E56B1E018B42C81004E8523 /* Paleo */,
+				1ECCC4CF18B06B7F0073992A /* PaleoProject */,
+				1ECCC4C818B06B7F0073992A /* Frameworks */,
+				1ECCC4C718B06B7F0073992A /* Products */,
+				1E01CE9018B0BB9A00AD741B /* images */,
+			);
+			sourceTree = "<group>";
+		};
+		1ECCC4C718B06B7F0073992A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1ECCC4C618B06B7F0073992A /* PaleoProject.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1ECCC4C818B06B7F0073992A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1ECCC4C918B06B7F0073992A /* Foundation.framework */,
+				1ECCC4CB18B06B7F0073992A /* CoreGraphics.framework */,
+				1ECCC4CD18B06B7F0073992A /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1ECCC4CF18B06B7F0073992A /* PaleoProject */ = {
+			isa = PBXGroup;
+			children = (
+				1E8EE26418B3B8EA000A01AF /* Settings */,
+				1E8EE25D18B3909A000A01AF /* Favorites */,
+				1EC1253518B2E7B10063C1CB /* Search */,
+				1EC1253418B2E7950063C1CB /* Food */,
+				1ECCC4D818B06B7F0073992A /* AppDelegate.h */,
+				1ECCC4D918B06B7F0073992A /* AppDelegate.m */,
+				1ECCC4D018B06B7F0073992A /* Supporting Files */,
+			);
+			path = PaleoProject;
+			sourceTree = "<group>";
+		};
+		1ECCC4D018B06B7F0073992A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1ECCC4D118B06B7F0073992A /* PaleoProject-Info.plist */,
+				1ECCC4D218B06B7F0073992A /* InfoPlist.strings */,
+				1ECCC4D518B06B7F0073992A /* main.m */,
+				1ECCC4D718B06B7F0073992A /* PaleoProject-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1ECCC4C518B06B7E0073992A /* PaleoProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1ECCC4F218B06B7F0073992A /* Build configuration list for PBXNativeTarget "PaleoProject" */;
+			buildPhases = (
+				1ECCC4C218B06B7E0073992A /* Sources */,
+				1ECCC4C318B06B7E0073992A /* Frameworks */,
+				1ECCC4C418B06B7E0073992A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PaleoProject;
+			productName = PaleoProject;
+			productReference = 1ECCC4C618B06B7F0073992A /* PaleoProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1ECCC4BE18B06B7E0073992A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "renan veloso silva";
+			};
+			buildConfigurationList = 1ECCC4C118B06B7E0073992A /* Build configuration list for PBXProject "PaleoProject" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 1ECCC4BD18B06B7E0073992A;
+			productRefGroup = 1ECCC4C718B06B7F0073992A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1ECCC4C518B06B7E0073992A /* PaleoProject */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1ECCC4C418B06B7E0073992A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1ECCC4D418B06B7F0073992A /* InfoPlist.strings in Resources */,
+				1E01CE9418B0BB9A00AD741B /* baseBarIcons@2x in Resources */,
+				1E01CEB018B0CD2800AD741B /* FoodSubcategoriesCell.xib in Resources */,
+				1E01CEA718B0CBBE00AD741B /* FoodSubcategoriesViewController.xib in Resources */,
+				1E8EE26218B390C5000A01AF /* FavoritesViewController.xib in Resources */,
+				1E01CE9A18B0C0F800AD741B /* FoodCategoryViewController.xib in Resources */,
+				1E8EE26918B3B902000A01AF /* SettingsViewController.xib in Resources */,
+				1E01CE9318B0BB9A00AD741B /* baseBarIcons in Resources */,
+				1E01CEA418B0CA0B00AD741B /* FoodCategoryCell.xib in Resources */,
+				1EC1254018B2E98F0063C1CB /* SearchViewController.xib in Resources */,
+				1E01CEB618B0D41400AD741B /* FoodItemViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1ECCC4C218B06B7E0073992A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EC1253E18B2E8680063C1CB /* PaleoTabBarController.m in Sources */,
+				1E01CEAA18B0CC0A00AD741B /* FoodSubcategoriesViewController.m in Sources */,
+				1E8EE26118B390C5000A01AF /* FavoritesViewController.m in Sources */,
+				1ECCC4DA18B06B7F0073992A /* AppDelegate.m in Sources */,
+				1EC1253A18B2E7D60063C1CB /* SearchViewController.m in Sources */,
+				1E01CEAE18B0CD0C00AD741B /* FoodSubcategoriesCell.m in Sources */,
+				1E01CEB518B0D41400AD741B /* FoodItemViewController.m in Sources */,
+				1E56B1E818B43620004E8523 /* PaleoUtils.m in Sources */,
+				1E01CE9D18B0C1DD00AD741B /* PaleoNavigationController.m in Sources */,
+				1E01CEA218B0C9F300AD741B /* FoodCategoryCell.m in Sources */,
+				1E56B1E418B432D1004E8523 /* PaleoItemTableView.m in Sources */,
+				1E01CE9918B0C0F800AD741B /* FoodCategoryViewController.m in Sources */,
+				1ECCC4D618B06B7F0073992A /* main.m in Sources */,
+				1E8EE26818B3B902000A01AF /* SettingsViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1ECCC4D218B06B7F0073992A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1ECCC4D318B06B7F0073992A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1ECCC4F018B06B7F0073992A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1ECCC4F118B06B7F0073992A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1ECCC4F318B06B7F0073992A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PaleoProject/PaleoProject-Prefix.pch";
+				INFOPLIST_FILE = "PaleoProject/PaleoProject-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1ECCC4F418B06B7F0073992A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PaleoProject/PaleoProject-Prefix.pch";
+				INFOPLIST_FILE = "PaleoProject/PaleoProject-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1ECCC4C118B06B7E0073992A /* Build configuration list for PBXProject "PaleoProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1ECCC4F018B06B7F0073992A /* Debug */,
+				1ECCC4F118B06B7F0073992A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1ECCC4F218B06B7F0073992A /* Build configuration list for PBXNativeTarget "PaleoProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1ECCC4F318B06B7F0073992A /* Debug */,
+				1ECCC4F418B06B7F0073992A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1ECCC4BE18B06B7E0073992A /* Project object */;
+}
