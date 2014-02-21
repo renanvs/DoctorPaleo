@@ -8,31 +8,31 @@
 
 #import "SettingsViewController.h"
 
-@interface SettingsViewController ()
-
-@end
-
 @implementation SettingsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+- (IBAction)share:(id)sender {
+    //TODO: Implementar ShareKit
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+- (IBAction)about:(id)sender {
+    //TODO: Implementar view de sobre a aplicação
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)contact:(id)sender {
+    //TODO: Mostrar controller de email (talvez custom para a aplicação)
+}
+
+- (IBAction)cleanData:(id)sender {
+    //TODO: Implementar default para a aplicação, e testar o reset do banco
+}
+
+- (void)dealloc {
+
+    [super dealloc];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationItem setTitle:@"Ajustes"];
 }
 
 @end
