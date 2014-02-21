@@ -10,11 +10,16 @@
         <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EntityFoodCategoryModel" inverseName="itens" inverseEntity="EntityFoodCategoryModel" syncable="YES"/>
+        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EntityItemType" inverseName="itens" inverseEntity="EntityItemType" syncable="YES"/>
+    </entity>
+    <entity name="EntityItemType" representedClassName="EntityItemType" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="itens" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EntityItemModel" inverseName="type" inverseEntity="EntityItemModel" syncable="YES"/>
     </entity>
     <elements>
-        <element name="EntityFoodCategoryModel" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="EntityItemModel" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="EntityFoodCategoryModel" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="EntityItemModel" positionX="367" positionY="-27" width="128" height="133"/>
+        <element name="EntityItemType" positionX="160" positionY="192" width="128" height="73"/>
     </elements>
 </model>

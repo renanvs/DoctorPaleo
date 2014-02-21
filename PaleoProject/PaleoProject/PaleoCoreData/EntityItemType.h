@@ -1,5 +1,5 @@
 //
-//  EntityFoodCategoryModel.h
+//  EntityItemType.h
 //  PaleoProject
 //
 //  Created by renan veloso silva on 20/02/14.
@@ -11,14 +11,13 @@
 
 @class EntityItemModel;
 
-@interface EntityFoodCategoryModel : NSManagedObject
+@interface EntityItemType : NSManagedObject
 
-@property (nonatomic, retain) NSString * imageName;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *itens;
 @end
 
-@interface EntityFoodCategoryModel (CoreDataGeneratedAccessors)
+@interface EntityItemType (CoreDataGeneratedAccessors)
 
 - (void)addItensObject:(EntityItemModel *)value;
 - (void)removeItensObject:(EntityItemModel *)value;

@@ -26,7 +26,7 @@ static id _instance;
     self = [super init];
     
     if (self) {
-//        PaleoSqlite *sqlite = [[PaleoSqlite alloc] init];
+
     }
     return self;
 }
@@ -77,6 +77,23 @@ static id _instance;
     context = [[NSManagedObjectContext alloc] init];
     [context setPersistentStoreCoordinator:coordinator];
     return context;
+}
+
+-(void) flushDatabase{
+    [context lock];
+    
+    NSManagedObjectModel *model = [self managedObjectModel];
+    NSPersistentStoreCoordinator *coordinator = [self coordinator];
+    NSArray *stores = [coordinator persistentStores];
+    for(NSPersistentStore *store in stores) {
+        [coordinator removePersistentStore:store error:nil];
+        [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:nil];
+    }
+    [context unlock];
+    
+    model   = nil;
+    context  = nil;
+    coordinator = nil;
 }
 
 

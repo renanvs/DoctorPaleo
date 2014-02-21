@@ -15,4 +15,6 @@
     NSMutableDictionary *dataStored;
 }
 
+-(void)validateInfo;
+
 @end
