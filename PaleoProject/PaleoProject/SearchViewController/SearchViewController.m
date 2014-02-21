@@ -28,6 +28,7 @@
 {
     [super viewDidLoad];
     dic = [[NSDictionary alloc] init];
+    tableView.delegateList = self;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -81,5 +82,17 @@
     dic = [[PaleoFoodManager sharedInstance] getDictionaryWithTypeList:typeList AndItemList:itemList];
     [tableView reloadData];
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationItem setTitle:@"Busca"];
+}
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar_{
+    for (UITextField *field in searchBar_.subviews) {
+        [field resignFirstResponder];
+    }
+    NSLog(@"test");
+}
+
 
 @end

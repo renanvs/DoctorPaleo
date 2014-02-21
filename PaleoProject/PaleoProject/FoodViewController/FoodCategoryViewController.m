@@ -38,9 +38,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self.navigationItem setTitle:@"Title"];
-    foodTableView.sectionHeaderHeight = 0;
-    foodTableView.sectionFooterHeight = 0;
+    [self.navigationItem setTitle:@"Categorias"];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

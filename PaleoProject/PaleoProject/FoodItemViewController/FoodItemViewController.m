@@ -53,6 +53,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [self.navigationItem setTitle:itemModel.name];
     typeLabel.text = itemModel.type.name;
     itemImage.image = [UIImage imageNamed:itemModel.imageName];
     itemLabel.text = itemModel.name;
