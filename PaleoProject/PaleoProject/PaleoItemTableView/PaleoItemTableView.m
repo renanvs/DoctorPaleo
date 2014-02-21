@@ -83,5 +83,56 @@
     return view;
 }
 
+-(int)getSectionCount{
+
+    if ([delegateList respondsToSelector:@selector(itemList)]) {
+        itemList = [delegateList itemList];
+    }
+    
+    if (!itemList || itemList.count == 0) {
+        return 1;
+    }
+
+    NSArray *typeList = [[PaleoFoodManager sharedInstance] getTypeItemListWithItemList:itemList];
+    NSDictionary *dic = [[PaleoFoodManager sharedInstance] getDictionaryWithTypeList:typeList AndItemList:itemList];
+    return dic.count;
+
+}
+
+-(int)getNumberOfRowsInSection:(int)section{
+    if ([delegateList respondsToSelector:@selector(itemList)]) {
+        itemList = [delegateList itemList];
+    }
+
+     if (!itemList || itemList.count == 0) {
+        return 0;
+    }
+
+    NSArray *typeList = [[PaleoFoodManager sharedInstance] getTypeItemListWithItemList:itemList];
+    EntityItemType *typeModel = [typeList objectAtIndex:section];
+    NSDictionary *dic = [[PaleoFoodManager sharedInstance] getDictionaryWithTypeList:typeList AndItemList:itemList];
+    NSArray *itemListWithType = [dic objectForKey:typeModel.name];
+    
+    return itemListWithType.count;
+}
+
+-(EntityItemModel*)getItemModelByIndexPath:(NSIndexPath*)indexPath{
+
+    if ([delegateList respondsToSelector:@selector(itemList)]) {
+        itemList = [delegateList itemList];
+    }
+
+     if (!itemList || itemList.count == 0) {
+        return nil;
+    }
+
+    NSArray *typeList = [[PaleoFoodManager sharedInstance] getTypeItemListWithItemList:itemList];
+    EntityItemType *typeModel = [typeList objectAtIndex:indexPath.section];
+    NSDictionary *dic = [[PaleoFoodManager sharedInstance] getDictionaryWithTypeList:typeList AndItemList:itemList];
+    NSArray *itemListWithType = [dic objectForKey:typeModel.name];
+    EntityItemModel *itemModel = [itemListWithType objectAtIndex:indexPath.row];
+
+    return itemModel;
+}
 
 @end
