@@ -44,7 +44,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return [[PaleoFoodManager sharedInstance] categoryList].count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -56,12 +56,14 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil]objectAtIndex:0];
     }
     
+    [cell setCategoryModel:[[[PaleoFoodManager sharedInstance] categoryList] objectAtIndex:indexPath.row]];
     
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    FoodSubcategoriesViewController *foodSubcategoryViewContoller = [[FoodSubcategoriesViewController alloc] init];
+    EntityFoodCategoryModel *category = [[[PaleoFoodManager sharedInstance] categoryList] objectAtIndex:indexPath.row];
+    FoodSubcategoriesViewController *foodSubcategoryViewContoller = [[FoodSubcategoriesViewController alloc] initWithItemList:[[PaleoFoodManager sharedInstance] getItensByCategory:category]];
     [self.navigationController pushViewController:foodSubcategoryViewContoller animated:YES];
 }
 

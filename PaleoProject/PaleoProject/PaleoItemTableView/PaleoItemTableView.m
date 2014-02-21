@@ -10,7 +10,7 @@
 #import "FoodItemViewController.h"
 
 @implementation PaleoItemTableView
-
+@synthesize delegateList;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -48,8 +48,24 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    FoodItemViewController *foodItemController = [[FoodItemViewController alloc] init];
-    [[PaleoUtils sharedInstance] pushViewControllerInCurrentNavigationController:foodItemController];
+    NSArray *itemList = nil;
+    
+    if ([delegateList respondsToSelector:@selector(itemList)]) {
+        itemList = [delegateList itemList];
+    }
+    
+    if (!itemList) {
+        return;
+    }
+    
+    NSArray *typeList = [[PaleoFoodManager sharedInstance] getTypeItemListWithItemList:itemList];
+    EntityItemType *typeModel = [typeList objectAtIndex:indexPath.section];
+    NSDictionary *dic = [[PaleoFoodManager sharedInstance] getDictionaryWithTypeList:typeList AndItemList:itemList];
+    NSArray *itemListInType = [dic objectForKey:typeModel.name];
+    EntityItemModel *itemModel = [itemListInType objectAtIndex:indexPath.row];
+    FoodItemViewController *foodItemViewController = [[FoodItemViewController alloc] initWithItemModel:itemModel];
+    
+    [[PaleoUtils sharedInstance] pushViewControllerInCurrentNavigationController:foodItemViewController];
 
 }
 

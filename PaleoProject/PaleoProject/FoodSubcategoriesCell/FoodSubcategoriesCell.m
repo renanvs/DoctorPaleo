@@ -26,4 +26,15 @@
     // Configure the view for the selected state
 }
 
+-(void)setItemModel:(EntityItemModel*)itemModel{
+    item = itemModel;
+    itemLabel.text = itemModel.name;
+    itemImage.image = [UIImage imageNamed:itemModel.imageName];
+}
+
+- (void)dealloc {
+    [itemImage release];
+    [itemLabel release];
+    [super dealloc];
+}
 @end

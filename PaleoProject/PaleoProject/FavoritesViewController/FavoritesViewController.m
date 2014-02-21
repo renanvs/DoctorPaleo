@@ -36,7 +36,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+-(UITableViewCell *)tableView:(UITableView *)tableView_ cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellName = @"FoodSubcategoriesCell";
     
     FoodSubcategoriesCell * cell = [tableView dequeueReusableCellWithIdentifier:cellName];
@@ -45,24 +45,48 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil]objectAtIndex:0];
     }
     
+    EntityItemType *typeModel = [typeList objectAtIndex:indexPath.section];
+    NSArray *itemListWithType = [dic objectForKey:typeModel.name];
+    EntityItemModel *itemModel = [itemListWithType objectAtIndex:indexPath.row];
+    
+    [cell setItemModel:itemModel];
     
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 0) {
-        return 10;
-    }
+    EntityItemType *typeModel = [typeList objectAtIndex:section];
+    NSArray *itemListWithType = [dic objectForKey:typeModel.name];
     
-    if (section == 1) {
-        return 5;
-    }
-    
-    return 0;
+    return itemListWithType.count;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return dic.count;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    tableView.delegateList = self;
+    [self createObjects];
+}
+
+-(NSArray *)itemList{
+    return itemList;
+}
+
+-(void)createObjects{
+    itemList = [[PaleoFoodManager sharedInstance] favoriteItens];
+    typeList = [[PaleoFoodManager sharedInstance] getTypeItemListWithItemList:itemList];
+    dic = [[PaleoFoodManager sharedInstance] getDictionaryWithTypeList:typeList AndItemList:itemList];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    NSLog(@"appear");
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [self createObjects];
+    [tableView reloadData];
 }
 
 @end

@@ -14,11 +14,11 @@
 
 @implementation FoodItemViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithItemModel:(EntityItemModel*)item
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        itemModel = item;
     }
     return self;
 }
@@ -33,6 +33,32 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    [typeLabel release];
+    [favoriteButton release];
+    [itemImage release];
+    [itemLabel release];
+    [itemAbout release];
+    [super dealloc];
+}
+
+- (IBAction)favoriteHandler:(id)sender {
+    BOOL isFavorite = [itemModel.isFavorite boolValue];
+    itemModel.isFavorite = [NSNumber numberWithBool:!isFavorite];
+    NSString *favoriteTitle = [itemModel.isFavorite boolValue] ? @"Desfavoritar" : @"Favoritar";
+    [favoriteButton setTitle:favoriteTitle forState:UIControlStateNormal];
+    [[[PaleoCoreData sharedInstance]context] save:nil];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    typeLabel.text = itemModel.type.name;
+    itemImage.image = [UIImage imageNamed:itemModel.imageName];
+    itemLabel.text = itemModel.name;
+    itemAbout.text = itemModel.about;
+    NSString *favoriteTitle = [itemModel.isFavorite boolValue] ? @"Desfavoritar" : @"Favoritar";
+    [favoriteButton setTitle:favoriteTitle forState:UIControlStateNormal];
 }
 
 @end

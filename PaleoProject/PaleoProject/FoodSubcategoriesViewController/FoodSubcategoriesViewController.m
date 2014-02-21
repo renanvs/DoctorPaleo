@@ -10,17 +10,21 @@
 #import "FoodSubcategoriesCell.h"
 #import "FoodItemViewController.h"
 
+#import "EntityFoodCategoryModel.h"
+#import "EntityItemModel.h"
+
 @interface FoodSubcategoriesViewController ()
 
 @end
 
 @implementation FoodSubcategoriesViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+- (id)initWithItemList:(NSArray*)itemList{
+    self = [super init];
     if (self) {
-        // Custom initialization
+        itemModelList = [[NSArray alloc] initWithArray:itemList];
+        itemTypeList = [[PaleoFoodManager sharedInstance] getTypeItemListWithItemList:itemModelList];
+        dic = [[PaleoFoodManager sharedInstance] getDictionaryWithTypeList:itemTypeList AndItemList:itemModelList];
     }
     return self;
 }
@@ -47,24 +51,30 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil]objectAtIndex:0];
     }
     
+    EntityItemType *itemType = [itemTypeList objectAtIndex:indexPath.section];
+    NSArray *itemListWithType = [dic objectForKey:itemType.name];
+    EntityItemModel *itemModel = [itemListWithType objectAtIndex:indexPath.row];
+    
+    [cell setItemModel:itemModel];
     
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if (section == 0) {
-        return 10;
-    }
+    PaleoItemTableView *paleoTableView = (PaleoItemTableView*)tableView;
+    paleoTableView.delegateList = self;
     
-    if (section == 1) {
-        return 5;
-    }
-    
-    return 0;
+    EntityItemType *itemType = [itemTypeList objectAtIndex:section];
+    NSArray *itemListWithType = [dic objectForKey:itemType.name];
+    return itemListWithType.count;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return dic.count;
+}
+
+-(NSArray *)itemList{
+    return itemModelList;
 }
 
 @end

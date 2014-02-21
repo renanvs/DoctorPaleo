@@ -16,6 +16,9 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    //TODO: ver se é necessario
+    //[PaleoCoreData sharedInstance];
+    
     PaleoTabBarController *tabBarController = [[PaleoTabBarController alloc] init];
     
     self.window.rootViewController = tabBarController;

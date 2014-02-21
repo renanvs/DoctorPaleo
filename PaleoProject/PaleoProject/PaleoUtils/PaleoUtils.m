@@ -7,8 +7,7 @@
 //
 
 #import "PaleoUtils.h"
-#import "PaleoCoreData.h"
-
+#import "PaleoSqlite.h"
 @implementation PaleoUtils
 @synthesize currentNavigationController;
 
@@ -26,7 +25,8 @@ static id _instance;
     self = [super init];
     
     if (self) {
-        [PaleoCoreData sharedInstance];
+        PaleoSqlite *sqlite = [[PaleoSqlite alloc] init];
+        [sqlite validateInfo];
     }
     
     return self;

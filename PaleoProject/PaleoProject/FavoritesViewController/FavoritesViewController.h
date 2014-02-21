@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PaleoItemTableView.h"
 
-@interface FavoritesViewController : UIViewController <UITableViewDataSource>
+@interface FavoritesViewController : UIViewController <UITableViewDataSource, PaleoItemTableViewDelegate>{
+    NSArray *typeList;
+    NSArray *itemList;
+    NSDictionary *dic;
+    IBOutlet PaleoItemTableView *tableView;
+}
 
 @end

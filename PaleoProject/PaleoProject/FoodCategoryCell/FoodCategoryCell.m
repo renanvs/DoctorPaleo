@@ -26,4 +26,16 @@
     // Configure the view for the selected state
 }
 
+- (void)dealloc {
+    [_categoryImageView release];
+    [_categoryLabel release];
+    [super dealloc];
+}
+
+-(void)setCategoryModel:(EntityFoodCategoryModel*)model{
+    categoryModel = model;
+    self.categoryImageView.image = [UIImage imageNamed:model.imageName];
+    self.categoryLabel.text = model.name;
+}
+
 @end

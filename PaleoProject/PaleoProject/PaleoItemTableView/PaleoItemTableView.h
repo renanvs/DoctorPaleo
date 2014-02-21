@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PaleoItemTableView : UITableView <UITableViewDelegate>
+@protocol PaleoItemTableViewDelegate <NSObject>
+
+@required
+-(NSArray*)itemList;
+
+@end
+
+@interface PaleoItemTableView : UITableView <UITableViewDelegate>{
+    id <PaleoItemTableViewDelegate> delegateList;
+}
+
+@property (nonatomic, assign) id <PaleoItemTableViewDelegate> delegateList;
 
 @end
