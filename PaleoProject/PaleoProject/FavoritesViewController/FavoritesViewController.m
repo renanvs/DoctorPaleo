@@ -50,5 +50,13 @@
     NSLog(@"appear");
 }
 
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarSelected) name:@"tabBarSelected" object:nil];
+}
+
+-(void)tabBarSelected{
+    [tableView reloadData];
+}
 
 @end

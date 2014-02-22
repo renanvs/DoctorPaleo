@@ -11,11 +11,6 @@
 #import "SearchViewController.h"
 #import "FavoritesViewController.h"
 #import "SettingsViewController.h"
-#import "PaleoNavigationController.h"
-
-@interface PaleoTabBarController ()
-
-@end
 
 @implementation PaleoTabBarController
 
@@ -33,18 +28,19 @@
 -(id)init{
     self = [super init];
     if (self) {
+        self.delegate = self;
         [self addViewControllers];
     }
     return self;
 }
 
 -(void)addViewControllers{
-    PaleoNavigationController *foodNavigationController = [self createFoodCategoryController];
-    PaleoNavigationController *searchNavigationController = [self createSearchItemController];
-    PaleoNavigationController *favoriteNavigationController = [self createFavoriteItemController];
-    PaleoNavigationController *settingsNavigationController = [self createSettingsController];
+    categoriesPaleoNavigationController = [self createFoodCategoryController];
+    searchPaleoNavigationController = [self createSearchItemController];
+    favoritesPaleoNavigationController = [self createFavoriteItemController];
+    settingsPaleoNavigationController = [self createSettingsController];
     
-    self.viewControllers = [NSArray arrayWithObjects:foodNavigationController, searchNavigationController, favoriteNavigationController, settingsNavigationController,nil];
+    self.viewControllers = [NSArray arrayWithObjects:categoriesPaleoNavigationController, searchPaleoNavigationController, favoritesPaleoNavigationController, settingsPaleoNavigationController,nil];
 }
 
 -(PaleoNavigationController*)createFoodCategoryController{
@@ -70,6 +66,14 @@
     PaleoNavigationController *paleoNavigationController = [[PaleoNavigationController alloc] initWithRootViewController:settingsViewController];
     return paleoNavigationController;
 }
+
+-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    PaleoNavigationController *navCont = (PaleoNavigationController*)viewController;
+    if (navCont == favoritesPaleoNavigationController) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"tabBarSelected" object:nil];
+    }
+}
+
 
 
 @end
