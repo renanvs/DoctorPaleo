@@ -72,7 +72,7 @@ static id _instance;
 }
 
 -(NSArray *)getFoodWithSearchQuery:(NSString*)query{
-    query = [query lowercaseString];
+    query = [[Utils sharedInstance] getSafeLiteralString:query];
     NSEntityDescription *entity = [NSEntityDescription entityForName:EntityFood inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     request.entity = entity;
@@ -84,7 +84,7 @@ static id _instance;
     NSRange range;
     
     for (FoodItemModel *foodItem in list) {
-        NSString *foodName = [foodItem.name lowercaseString];
+        NSString *foodName = [[Utils sharedInstance] getSafeLiteralString:foodItem.name];
         range = [foodName rangeOfString:query];
         
         if (range.length > 0) {
