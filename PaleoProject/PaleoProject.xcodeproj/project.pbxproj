@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E01CE9318B0BB9A00AD741B /* baseBarIcons in Resources */ = {isa = PBXBuildFile; fileRef = 1E01CE9118B0BB9A00AD741B /* baseBarIcons */; };
+		1E01CE9318B0BB9A00AD741B /* default in Resources */ = {isa = PBXBuildFile; fileRef = 1E01CE9118B0BB9A00AD741B /* default */; };
 		1E01CE9418B0BB9A00AD741B /* baseBarIcons@2x in Resources */ = {isa = PBXBuildFile; fileRef = 1E01CE9218B0BB9A00AD741B /* baseBarIcons@2x */; };
 		1E01CE9918B0C0F800AD741B /* FoodCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E01CE9718B0C0F800AD741B /* FoodCategoryViewController.m */; };
 		1E01CE9A18B0C0F800AD741B /* FoodCategoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E01CE9818B0C0F800AD741B /* FoodCategoryViewController.xib */; };
@@ -23,6 +23,14 @@
 		1E0E6E1A18B8386800A3E28D /* EntityItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E6E1918B8386800A3E28D /* EntityItemModel.m */; };
 		1E0E6E1D18B8386900A3E28D /* EntityItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E6E1C18B8386900A3E28D /* EntityItemType.m */; };
 		1E0E6E2018B8386900A3E28D /* EntityFoodCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E6E1F18B8386900A3E28D /* EntityFoodCategoryModel.m */; };
+		1E0E6E2918B855BF00A3E28D /* tabBarItemFavorites.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E6E2118B855BF00A3E28D /* tabBarItemFavorites.png */; };
+		1E0E6E2A18B855BF00A3E28D /* tabBarItemFavorites@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E6E2218B855BF00A3E28D /* tabBarItemFavorites@2x.png */; };
+		1E0E6E2B18B855BF00A3E28D /* tabBarItemFood.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E6E2318B855BF00A3E28D /* tabBarItemFood.png */; };
+		1E0E6E2C18B855BF00A3E28D /* tabBarItemFood@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E6E2418B855BF00A3E28D /* tabBarItemFood@2x.png */; };
+		1E0E6E2D18B855BF00A3E28D /* tabBarItemSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E6E2518B855BF00A3E28D /* tabBarItemSearch.png */; };
+		1E0E6E2E18B855BF00A3E28D /* tabBarItemSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E6E2618B855BF00A3E28D /* tabBarItemSearch@2x.png */; };
+		1E0E6E2F18B855BF00A3E28D /* tabBarItemSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E6E2718B855BF00A3E28D /* tabBarItemSettings.png */; };
+		1E0E6E3018B855BF00A3E28D /* tabBarItemSettings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E6E2818B855BF00A3E28D /* tabBarItemSettings@2x.png */; };
 		1E56B1E418B432D1004E8523 /* PaleoItemTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E56B1E318B432D1004E8523 /* PaleoItemTableView.m */; };
 		1E56B1E818B43620004E8523 /* PaleoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E56B1E718B43620004E8523 /* PaleoUtils.m */; };
 		1E56B1ED18B43DA5004E8523 /* PaleoCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E56B1EC18B43DA5004E8523 /* PaleoCoreData.m */; };
@@ -55,7 +63,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1E01CE9118B0BB9A00AD741B /* baseBarIcons */ = {isa = PBXFileReference; lastKnownFileType = file; path = baseBarIcons; sourceTree = "<group>"; };
+		1E01CE9118B0BB9A00AD741B /* default */ = {isa = PBXFileReference; lastKnownFileType = file; path = default; sourceTree = "<group>"; };
 		1E01CE9218B0BB9A00AD741B /* baseBarIcons@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "baseBarIcons@2x"; sourceTree = "<group>"; };
 		1E01CE9618B0C0F800AD741B /* FoodCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoodCategoryViewController.h; path = FoodViewController/FoodCategoryViewController.h; sourceTree = "<group>"; };
 		1E01CE9718B0C0F800AD741B /* FoodCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoodCategoryViewController.m; path = FoodViewController/FoodCategoryViewController.m; sourceTree = "<group>"; };
@@ -80,6 +88,14 @@
 		1E0E6E1C18B8386900A3E28D /* EntityItemType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityItemType.m; path = PaleoCoreData/EntityItemType.m; sourceTree = "<group>"; };
 		1E0E6E1E18B8386900A3E28D /* EntityFoodCategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityFoodCategoryModel.h; path = PaleoCoreData/EntityFoodCategoryModel.h; sourceTree = "<group>"; };
 		1E0E6E1F18B8386900A3E28D /* EntityFoodCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityFoodCategoryModel.m; path = PaleoCoreData/EntityFoodCategoryModel.m; sourceTree = "<group>"; };
+		1E0E6E2118B855BF00A3E28D /* tabBarItemFavorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarItemFavorites.png; sourceTree = "<group>"; };
+		1E0E6E2218B855BF00A3E28D /* tabBarItemFavorites@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBarItemFavorites@2x.png"; sourceTree = "<group>"; };
+		1E0E6E2318B855BF00A3E28D /* tabBarItemFood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarItemFood.png; sourceTree = "<group>"; };
+		1E0E6E2418B855BF00A3E28D /* tabBarItemFood@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBarItemFood@2x.png"; sourceTree = "<group>"; };
+		1E0E6E2518B855BF00A3E28D /* tabBarItemSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarItemSearch.png; sourceTree = "<group>"; };
+		1E0E6E2618B855BF00A3E28D /* tabBarItemSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBarItemSearch@2x.png"; sourceTree = "<group>"; };
+		1E0E6E2718B855BF00A3E28D /* tabBarItemSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarItemSettings.png; sourceTree = "<group>"; };
+		1E0E6E2818B855BF00A3E28D /* tabBarItemSettings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBarItemSettings@2x.png"; sourceTree = "<group>"; };
 		1E56B1E218B432D1004E8523 /* PaleoItemTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoItemTableView.h; path = PaleoProject/PaleoItemTableView/PaleoItemTableView.h; sourceTree = "<group>"; };
 		1E56B1E318B432D1004E8523 /* PaleoItemTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaleoItemTableView.m; path = PaleoProject/PaleoItemTableView/PaleoItemTableView.m; sourceTree = "<group>"; };
 		1E56B1E618B43620004E8523 /* PaleoUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoUtils.h; path = PaleoProject/PaleoUtils/PaleoUtils.h; sourceTree = "<group>"; };
@@ -150,8 +166,16 @@
 				1E8C6B2918B59B6B00E251CC /* maca1.jpg */,
 				1E8C6B2A18B59B6B00E251CC /* maca2.jpg */,
 				1E8C6B2B18B59B6B00E251CC /* maca3.jpg */,
-				1E01CE9118B0BB9A00AD741B /* baseBarIcons */,
+				1E01CE9118B0BB9A00AD741B /* default */,
 				1E01CE9218B0BB9A00AD741B /* baseBarIcons@2x */,
+				1E0E6E2118B855BF00A3E28D /* tabBarItemFavorites.png */,
+				1E0E6E2218B855BF00A3E28D /* tabBarItemFavorites@2x.png */,
+				1E0E6E2318B855BF00A3E28D /* tabBarItemFood.png */,
+				1E0E6E2418B855BF00A3E28D /* tabBarItemFood@2x.png */,
+				1E0E6E2518B855BF00A3E28D /* tabBarItemSearch.png */,
+				1E0E6E2618B855BF00A3E28D /* tabBarItemSearch@2x.png */,
+				1E0E6E2718B855BF00A3E28D /* tabBarItemSettings.png */,
+				1E0E6E2818B855BF00A3E28D /* tabBarItemSettings@2x.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -480,17 +504,25 @@
 				1E01CE9418B0BB9A00AD741B /* baseBarIcons@2x in Resources */,
 				1E01CEB018B0CD2800AD741B /* FoodSubcategoriesCell.xib in Resources */,
 				1E01CEA718B0CBBE00AD741B /* FoodSubcategoriesViewController.xib in Resources */,
+				1E0E6E2D18B855BF00A3E28D /* tabBarItemSearch.png in Resources */,
 				1E8EE26218B390C5000A01AF /* FavoritesViewController.xib in Resources */,
 				1E01CE9A18B0C0F800AD741B /* FoodCategoryViewController.xib in Resources */,
 				1E8EE26918B3B902000A01AF /* SettingsViewController.xib in Resources */,
 				1E8C6B2E18B59B6C00E251CC /* bolo2.jpg in Resources */,
+				1E0E6E2918B855BF00A3E28D /* tabBarItemFavorites.png in Resources */,
 				1E8C6B2F18B59B6C00E251CC /* maca.jpg in Resources */,
-				1E01CE9318B0BB9A00AD741B /* baseBarIcons in Resources */,
+				1E01CE9318B0BB9A00AD741B /* default in Resources */,
 				1E8C6B2D18B59B6C00E251CC /* bolo1.jpg in Resources */,
 				1E01CEA418B0CA0B00AD741B /* FoodCategoryCell.xib in Resources */,
+				1E0E6E2C18B855BF00A3E28D /* tabBarItemFood@2x.png in Resources */,
+				1E0E6E2A18B855BF00A3E28D /* tabBarItemFavorites@2x.png in Resources */,
 				1EC1254018B2E98F0063C1CB /* SearchViewController.xib in Resources */,
+				1E0E6E2F18B855BF00A3E28D /* tabBarItemSettings.png in Resources */,
 				1E01CEB618B0D41400AD741B /* FoodItemViewController.xib in Resources */,
+				1E0E6E2B18B855BF00A3E28D /* tabBarItemFood.png in Resources */,
 				1E8C6B2C18B59B6C00E251CC /* bolo.jpg in Resources */,
+				1E0E6E2E18B855BF00A3E28D /* tabBarItemSearch@2x.png in Resources */,
+				1E0E6E3018B855BF00A3E28D /* tabBarItemSettings@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

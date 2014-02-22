@@ -80,6 +80,10 @@
         [view setBackgroundColor:[UIColor greenColor]];
     }
     
+    if (section == 2) {
+        [view setBackgroundColor:[UIColor blueColor]];
+    }
+    
     return view;
 }
 
