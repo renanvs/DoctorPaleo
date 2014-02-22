@@ -20,6 +20,9 @@
 		1E01CEB018B0CD2800AD741B /* FoodSubcategoriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E01CEAF18B0CD2800AD741B /* FoodSubcategoriesCell.xib */; };
 		1E01CEB518B0D41400AD741B /* FoodItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E01CEB318B0D41400AD741B /* FoodItemViewController.m */; };
 		1E01CEB618B0D41400AD741B /* FoodItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E01CEB418B0D41400AD741B /* FoodItemViewController.xib */; };
+		1E0E6E1A18B8386800A3E28D /* EntityItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E6E1918B8386800A3E28D /* EntityItemModel.m */; };
+		1E0E6E1D18B8386900A3E28D /* EntityItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E6E1C18B8386900A3E28D /* EntityItemType.m */; };
+		1E0E6E2018B8386900A3E28D /* EntityFoodCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E6E1F18B8386900A3E28D /* EntityFoodCategoryModel.m */; };
 		1E56B1E418B432D1004E8523 /* PaleoItemTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E56B1E318B432D1004E8523 /* PaleoItemTableView.m */; };
 		1E56B1E818B43620004E8523 /* PaleoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E56B1E718B43620004E8523 /* PaleoUtils.m */; };
 		1E56B1ED18B43DA5004E8523 /* PaleoCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E56B1EC18B43DA5004E8523 /* PaleoCoreData.m */; };
@@ -28,9 +31,6 @@
 		1E56B20018B443E1004E8523 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E56B1FF18B443E1004E8523 /* libsqlite3.0.dylib */; };
 		1E56B20418B44417004E8523 /* PaleoSqlite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E56B20318B44417004E8523 /* PaleoSqlite.m */; };
 		1E56B20618B44E95004E8523 /* exemplo.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1E56B20518B44E95004E8523 /* exemplo.sqlite */; };
-		1E607E7818B6DD2B0078EB3E /* EntityItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E607E7718B6DD2B0078EB3E /* EntityItemModel.m */; };
-		1E607E7B18B6DD2B0078EB3E /* EntityItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E607E7A18B6DD2B0078EB3E /* EntityItemType.m */; };
-		1E607E7E18B6DD2B0078EB3E /* EntityFoodCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E607E7D18B6DD2B0078EB3E /* EntityFoodCategoryModel.m */; };
 		1E8C6B2418B593A500E251CC /* PaleoFoodManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8C6B2318B593A500E251CC /* PaleoFoodManager.m */; };
 		1E8C6B2C18B59B6C00E251CC /* bolo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E8C6B2518B59B6B00E251CC /* bolo.jpg */; };
 		1E8C6B2D18B59B6C00E251CC /* bolo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E8C6B2618B59B6B00E251CC /* bolo1.jpg */; };
@@ -74,6 +74,12 @@
 		1E01CEB218B0D41400AD741B /* FoodItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoodItemViewController.h; path = FoodItemViewController/FoodItemViewController.h; sourceTree = "<group>"; };
 		1E01CEB318B0D41400AD741B /* FoodItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoodItemViewController.m; path = FoodItemViewController/FoodItemViewController.m; sourceTree = "<group>"; };
 		1E01CEB418B0D41400AD741B /* FoodItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FoodItemViewController.xib; path = FoodItemViewController/FoodItemViewController.xib; sourceTree = "<group>"; };
+		1E0E6E1818B8386800A3E28D /* EntityItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityItemModel.h; path = PaleoCoreData/EntityItemModel.h; sourceTree = "<group>"; };
+		1E0E6E1918B8386800A3E28D /* EntityItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityItemModel.m; path = PaleoCoreData/EntityItemModel.m; sourceTree = "<group>"; };
+		1E0E6E1B18B8386900A3E28D /* EntityItemType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityItemType.h; path = PaleoCoreData/EntityItemType.h; sourceTree = "<group>"; };
+		1E0E6E1C18B8386900A3E28D /* EntityItemType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityItemType.m; path = PaleoCoreData/EntityItemType.m; sourceTree = "<group>"; };
+		1E0E6E1E18B8386900A3E28D /* EntityFoodCategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityFoodCategoryModel.h; path = PaleoCoreData/EntityFoodCategoryModel.h; sourceTree = "<group>"; };
+		1E0E6E1F18B8386900A3E28D /* EntityFoodCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityFoodCategoryModel.m; path = PaleoCoreData/EntityFoodCategoryModel.m; sourceTree = "<group>"; };
 		1E56B1E218B432D1004E8523 /* PaleoItemTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoItemTableView.h; path = PaleoProject/PaleoItemTableView/PaleoItemTableView.h; sourceTree = "<group>"; };
 		1E56B1E318B432D1004E8523 /* PaleoItemTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaleoItemTableView.m; path = PaleoProject/PaleoItemTableView/PaleoItemTableView.m; sourceTree = "<group>"; };
 		1E56B1E618B43620004E8523 /* PaleoUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoUtils.h; path = PaleoProject/PaleoUtils/PaleoUtils.h; sourceTree = "<group>"; };
@@ -86,12 +92,6 @@
 		1E56B20218B44417004E8523 /* PaleoSqlite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaleoSqlite.h; sourceTree = "<group>"; };
 		1E56B20318B44417004E8523 /* PaleoSqlite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaleoSqlite.m; sourceTree = "<group>"; };
 		1E56B20518B44E95004E8523 /* exemplo.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = exemplo.sqlite; sourceTree = "<group>"; };
-		1E607E7618B6DD2B0078EB3E /* EntityItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityItemModel.h; path = PaleoCoreData/EntityItemModel.h; sourceTree = "<group>"; };
-		1E607E7718B6DD2B0078EB3E /* EntityItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityItemModel.m; path = PaleoCoreData/EntityItemModel.m; sourceTree = "<group>"; };
-		1E607E7918B6DD2B0078EB3E /* EntityItemType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityItemType.h; path = PaleoCoreData/EntityItemType.h; sourceTree = "<group>"; };
-		1E607E7A18B6DD2B0078EB3E /* EntityItemType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityItemType.m; path = PaleoCoreData/EntityItemType.m; sourceTree = "<group>"; };
-		1E607E7C18B6DD2B0078EB3E /* EntityFoodCategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityFoodCategoryModel.h; path = PaleoCoreData/EntityFoodCategoryModel.h; sourceTree = "<group>"; };
-		1E607E7D18B6DD2B0078EB3E /* EntityFoodCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityFoodCategoryModel.m; path = PaleoCoreData/EntityFoodCategoryModel.m; sourceTree = "<group>"; };
 		1E8C6B2218B593A400E251CC /* PaleoFoodManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoFoodManager.h; path = PaleoFoodManager/PaleoFoodManager.h; sourceTree = "<group>"; };
 		1E8C6B2318B593A500E251CC /* PaleoFoodManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaleoFoodManager.m; path = PaleoFoodManager/PaleoFoodManager.m; sourceTree = "<group>"; };
 		1E8C6B2518B59B6B00E251CC /* bolo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bolo.jpg; sourceTree = "<group>"; };
@@ -265,13 +265,13 @@
 			children = (
 				1E56B1EB18B43DA5004E8523 /* PaleoCoreData.h */,
 				1E56B1EC18B43DA5004E8523 /* PaleoCoreData.m */,
+				1E0E6E1818B8386800A3E28D /* EntityItemModel.h */,
+				1E0E6E1E18B8386900A3E28D /* EntityFoodCategoryModel.h */,
+				1E0E6E1F18B8386900A3E28D /* EntityFoodCategoryModel.m */,
+				1E0E6E1B18B8386900A3E28D /* EntityItemType.h */,
+				1E0E6E1C18B8386900A3E28D /* EntityItemType.m */,
+				1E0E6E1918B8386800A3E28D /* EntityItemModel.m */,
 				1E56B1F018B43EF5004E8523 /* PaleoDataModel.xcdatamodeld */,
-				1E607E7C18B6DD2B0078EB3E /* EntityFoodCategoryModel.h */,
-				1E607E7D18B6DD2B0078EB3E /* EntityFoodCategoryModel.m */,
-				1E607E7918B6DD2B0078EB3E /* EntityItemType.h */,
-				1E607E7A18B6DD2B0078EB3E /* EntityItemType.m */,
-				1E607E7618B6DD2B0078EB3E /* EntityItemModel.h */,
-				1E607E7718B6DD2B0078EB3E /* EntityItemModel.m */,
 			);
 			name = PaleoCoreData;
 			sourceTree = "<group>";
@@ -514,14 +514,14 @@
 				1E01CEA218B0C9F300AD741B /* FoodCategoryCell.m in Sources */,
 				1E56B1ED18B43DA5004E8523 /* PaleoCoreData.m in Sources */,
 				1E56B1E418B432D1004E8523 /* PaleoItemTableView.m in Sources */,
-				1E607E7818B6DD2B0078EB3E /* EntityItemModel.m in Sources */,
-				1E607E7B18B6DD2B0078EB3E /* EntityItemType.m in Sources */,
+				1E0E6E1A18B8386800A3E28D /* EntityItemModel.m in Sources */,
+				1E0E6E1D18B8386900A3E28D /* EntityItemType.m in Sources */,
 				1E01CE9918B0C0F800AD741B /* FoodCategoryViewController.m in Sources */,
 				1ECCC4D618B06B7F0073992A /* main.m in Sources */,
 				1E8C6B2418B593A500E251CC /* PaleoFoodManager.m in Sources */,
 				1E8EE26818B3B902000A01AF /* SettingsViewController.m in Sources */,
 				1E56B1F218B43EF5004E8523 /* PaleoDataModel.xcdatamodeld in Sources */,
-				1E607E7E18B6DD2B0078EB3E /* EntityFoodCategoryModel.m in Sources */,
+				1E0E6E2018B8386900A3E28D /* EntityFoodCategoryModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

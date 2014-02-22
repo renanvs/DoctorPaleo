@@ -48,7 +48,7 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSArray *itemList = nil;
+    
     
     if ([delegateList respondsToSelector:@selector(itemList)]) {
         itemList = [delegateList itemList];
@@ -125,7 +125,7 @@
      if (!itemList || itemList.count == 0) {
         return nil;
     }
-
+    
     NSArray *typeList = [[PaleoFoodManager sharedInstance] getTypeItemListWithItemList:itemList];
     EntityItemType *typeModel = [typeList objectAtIndex:indexPath.section];
     NSDictionary *dic = [[PaleoFoodManager sharedInstance] getDictionaryWithTypeList:typeList AndItemList:itemList];

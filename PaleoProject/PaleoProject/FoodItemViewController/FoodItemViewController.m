@@ -49,7 +49,7 @@
     itemModel.isFavorite = [NSNumber numberWithBool:!isFavorite];
     NSString *favoriteTitle = [itemModel.isFavorite boolValue] ? @"Desfavoritar" : @"Favoritar";
     [favoriteButton setTitle:favoriteTitle forState:UIControlStateNormal];
-    [[[PaleoCoreData sharedInstance]context] save:nil];
+    //r[[[PaleoCoreData sharedInstance]context] save:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

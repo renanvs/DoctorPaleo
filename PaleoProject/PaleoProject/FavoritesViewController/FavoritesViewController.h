@@ -10,9 +10,6 @@
 #import "PaleoItemTableView.h"
 
 @interface FavoritesViewController : UIViewController <UITableViewDataSource, PaleoItemTableViewDelegate>{
-    NSArray *typeList;
-    NSArray *itemList;
-    NSDictionary *dic;
     IBOutlet PaleoItemTableView *tableView;
 }
 

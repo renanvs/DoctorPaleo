@@ -27,7 +27,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    dic = [[NSDictionary alloc] init];
     tableView.delegateList = self;
     // Do any additional setup after loading the view from its nib.
 }
@@ -47,24 +46,19 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil]objectAtIndex:0];
     }
     
-    EntityItemType *typeModel = [typeList objectAtIndex:indexPath.section];
-    NSArray *itemListWithType = [dic objectForKey:typeModel.name];
-    EntityItemModel *itemModel = [itemListWithType objectAtIndex:indexPath.row];
+    EntityItemModel *itemModel = [tableView getItemModelByIndexPath:indexPath];
     
     [cell setItemModel:itemModel];
     
     return cell;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    EntityItemType *typeModel = [typeList objectAtIndex:section];
-    NSArray *itemListWithType = [dic objectForKey:typeModel.name];
-    
-    return itemListWithType.count;
+-(NSInteger)tableView:(UITableView *)tableView_ numberOfRowsInSection:(NSInteger)section{
+    return [tableView getNumberOfRowsInSection:section];
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return dic.count;
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView_{
+    return [tableView getSectionCount];
 }
 
 -(NSArray *)itemList{
@@ -78,8 +72,6 @@
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     itemList = [[PaleoFoodManager sharedInstance] getItensWithSearchQuery:searchText];
-    typeList = [[PaleoFoodManager sharedInstance] getTypeItemListWithItemList:itemList];
-    dic = [[PaleoFoodManager sharedInstance] getDictionaryWithTypeList:typeList AndItemList:itemList];
     [tableView reloadData];
 }
 

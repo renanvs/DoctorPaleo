@@ -13,18 +13,12 @@
 #import "EntityFoodCategoryModel.h"
 #import "EntityItemModel.h"
 
-@interface FoodSubcategoriesViewController ()
-
-@end
-
 @implementation FoodSubcategoriesViewController
 
 - (id)initWithItemList:(NSArray*)itemList{
     self = [super init];
     if (self) {
         itemModelList = [[NSArray alloc] initWithArray:itemList];
-        itemTypeList = [[PaleoFoodManager sharedInstance] getTypeItemListWithItemList:itemModelList];
-        dic = [[PaleoFoodManager sharedInstance] getDictionaryWithTypeList:itemTypeList AndItemList:itemModelList];
     }
     return self;
 }
@@ -35,14 +29,9 @@
 	// Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationItem setTitle:@"Subcategorias"];
+    tableViewPaleo.delegateList = self;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -54,9 +43,7 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil]objectAtIndex:0];
     }
     
-    EntityItemType *itemType = [itemTypeList objectAtIndex:indexPath.section];
-    NSArray *itemListWithType = [dic objectForKey:itemType.name];
-    EntityItemModel *itemModel = [itemListWithType objectAtIndex:indexPath.row];
+    EntityItemModel *itemModel = [tableViewPaleo getItemModelByIndexPath:indexPath];
     
     [cell setItemModel:itemModel];
     
@@ -64,16 +51,11 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    PaleoItemTableView *paleoTableView = (PaleoItemTableView*)tableView;
-    paleoTableView.delegateList = self;
-    
-    EntityItemType *itemType = [itemTypeList objectAtIndex:section];
-    NSArray *itemListWithType = [dic objectForKey:itemType.name];
-    return itemListWithType.count;
+    return [tableViewPaleo getNumberOfRowsInSection:section];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return dic.count;
+    return [tableViewPaleo getSectionCount];
 }
 
 -(NSArray *)itemList{

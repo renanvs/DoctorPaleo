@@ -52,7 +52,7 @@ static id _instance;
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     request.entity = entity;
     //TODO: ordernar por ordem do tip
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"type" ascending:YES];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"type.name" ascending:YES];
     request.sortDescriptors = [NSArray arrayWithObject:descriptor];
     request.predicate = [NSPredicate predicateWithFormat:@"category == %@",categoryModel];
     

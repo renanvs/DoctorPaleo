@@ -9,10 +9,6 @@
 #import "FavoritesViewController.h"
 #import "FoodSubcategoriesCell.h"
 
-@interface FavoritesViewController ()
-
-@end
-
 @implementation FavoritesViewController
 
 -(UITableViewCell *)tableView:(UITableView *)tableView_ cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -24,30 +20,25 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil]objectAtIndex:0];
     }
     
-    EntityItemType *typeModel = [typeList objectAtIndex:indexPath.section];
-    NSArray *itemListWithType = [dic objectForKey:typeModel.name];
-    EntityItemModel *itemModel = [itemListWithType objectAtIndex:indexPath.row];
+    EntityItemModel *itemModel = [tableView getItemModelByIndexPath:indexPath];
     
     [cell setItemModel:itemModel];
     
     return cell;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    EntityItemType *typeModel = [typeList objectAtIndex:section];
-    NSArray *itemListWithType = [dic objectForKey:typeModel.name];
-    
-    return itemListWithType.count;
+-(NSInteger)tableView:(UITableView *)tableView_ numberOfRowsInSection:(NSInteger)section{
+    return [tableView getNumberOfRowsInSection:section];
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return dic.count;
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView_{
+    return [tableView getSectionCount];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationItem setTitle:@"Favoritos"];
-    [self createObjects];
     tableView.delegateList = self;
+    [tableView reloadData];
     
 }
 
@@ -55,21 +46,9 @@
     return [[PaleoFoodManager sharedInstance] favoriteItens];
 }
 
--(void)createObjects{
-    itemList = [[PaleoFoodManager sharedInstance] favoriteItens];
-    typeList = [[PaleoFoodManager sharedInstance] getTypeItemListWithItemList:itemList];
-    dic = [[PaleoFoodManager sharedInstance] getDictionaryWithTypeList:typeList AndItemList:itemList];
-}
-
 -(void)viewDidAppear:(BOOL)animated{
     NSLog(@"appear");
 }
-
--(void)viewDidDisappear:(BOOL)animated{
-    [self createObjects];
-    [tableView reloadData];
-}
-
 
 
 @end

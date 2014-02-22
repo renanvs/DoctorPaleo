@@ -17,8 +17,13 @@
 
 @interface PaleoItemTableView : UITableView <UITableViewDelegate>{
     id <PaleoItemTableViewDelegate> delegateList;
+    NSArray *itemList;
 }
 
 @property (nonatomic, assign) id <PaleoItemTableViewDelegate> delegateList;
+
+-(EntityItemModel*)getItemModelByIndexPath:(NSIndexPath*)indexPath;
+-(int)getNumberOfRowsInSection:(int)section;
+-(int)getSectionCount;
 
 @end

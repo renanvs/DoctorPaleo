@@ -11,8 +11,7 @@
 
 @interface FoodSubcategoriesViewController : UIViewController <UITableViewDataSource, PaleoItemTableViewDelegate>{
     NSArray *itemModelList;
-    NSArray *itemTypeList;
-    NSDictionary *dic;
+    IBOutlet PaleoItemTableView *tableViewPaleo;
 }
 
 - (id)initWithItemList:(NSArray*)itemList;
