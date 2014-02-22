@@ -32,7 +32,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self.navigationItem setTitle:@"Ajustes"];
+    [self.navigationItem setTitle:NavNameSettings];
 }
 
 @end

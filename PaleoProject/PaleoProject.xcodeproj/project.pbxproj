@@ -20,9 +20,6 @@
 		1E01CEB018B0CD2800AD741B /* FoodSubcategoriesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E01CEAF18B0CD2800AD741B /* FoodSubcategoriesCell.xib */; };
 		1E01CEB518B0D41400AD741B /* FoodItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E01CEB318B0D41400AD741B /* FoodItemViewController.m */; };
 		1E01CEB618B0D41400AD741B /* FoodItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E01CEB418B0D41400AD741B /* FoodItemViewController.xib */; };
-		1E0E6E1A18B8386800A3E28D /* EntityItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E6E1918B8386800A3E28D /* EntityItemModel.m */; };
-		1E0E6E1D18B8386900A3E28D /* EntityItemType.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E6E1C18B8386900A3E28D /* EntityItemType.m */; };
-		1E0E6E2018B8386900A3E28D /* EntityFoodCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E6E1F18B8386900A3E28D /* EntityFoodCategoryModel.m */; };
 		1E0E6E2918B855BF00A3E28D /* tabBarItemFavorites.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E6E2118B855BF00A3E28D /* tabBarItemFavorites.png */; };
 		1E0E6E2A18B855BF00A3E28D /* tabBarItemFavorites@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E6E2218B855BF00A3E28D /* tabBarItemFavorites@2x.png */; };
 		1E0E6E2B18B855BF00A3E28D /* tabBarItemFood.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E6E2318B855BF00A3E28D /* tabBarItemFood.png */; };
@@ -31,9 +28,9 @@
 		1E0E6E2E18B855BF00A3E28D /* tabBarItemSearch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E6E2618B855BF00A3E28D /* tabBarItemSearch@2x.png */; };
 		1E0E6E2F18B855BF00A3E28D /* tabBarItemSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E6E2718B855BF00A3E28D /* tabBarItemSettings.png */; };
 		1E0E6E3018B855BF00A3E28D /* tabBarItemSettings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E6E2818B855BF00A3E28D /* tabBarItemSettings@2x.png */; };
-		1E56B1E418B432D1004E8523 /* PaleoItemTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E56B1E318B432D1004E8523 /* PaleoItemTableView.m */; };
+		1E0E6E3318B8DCCA00A3E28D /* PaleoDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0E6E3218B8DCCA00A3E28D /* PaleoDefines.m */; };
+		1E56B1E418B432D1004E8523 /* PaleoFoodTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E56B1E318B432D1004E8523 /* PaleoFoodTableView.m */; };
 		1E56B1E818B43620004E8523 /* PaleoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E56B1E718B43620004E8523 /* PaleoUtils.m */; };
-		1E56B1ED18B43DA5004E8523 /* PaleoCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E56B1EC18B43DA5004E8523 /* PaleoCoreData.m */; };
 		1E56B1EF18B43DEB004E8523 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E56B1EE18B43DEB004E8523 /* CoreData.framework */; };
 		1E56B1F218B43EF5004E8523 /* PaleoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E56B1F018B43EF5004E8523 /* PaleoDataModel.xcdatamodeld */; };
 		1E56B20018B443E1004E8523 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E56B1FF18B443E1004E8523 /* libsqlite3.0.dylib */; };
@@ -41,16 +38,20 @@
 		1E56B20618B44E95004E8523 /* exemplo.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1E56B20518B44E95004E8523 /* exemplo.sqlite */; };
 		1E8C6B2418B593A500E251CC /* PaleoFoodManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8C6B2318B593A500E251CC /* PaleoFoodManager.m */; };
 		1E8C6B2C18B59B6C00E251CC /* bolo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E8C6B2518B59B6B00E251CC /* bolo.jpg */; };
-		1E8C6B2D18B59B6C00E251CC /* bolo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E8C6B2618B59B6B00E251CC /* bolo1.jpg */; };
-		1E8C6B2E18B59B6C00E251CC /* bolo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E8C6B2718B59B6B00E251CC /* bolo2.jpg */; };
 		1E8C6B2F18B59B6C00E251CC /* maca.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E8C6B2818B59B6B00E251CC /* maca.jpg */; };
-		1E8C6B3018B59B6C00E251CC /* maca1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E8C6B2918B59B6B00E251CC /* maca1.jpg */; };
-		1E8C6B3118B59B6C00E251CC /* maca2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E8C6B2A18B59B6B00E251CC /* maca2.jpg */; };
-		1E8C6B3218B59B6C00E251CC /* maca3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E8C6B2B18B59B6B00E251CC /* maca3.jpg */; };
 		1E8EE26118B390C5000A01AF /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8EE25F18B390C5000A01AF /* FavoritesViewController.m */; };
 		1E8EE26218B390C5000A01AF /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E8EE26018B390C5000A01AF /* FavoritesViewController.xib */; };
 		1E8EE26818B3B902000A01AF /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8EE26618B3B902000A01AF /* SettingsViewController.m */; };
 		1E8EE26918B3B902000A01AF /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E8EE26718B3B902000A01AF /* SettingsViewController.xib */; };
+		1E9DD6CF18B8E7890076F3DC /* FoodTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9DD6CE18B8E7890076F3DC /* FoodTypeModel.m */; };
+		1E9DD6D218B8E78A0076F3DC /* FoodCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9DD6D118B8E78A0076F3DC /* FoodCategoryModel.m */; };
+		1E9DD6D518B8E78A0076F3DC /* FoodItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9DD6D418B8E78A0076F3DC /* FoodItemModel.m */; };
+		1E9DD6D818B8E7BA0076F3DC /* PaleoCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9DD6D718B8E7BA0076F3DC /* PaleoCoreData.m */; };
+		1E9DD6DE18B8F4FD0076F3DC /* bolo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E9DD6D918B8F4FD0076F3DC /* bolo1.png */; };
+		1E9DD6DF18B8F4FD0076F3DC /* bolo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E9DD6DA18B8F4FD0076F3DC /* bolo2.png */; };
+		1E9DD6E018B8F4FD0076F3DC /* maca1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E9DD6DB18B8F4FD0076F3DC /* maca1.png */; };
+		1E9DD6E118B8F4FD0076F3DC /* maca2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E9DD6DC18B8F4FD0076F3DC /* maca2.png */; };
+		1E9DD6E218B8F4FD0076F3DC /* maca3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E9DD6DD18B8F4FD0076F3DC /* maca3.png */; };
 		1EC1253A18B2E7D60063C1CB /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC1253818B2E7D60063C1CB /* SearchViewController.m */; };
 		1EC1253E18B2E8680063C1CB /* PaleoTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC1253D18B2E8680063C1CB /* PaleoTabBarController.m */; };
 		1EC1254018B2E98F0063C1CB /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EC1253918B2E7D60063C1CB /* SearchViewController.xib */; };
@@ -82,12 +83,6 @@
 		1E01CEB218B0D41400AD741B /* FoodItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoodItemViewController.h; path = FoodItemViewController/FoodItemViewController.h; sourceTree = "<group>"; };
 		1E01CEB318B0D41400AD741B /* FoodItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoodItemViewController.m; path = FoodItemViewController/FoodItemViewController.m; sourceTree = "<group>"; };
 		1E01CEB418B0D41400AD741B /* FoodItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FoodItemViewController.xib; path = FoodItemViewController/FoodItemViewController.xib; sourceTree = "<group>"; };
-		1E0E6E1818B8386800A3E28D /* EntityItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityItemModel.h; path = PaleoCoreData/EntityItemModel.h; sourceTree = "<group>"; };
-		1E0E6E1918B8386800A3E28D /* EntityItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityItemModel.m; path = PaleoCoreData/EntityItemModel.m; sourceTree = "<group>"; };
-		1E0E6E1B18B8386900A3E28D /* EntityItemType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityItemType.h; path = PaleoCoreData/EntityItemType.h; sourceTree = "<group>"; };
-		1E0E6E1C18B8386900A3E28D /* EntityItemType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityItemType.m; path = PaleoCoreData/EntityItemType.m; sourceTree = "<group>"; };
-		1E0E6E1E18B8386900A3E28D /* EntityFoodCategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntityFoodCategoryModel.h; path = PaleoCoreData/EntityFoodCategoryModel.h; sourceTree = "<group>"; };
-		1E0E6E1F18B8386900A3E28D /* EntityFoodCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntityFoodCategoryModel.m; path = PaleoCoreData/EntityFoodCategoryModel.m; sourceTree = "<group>"; };
 		1E0E6E2118B855BF00A3E28D /* tabBarItemFavorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarItemFavorites.png; sourceTree = "<group>"; };
 		1E0E6E2218B855BF00A3E28D /* tabBarItemFavorites@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBarItemFavorites@2x.png"; sourceTree = "<group>"; };
 		1E0E6E2318B855BF00A3E28D /* tabBarItemFood.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarItemFood.png; sourceTree = "<group>"; };
@@ -96,12 +91,12 @@
 		1E0E6E2618B855BF00A3E28D /* tabBarItemSearch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBarItemSearch@2x.png"; sourceTree = "<group>"; };
 		1E0E6E2718B855BF00A3E28D /* tabBarItemSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarItemSettings.png; sourceTree = "<group>"; };
 		1E0E6E2818B855BF00A3E28D /* tabBarItemSettings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabBarItemSettings@2x.png"; sourceTree = "<group>"; };
-		1E56B1E218B432D1004E8523 /* PaleoItemTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoItemTableView.h; path = PaleoProject/PaleoItemTableView/PaleoItemTableView.h; sourceTree = "<group>"; };
-		1E56B1E318B432D1004E8523 /* PaleoItemTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaleoItemTableView.m; path = PaleoProject/PaleoItemTableView/PaleoItemTableView.m; sourceTree = "<group>"; };
+		1E0E6E3118B8DCCA00A3E28D /* PaleoDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoDefines.h; path = PaleoDefines/PaleoDefines.h; sourceTree = "<group>"; };
+		1E0E6E3218B8DCCA00A3E28D /* PaleoDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaleoDefines.m; path = PaleoDefines/PaleoDefines.m; sourceTree = "<group>"; };
+		1E56B1E218B432D1004E8523 /* PaleoFoodTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoFoodTableView.h; path = PaleoProject/PaleoItemTableView/PaleoFoodTableView.h; sourceTree = "<group>"; };
+		1E56B1E318B432D1004E8523 /* PaleoFoodTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaleoFoodTableView.m; path = PaleoProject/PaleoItemTableView/PaleoFoodTableView.m; sourceTree = "<group>"; };
 		1E56B1E618B43620004E8523 /* PaleoUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoUtils.h; path = PaleoProject/PaleoUtils/PaleoUtils.h; sourceTree = "<group>"; };
 		1E56B1E718B43620004E8523 /* PaleoUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaleoUtils.m; path = PaleoProject/PaleoUtils/PaleoUtils.m; sourceTree = "<group>"; };
-		1E56B1EB18B43DA5004E8523 /* PaleoCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoCoreData.h; path = PaleoCoreData/PaleoCoreData.h; sourceTree = "<group>"; };
-		1E56B1EC18B43DA5004E8523 /* PaleoCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaleoCoreData.m; path = PaleoCoreData/PaleoCoreData.m; sourceTree = "<group>"; };
 		1E56B1EE18B43DEB004E8523 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		1E56B1F118B43EF5004E8523 /* PaleoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PaleoDataModel.xcdatamodel; sourceTree = "<group>"; };
 		1E56B1FF18B443E1004E8523 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -111,18 +106,26 @@
 		1E8C6B2218B593A400E251CC /* PaleoFoodManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoFoodManager.h; path = PaleoFoodManager/PaleoFoodManager.h; sourceTree = "<group>"; };
 		1E8C6B2318B593A500E251CC /* PaleoFoodManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaleoFoodManager.m; path = PaleoFoodManager/PaleoFoodManager.m; sourceTree = "<group>"; };
 		1E8C6B2518B59B6B00E251CC /* bolo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bolo.jpg; sourceTree = "<group>"; };
-		1E8C6B2618B59B6B00E251CC /* bolo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bolo1.jpg; sourceTree = "<group>"; };
-		1E8C6B2718B59B6B00E251CC /* bolo2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bolo2.jpg; sourceTree = "<group>"; };
 		1E8C6B2818B59B6B00E251CC /* maca.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maca.jpg; sourceTree = "<group>"; };
-		1E8C6B2918B59B6B00E251CC /* maca1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maca1.jpg; sourceTree = "<group>"; };
-		1E8C6B2A18B59B6B00E251CC /* maca2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maca2.jpg; sourceTree = "<group>"; };
-		1E8C6B2B18B59B6B00E251CC /* maca3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = maca3.jpg; sourceTree = "<group>"; };
 		1E8EE25E18B390C5000A01AF /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FavoritesViewController.h; path = FavoritesViewController/FavoritesViewController.h; sourceTree = "<group>"; };
 		1E8EE25F18B390C5000A01AF /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FavoritesViewController.m; path = FavoritesViewController/FavoritesViewController.m; sourceTree = "<group>"; };
 		1E8EE26018B390C5000A01AF /* FavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FavoritesViewController.xib; path = FavoritesViewController/FavoritesViewController.xib; sourceTree = "<group>"; };
 		1E8EE26518B3B902000A01AF /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		1E8EE26618B3B902000A01AF /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		1E8EE26718B3B902000A01AF /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		1E9DD6CD18B8E7890076F3DC /* FoodTypeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoodTypeModel.h; path = PaleoCoreData/FoodTypeModel.h; sourceTree = "<group>"; };
+		1E9DD6CE18B8E7890076F3DC /* FoodTypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoodTypeModel.m; path = PaleoCoreData/FoodTypeModel.m; sourceTree = "<group>"; };
+		1E9DD6D018B8E78A0076F3DC /* FoodCategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoodCategoryModel.h; path = PaleoCoreData/FoodCategoryModel.h; sourceTree = "<group>"; };
+		1E9DD6D118B8E78A0076F3DC /* FoodCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoodCategoryModel.m; path = PaleoCoreData/FoodCategoryModel.m; sourceTree = "<group>"; };
+		1E9DD6D318B8E78A0076F3DC /* FoodItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoodItemModel.h; path = PaleoCoreData/FoodItemModel.h; sourceTree = "<group>"; };
+		1E9DD6D418B8E78A0076F3DC /* FoodItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoodItemModel.m; path = PaleoCoreData/FoodItemModel.m; sourceTree = "<group>"; };
+		1E9DD6D618B8E7BA0076F3DC /* PaleoCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoCoreData.h; path = PaleoCoreData/PaleoCoreData.h; sourceTree = "<group>"; };
+		1E9DD6D718B8E7BA0076F3DC /* PaleoCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaleoCoreData.m; path = PaleoCoreData/PaleoCoreData.m; sourceTree = "<group>"; };
+		1E9DD6D918B8F4FD0076F3DC /* bolo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bolo1.png; sourceTree = "<group>"; };
+		1E9DD6DA18B8F4FD0076F3DC /* bolo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bolo2.png; sourceTree = "<group>"; };
+		1E9DD6DB18B8F4FD0076F3DC /* maca1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maca1.png; sourceTree = "<group>"; };
+		1E9DD6DC18B8F4FD0076F3DC /* maca2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maca2.png; sourceTree = "<group>"; };
+		1E9DD6DD18B8F4FD0076F3DC /* maca3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maca3.png; sourceTree = "<group>"; };
 		1EC1253718B2E7D60063C1CB /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = SearchViewController/SearchViewController.h; sourceTree = "<group>"; };
 		1EC1253818B2E7D60063C1CB /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = SearchViewController/SearchViewController.m; sourceTree = "<group>"; };
 		1EC1253918B2E7D60063C1CB /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchViewController.xib; path = SearchViewController/SearchViewController.xib; sourceTree = "<group>"; };
@@ -159,13 +162,13 @@
 		1E01CE9018B0BB9A00AD741B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				1E9DD6D918B8F4FD0076F3DC /* bolo1.png */,
+				1E9DD6DA18B8F4FD0076F3DC /* bolo2.png */,
+				1E9DD6DB18B8F4FD0076F3DC /* maca1.png */,
+				1E9DD6DC18B8F4FD0076F3DC /* maca2.png */,
+				1E9DD6DD18B8F4FD0076F3DC /* maca3.png */,
 				1E8C6B2518B59B6B00E251CC /* bolo.jpg */,
-				1E8C6B2618B59B6B00E251CC /* bolo1.jpg */,
-				1E8C6B2718B59B6B00E251CC /* bolo2.jpg */,
 				1E8C6B2818B59B6B00E251CC /* maca.jpg */,
-				1E8C6B2918B59B6B00E251CC /* maca1.jpg */,
-				1E8C6B2A18B59B6B00E251CC /* maca2.jpg */,
-				1E8C6B2B18B59B6B00E251CC /* maca3.jpg */,
 				1E01CE9118B0BB9A00AD741B /* default */,
 				1E01CE9218B0BB9A00AD741B /* baseBarIcons@2x */,
 				1E0E6E2118B855BF00A3E28D /* tabBarItemFavorites.png */,
@@ -242,10 +245,19 @@
 			name = FoodItemViewController;
 			sourceTree = "<group>";
 		};
+		1E0E6E3418B8DCEA00A3E28D /* PaleoDefines */ = {
+			isa = PBXGroup;
+			children = (
+				1E0E6E3118B8DCCA00A3E28D /* PaleoDefines.h */,
+				1E0E6E3218B8DCCA00A3E28D /* PaleoDefines.m */,
+			);
+			name = PaleoDefines;
+			sourceTree = "<group>";
+		};
 		1E56B1E018B42C81004E8523 /* PaleoCustomControllerAndView */ = {
 			isa = PBXGroup;
 			children = (
-				1E56B1E118B4327B004E8523 /* PaleoItemTableView */,
+				1E56B1E118B4327B004E8523 /* PaleoFoodTableView */,
 				1EC1253F18B2E8710063C1CB /* PeleoTabBarController */,
 				1E01CE9E18B0C1E500AD741B /* PaleoNavigationController */,
 			);
@@ -253,13 +265,13 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		1E56B1E118B4327B004E8523 /* PaleoItemTableView */ = {
+		1E56B1E118B4327B004E8523 /* PaleoFoodTableView */ = {
 			isa = PBXGroup;
 			children = (
-				1E56B1E218B432D1004E8523 /* PaleoItemTableView.h */,
-				1E56B1E318B432D1004E8523 /* PaleoItemTableView.m */,
+				1E56B1E218B432D1004E8523 /* PaleoFoodTableView.h */,
+				1E56B1E318B432D1004E8523 /* PaleoFoodTableView.m */,
 			);
-			name = PaleoItemTableView;
+			name = PaleoFoodTableView;
 			sourceTree = "<group>";
 		};
 		1E56B1E518B43609004E8523 /* PaleoUtils */ = {
@@ -287,15 +299,15 @@
 		1E56B1EA18B43D91004E8523 /* PaleoCoreData */ = {
 			isa = PBXGroup;
 			children = (
-				1E56B1EB18B43DA5004E8523 /* PaleoCoreData.h */,
-				1E56B1EC18B43DA5004E8523 /* PaleoCoreData.m */,
-				1E0E6E1818B8386800A3E28D /* EntityItemModel.h */,
-				1E0E6E1E18B8386900A3E28D /* EntityFoodCategoryModel.h */,
-				1E0E6E1F18B8386900A3E28D /* EntityFoodCategoryModel.m */,
-				1E0E6E1B18B8386900A3E28D /* EntityItemType.h */,
-				1E0E6E1C18B8386900A3E28D /* EntityItemType.m */,
-				1E0E6E1918B8386800A3E28D /* EntityItemModel.m */,
+				1E9DD6D618B8E7BA0076F3DC /* PaleoCoreData.h */,
+				1E9DD6D718B8E7BA0076F3DC /* PaleoCoreData.m */,
 				1E56B1F018B43EF5004E8523 /* PaleoDataModel.xcdatamodeld */,
+				1E9DD6D318B8E78A0076F3DC /* FoodItemModel.h */,
+				1E9DD6D418B8E78A0076F3DC /* FoodItemModel.m */,
+				1E9DD6D018B8E78A0076F3DC /* FoodCategoryModel.h */,
+				1E9DD6D118B8E78A0076F3DC /* FoodCategoryModel.m */,
+				1E9DD6CD18B8E7890076F3DC /* FoodTypeModel.h */,
+				1E9DD6CE18B8E7890076F3DC /* FoodTypeModel.m */,
 			);
 			name = PaleoCoreData;
 			sourceTree = "<group>";
@@ -421,6 +433,7 @@
 		1ECCC4CF18B06B7F0073992A /* PaleoProject */ = {
 			isa = PBXGroup;
 			children = (
+				1E0E6E3418B8DCEA00A3E28D /* PaleoDefines */,
 				1E8C6B2118B5937800E251CC /* PaleoFoodManager */,
 				1E56B20118B443EA004E8523 /* PaleoSqlite */,
 				1E56B1EA18B43D91004E8523 /* PaleoCoreData */,
@@ -496,25 +509,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E8C6B3118B59B6C00E251CC /* maca2.jpg in Resources */,
-				1E8C6B3218B59B6C00E251CC /* maca3.jpg in Resources */,
-				1E8C6B3018B59B6C00E251CC /* maca1.jpg in Resources */,
+				1E9DD6E218B8F4FD0076F3DC /* maca3.png in Resources */,
 				1E56B20618B44E95004E8523 /* exemplo.sqlite in Resources */,
 				1ECCC4D418B06B7F0073992A /* InfoPlist.strings in Resources */,
 				1E01CE9418B0BB9A00AD741B /* baseBarIcons@2x in Resources */,
 				1E01CEB018B0CD2800AD741B /* FoodSubcategoriesCell.xib in Resources */,
 				1E01CEA718B0CBBE00AD741B /* FoodSubcategoriesViewController.xib in Resources */,
 				1E0E6E2D18B855BF00A3E28D /* tabBarItemSearch.png in Resources */,
+				1E9DD6DE18B8F4FD0076F3DC /* bolo1.png in Resources */,
 				1E8EE26218B390C5000A01AF /* FavoritesViewController.xib in Resources */,
 				1E01CE9A18B0C0F800AD741B /* FoodCategoryViewController.xib in Resources */,
+				1E9DD6DF18B8F4FD0076F3DC /* bolo2.png in Resources */,
 				1E8EE26918B3B902000A01AF /* SettingsViewController.xib in Resources */,
-				1E8C6B2E18B59B6C00E251CC /* bolo2.jpg in Resources */,
 				1E0E6E2918B855BF00A3E28D /* tabBarItemFavorites.png in Resources */,
 				1E8C6B2F18B59B6C00E251CC /* maca.jpg in Resources */,
 				1E01CE9318B0BB9A00AD741B /* default in Resources */,
-				1E8C6B2D18B59B6C00E251CC /* bolo1.jpg in Resources */,
 				1E01CEA418B0CA0B00AD741B /* FoodCategoryCell.xib in Resources */,
 				1E0E6E2C18B855BF00A3E28D /* tabBarItemFood@2x.png in Resources */,
+				1E9DD6E018B8F4FD0076F3DC /* maca1.png in Resources */,
 				1E0E6E2A18B855BF00A3E28D /* tabBarItemFavorites@2x.png in Resources */,
 				1EC1254018B2E98F0063C1CB /* SearchViewController.xib in Resources */,
 				1E0E6E2F18B855BF00A3E28D /* tabBarItemSettings.png in Resources */,
@@ -523,6 +535,7 @@
 				1E8C6B2C18B59B6C00E251CC /* bolo.jpg in Resources */,
 				1E0E6E2E18B855BF00A3E28D /* tabBarItemSearch@2x.png in Resources */,
 				1E0E6E3018B855BF00A3E28D /* tabBarItemSettings@2x.png in Resources */,
+				1E9DD6E118B8F4FD0076F3DC /* maca2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,25 +548,26 @@
 			files = (
 				1EC1253E18B2E8680063C1CB /* PaleoTabBarController.m in Sources */,
 				1E01CEAA18B0CC0A00AD741B /* FoodSubcategoriesViewController.m in Sources */,
+				1E9DD6D818B8E7BA0076F3DC /* PaleoCoreData.m in Sources */,
 				1E8EE26118B390C5000A01AF /* FavoritesViewController.m in Sources */,
 				1E56B20418B44417004E8523 /* PaleoSqlite.m in Sources */,
+				1E0E6E3318B8DCCA00A3E28D /* PaleoDefines.m in Sources */,
+				1E9DD6D218B8E78A0076F3DC /* FoodCategoryModel.m in Sources */,
 				1ECCC4DA18B06B7F0073992A /* AppDelegate.m in Sources */,
 				1EC1253A18B2E7D60063C1CB /* SearchViewController.m in Sources */,
+				1E9DD6CF18B8E7890076F3DC /* FoodTypeModel.m in Sources */,
 				1E01CEAE18B0CD0C00AD741B /* FoodSubcategoriesCell.m in Sources */,
 				1E01CEB518B0D41400AD741B /* FoodItemViewController.m in Sources */,
 				1E56B1E818B43620004E8523 /* PaleoUtils.m in Sources */,
 				1E01CE9D18B0C1DD00AD741B /* PaleoNavigationController.m in Sources */,
 				1E01CEA218B0C9F300AD741B /* FoodCategoryCell.m in Sources */,
-				1E56B1ED18B43DA5004E8523 /* PaleoCoreData.m in Sources */,
-				1E56B1E418B432D1004E8523 /* PaleoItemTableView.m in Sources */,
-				1E0E6E1A18B8386800A3E28D /* EntityItemModel.m in Sources */,
-				1E0E6E1D18B8386900A3E28D /* EntityItemType.m in Sources */,
+				1E56B1E418B432D1004E8523 /* PaleoFoodTableView.m in Sources */,
 				1E01CE9918B0C0F800AD741B /* FoodCategoryViewController.m in Sources */,
+				1E9DD6D518B8E78A0076F3DC /* FoodItemModel.m in Sources */,
 				1ECCC4D618B06B7F0073992A /* main.m in Sources */,
 				1E8C6B2418B593A500E251CC /* PaleoFoodManager.m in Sources */,
 				1E8EE26818B3B902000A01AF /* SettingsViewController.m in Sources */,
 				1E56B1F218B43EF5004E8523 /* PaleoDataModel.xcdatamodeld in Sources */,
-				1E0E6E2018B8386900A3E28D /* EntityFoodCategoryModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

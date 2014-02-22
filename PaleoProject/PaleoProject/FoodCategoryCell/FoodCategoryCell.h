@@ -7,15 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EntityFoodCategoryModel.h"
+#import "FoodCategoryModel.h"
 
 @interface FoodCategoryCell : UITableViewCell{
-    EntityFoodCategoryModel *categoryModel;
+    FoodCategoryModel *categoryModel;
 }
 
 @property (retain, nonatomic) IBOutlet UIImageView *categoryImageView;
 @property (retain, nonatomic) IBOutlet UILabel *categoryLabel;
 
--(void)setCategoryModel:(EntityFoodCategoryModel*)model;
+-(void)setCategoryModel:(FoodCategoryModel*)categoryModel_;
 
 @end

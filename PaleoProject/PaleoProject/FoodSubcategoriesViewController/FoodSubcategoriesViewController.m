@@ -10,42 +10,35 @@
 #import "FoodSubcategoriesCell.h"
 #import "FoodItemViewController.h"
 
-#import "EntityFoodCategoryModel.h"
-#import "EntityItemModel.h"
+#import "FoodCategoryModel.h"
+#import "FoodItemModel.h"
 
 @implementation FoodSubcategoriesViewController
 
-- (id)initWithItemList:(NSArray*)itemList{
+- (id)initWithItemList:(NSArray*)foodModelList_{
     self = [super init];
     if (self) {
-        itemModelList = [[NSArray alloc] initWithArray:itemList];
+        foodModelList = [[NSArray alloc] initWithArray:foodModelList_];
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
 -(void)viewWillAppear:(BOOL)animated{
+    //TODO: Subcategorias deve ser o titulo da categoria
     [self.navigationItem setTitle:@"Subcategorias"];
     tableViewPaleo.delegateList = self;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellName = @"FoodSubcategoriesCell";
+    static NSString *cellName = CellFoodItemName;
     
     FoodSubcategoriesCell * cell = [tableView dequeueReusableCellWithIdentifier:cellName];
-    
     if (!cell){
         cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil]objectAtIndex:0];
     }
     
-    EntityItemModel *itemModel = [tableViewPaleo getItemModelByIndexPath:indexPath];
-    
-    [cell setItemModel:itemModel];
+    FoodItemModel *foodModel = [tableViewPaleo getFoodModelByIndexPath:indexPath];
+    [cell setItemModel:foodModel];
     
     return cell;
 }
@@ -58,8 +51,8 @@
     return [tableViewPaleo getSectionCount];
 }
 
--(NSArray *)itemList{
-    return itemModelList;
+-(NSArray *)foodItemList{
+    return foodModelList;
 }
 
 @end

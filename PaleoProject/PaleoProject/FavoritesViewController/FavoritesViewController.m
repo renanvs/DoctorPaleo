@@ -12,16 +12,14 @@
 @implementation FavoritesViewController
 
 -(UITableViewCell *)tableView:(UITableView *)tableView_ cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellName = @"FoodSubcategoriesCell";
+    static NSString *cellName = CellFoodItemName;
     
     FoodSubcategoriesCell * cell = [tableView dequeueReusableCellWithIdentifier:cellName];
-    
     if (!cell){
         cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil]objectAtIndex:0];
     }
     
-    EntityItemModel *itemModel = [tableView getItemModelByIndexPath:indexPath];
-    
+    FoodItemModel *itemModel = [tableView getFoodModelByIndexPath:indexPath];
     [cell setItemModel:itemModel];
     
     return cell;
@@ -36,23 +34,19 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self.navigationItem setTitle:@"Favoritos"];
+    [self.navigationItem setTitle:NavNameFavorites];
     tableView.delegateList = self;
     [tableView reloadData];
     
 }
 
--(NSArray *)itemList{
-    return [[PaleoFoodManager sharedInstance] favoriteItens];
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    NSLog(@"appear");
+-(NSArray *)foodItemList{
+    return [[PaleoFoodManager sharedInstance] favoriteFoodList];
 }
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarSelected) name:@"tabBarSelected" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarSelected) name:TabBarFavoriteSelected object:nil];
 }
 
 -(void)tabBarSelected{

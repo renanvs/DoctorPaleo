@@ -7,19 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EntityItemModel.h"
-#import "EntityItemType.h"
+#import "FoodItemModel.h"
+#import "FoodTypeModel.h"
 
 @interface FoodItemViewController : UIViewController{
     IBOutlet UILabel *typeLabel;
     IBOutlet UIButton *favoriteButton;
-    IBOutlet UIImageView *itemImage;
-    IBOutlet UILabel *itemLabel;
-    IBOutlet UITextView *itemAbout;
-    EntityItemModel *itemModel;
+    IBOutlet UIImageView *foodImage;
+    IBOutlet UILabel *foodLabel;
+    IBOutlet UITextView *foodAbout;
+    FoodItemModel *foodModel;
 }
 
 -(IBAction)favoriteHandler:(id)sender;
-- (id)initWithItemModel:(EntityItemModel*)item;
+-(id)initWithItemModel:(FoodItemModel*)foodModel_;
 
 @end

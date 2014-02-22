@@ -34,8 +34,8 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="itemImage" destination="roq-On-Imr" id="UVM-Ra-xj1"/>
-                <outlet property="itemLabel" destination="Or5-kI-FAC" id="UVE-rM-bhs"/>
+                <outlet property="foodImage" destination="roq-On-Imr" id="zZW-jY-7OP"/>
+                <outlet property="foodLabel" destination="Or5-kI-FAC" id="zr7-np-UFx"/>
             </connections>
         </tableViewCell>
     </objects>

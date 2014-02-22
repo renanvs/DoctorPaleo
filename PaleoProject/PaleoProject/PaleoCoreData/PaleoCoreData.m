@@ -22,15 +22,6 @@ static id _instance;
     return _instance;
 }
 
--(id)init{
-    self = [super init];
-    
-    if (self) {
-
-    }
-    return self;
-}
-
 -(void)saveContext{
     NSError *error;
     if (![context save:&error]) {
@@ -79,6 +70,8 @@ static id _instance;
     return context;
 }
 
+
+//TODO: testar funcionalidade
 -(void) flushDatabase{
     [context lock];
     

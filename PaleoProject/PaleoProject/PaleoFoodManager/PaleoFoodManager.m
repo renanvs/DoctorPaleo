@@ -9,7 +9,7 @@
 #import "PaleoFoodManager.h"
 
 @implementation PaleoFoodManager
-@synthesize allItens, categoryList, favoriteItens, typeList;
+@synthesize categoryList, favoriteFoodList, typeList;
 
 static id _instance;
 + (PaleoFoodManager *) sharedInstance{
@@ -26,9 +26,7 @@ static id _instance;
     
     if (self) {
         context = [[PaleoCoreData sharedInstance] context];
-        //favoriteItens = [[NSArray alloc] initWithArray:[self getFavoriteItens]];
         categoryList = [[NSArray alloc] initWithArray:[self getCategoryList]];
-        allItens = [[NSArray alloc] initWithArray:[self getAllItens]];
         typeList = [[NSArray alloc] initWithArray:[self getTypeList]];
     }
     
@@ -36,7 +34,7 @@ static id _instance;
 }
 
 -(NSArray *)getCategoryList{
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityFoodCategoryModel" inManagedObjectContext:context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:EntityCategory inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     request.entity = entity;
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
@@ -47,11 +45,10 @@ static id _instance;
     return list;
 }
 
--(NSArray *)getItensByCategory:(EntityFoodCategoryModel*)categoryModel{
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityItemModel" inManagedObjectContext:context];
+-(NSArray *)getFoodListByCategory:(FoodCategoryModel*)categoryModel{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:EntityFood inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     request.entity = entity;
-    //TODO: ordernar por ordem do tip
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"type.name" ascending:YES];
     request.sortDescriptors = [NSArray arrayWithObject:descriptor];
     request.predicate = [NSPredicate predicateWithFormat:@"category == %@",categoryModel];
@@ -61,8 +58,8 @@ static id _instance;
     return list;
 }
 
--(NSArray *)getFavoriteItens{
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityItemModel" inManagedObjectContext:context];
+-(NSArray *)getFavoriteFoodList{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:EntityFood inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     request.entity = entity;
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
@@ -74,9 +71,9 @@ static id _instance;
     return list;
 }
 
--(NSArray *)getItensWithSearchQuery:(NSString*)query{
+-(NSArray *)getFoodWithSearchQuery:(NSString*)query{
     query = [query lowercaseString];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityItemModel" inManagedObjectContext:context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:EntityFood inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     request.entity = entity;
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
@@ -86,33 +83,20 @@ static id _instance;
     NSMutableArray *foundedItens = [[NSMutableArray alloc] init];
     NSRange range;
     
-    for (EntityItemModel *item in list) {
-        NSString *itemName = [item.name lowercaseString];
-        range = [itemName rangeOfString:query];
+    for (FoodItemModel *foodItem in list) {
+        NSString *foodName = [foodItem.name lowercaseString];
+        range = [foodName rangeOfString:query];
         
         if (range.length > 0) {
-            [foundedItens addObject:item];
+            [foundedItens addObject:foodItem];
         }
     }
     
     return foundedItens;
 }
 
-
--(NSArray *)getAllItens{
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityItemModel" inManagedObjectContext:context];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    request.entity = entity;
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"type.name" ascending:YES];
-    request.sortDescriptors = [NSArray arrayWithObject:descriptor];
-    
-    NSArray *list = [context executeFetchRequest:request error:nil];
-    
-    return list;
-}
-
 -(NSArray *)getTypeList{
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityItemType" inManagedObjectContext:context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:EntityType inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     request.entity = entity;
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
@@ -123,13 +107,13 @@ static id _instance;
     return list;
 }
 
--(NSArray*)getTypeItemListWithItemList:(NSArray*)list{
+-(NSArray*)getFoodTypeListWithFoodList:(NSArray*)list{
     NSMutableArray *typesFounded = [[NSMutableArray alloc] init];
     
-    for (EntityItemType *type in typeList) {
-        for (EntityItemModel *item in list) {
-            if (type == item.type) {
-                [typesFounded addObject:type];
+    for (FoodTypeModel *foodType in typeList) {
+        for (FoodItemModel *foodItem in list) {
+            if (foodType == foodItem.type) {
+                [typesFounded addObject:foodType];
                 break;
             }
         }
@@ -137,27 +121,27 @@ static id _instance;
     return typesFounded;
 }
 
--(NSDictionary*)getDictionaryWithTypeList:(NSArray*)typeList_ AndItemList:(NSArray*)itemList{
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
-    NSMutableArray *add = nil;
+-(NSDictionary*)getDictionaryWithFoodTypeList:(NSArray*)typeList_ AndFoodList:(NSArray*)foodList{
+    NSMutableDictionary *categoryDictionary = [[NSMutableDictionary alloc] init];
+    NSMutableArray *tempFoodList = nil;
     
-    for (EntityItemType *type in typeList_) {
-        add = [[NSMutableArray alloc] init];
-        for (EntityItemModel *item in itemList) {
-            if (item.type == type) {
-                [add addObject:item];
+    for (FoodTypeModel *foodType in typeList_) {
+        tempFoodList = [[NSMutableArray alloc] init];
+        for (FoodItemModel *foodItem in foodList) {
+            if (foodItem.type == foodType) {
+                [tempFoodList addObject:foodItem];
             }
         }
-        [dic setObject:add forKey:type.name];
-        [add release];
-        add = nil;
+        [categoryDictionary setObject:tempFoodList forKey:foodType.name];
+        [tempFoodList release];
+        tempFoodList = nil;
     }
     
-    return dic;
+    return categoryDictionary;
 }
 
--(NSArray *)favoriteItens{
-    return [self getFavoriteItens];
+-(NSArray *)favoriteFoodList{
+    return [self getFavoriteFoodList];
 }
 
 @end

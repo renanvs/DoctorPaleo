@@ -8,28 +8,26 @@
 
 #import <Foundation/Foundation.h>
 #import "PaleoCoreData.h"
-#import "EntityFoodCategoryModel.h"
-#import "EntityItemModel.h"
-#import "EntityItemType.h"
+#import "FoodCategoryModel.h"
+#import "FoodItemModel.h"
+#import "FoodTypeModel.h"
 
 @interface PaleoFoodManager : NSObject{
     NSManagedObjectContext *context;
-    NSArray *favoriteItens;
+    NSArray *favoriteFoodList;
     NSArray *categoryList;
-    NSArray *allItens;
     NSArray *typeList;
 }
 
-@property (nonatomic, assign) NSArray *favoriteItens;
+@property (nonatomic, assign) NSArray *favoriteFoodList;
 @property (nonatomic, assign) NSArray *categoryList;
-@property (nonatomic, assign) NSArray *allItens;
 @property (nonatomic, assign) NSArray *typeList;
 
 + (PaleoFoodManager *) sharedInstance;
 
--(NSArray *)getItensWithSearchQuery:(NSString*)query;
--(NSArray *)getItensByCategory:(EntityFoodCategoryModel*)categoryModel;
--(NSArray*)getTypeItemListWithItemList:(NSArray*)list;
--(NSDictionary*)getDictionaryWithTypeList:(NSArray*)typeList_ AndItemList:(NSArray*)itemList;
+-(NSArray *)getFoodWithSearchQuery:(NSString*)query;
+-(NSArray *)getFoodListByCategory:(FoodCategoryModel*)categoryModel;
+-(NSArray*)getFoodTypeListWithFoodList:(NSArray*)list;
+-(NSDictionary*)getDictionaryWithFoodTypeList:(NSArray*)typeList_ AndFoodList:(NSArray*)foodList;
 
 @end

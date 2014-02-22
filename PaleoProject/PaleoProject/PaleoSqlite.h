@@ -11,8 +11,7 @@
 
 @interface PaleoSqlite : NSObject{
     sqlite3 *dataBase;
-    NSMutableArray *dataArray;
-    NSMutableDictionary *dataStored;
+    NSManagedObjectContext *context;
 }
 
 -(void)validateInfo;

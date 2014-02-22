@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PaleoItemTableView.h"
+#import "PaleoFoodTableView.h"
 
-@interface FavoritesViewController : UIViewController <UITableViewDataSource, PaleoItemTableViewDelegate>{
-    IBOutlet PaleoItemTableView *tableView;
+@interface FavoritesViewController : UIViewController <UITableViewDataSource, PaleoFoodTableViewDelegate>{
+    IBOutlet PaleoFoodTableView *tableView;
 }
 
 @end

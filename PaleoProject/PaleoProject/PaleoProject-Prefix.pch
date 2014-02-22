@@ -16,4 +16,5 @@
     #import "PaleoUtils.h"
     #import <CoreData/CoreData.h>
     #import "PaleoFoodManager.h"
+    #import "PaleoDefines.h"
 #endif

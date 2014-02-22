@@ -8,9 +8,9 @@
 
 #import "PaleoSqlite.h"
 
-#import "EntityFoodCategoryModel.h"
-#import "EntityItemModel.h"
-#import "EntityItemType.h"
+#import "FoodCategoryModel.h"
+#import "FoodItemModel.h"
+#import "FoodTypeModel.h"
 #import "PaleoCoreData.h"
 
 @implementation PaleoSqlite
@@ -21,8 +21,9 @@
     BOOL alreadyRunned = [[NSUserDefaults standardUserDefaults] boolForKey:@"ApplicationAlreadyRunned"];
     
     if (!alreadyRunned) {
+        context = [[PaleoCoreData sharedInstance] context];
         [self createFoodCategories];
-        [self createItens];
+        [self createFoodItemModels];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"ApplicationAlreadyRunned"];
         NSLog(@"Primeira vez que o aplicativo é aberto ou dados resetados");
     }else{
@@ -34,18 +35,16 @@
 
 - (NSMutableArray*) readDataFromDatabase
 {
-    dataArray  = [[NSMutableArray alloc] init];
-    dataStored = [[NSMutableDictionary alloc] init];
-    
-    NSString *item;
-    NSString *type;
-    NSString *imageName;
-    NSString *about;
+    NSString *foodName;
+    NSString *typeName;
+    NSString *foodImageName;
+    NSString *foodAbout;
     NSString *categoryName;
     NSString *categoryImageName;
     
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"exemplo" withExtension:@"sqlite"];
     NSString *path = [modelURL path];
+    NSMutableArray *itemDataList = [[NSMutableArray alloc] init];
     
     if (sqlite3_open([path UTF8String], &dataBase) == SQLITE_OK) {
         const char *sql = "SELECT * FROM tabela_exemplo";
@@ -53,31 +52,30 @@
         if (sqlite3_prepare_v2(dataBase, sql, -1, &statement, NULL) == SQLITE_OK) {
             while (sqlite3_step(statement) == SQLITE_ROW) {
                 
-                item = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 0)];
-                type = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 1)];
-                imageName = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 2)];
-                about = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 3)];
+                foodName = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 0)];
+                typeName = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 1)];
+                foodImageName = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 2)];
+                foodAbout = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 3)];
                 categoryName = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 4)];
                 categoryImageName = [NSString stringWithUTF8String:(char *)sqlite3_column_text(statement, 5)];
 
+                NSMutableDictionary *itemData = [[NSMutableDictionary alloc] init];
+                [itemData setObject:foodName forKey:@"foodName"];
+                [itemData setObject:typeName forKey:@"foodTypeName"];
+                [itemData setObject:foodImageName forKey:@"foodImageName"];
+                [itemData setObject:foodAbout forKey:@"foodAbout"];
+                [itemData setObject:categoryName forKey:@"categoryName"];
+                [itemData setObject:categoryImageName forKey:@"categoryImageName"];
                 
-                [dataStored setObject:item forKey:@"item"];
-                [dataStored setObject:type forKey:@"type"];
-                [dataStored setObject:imageName forKey:@"imageName"];
-                [dataStored setObject:about forKey:@"about"];
-                [dataStored setObject:categoryName forKey:@"categoryName"];
-                [dataStored setObject:categoryImageName forKey:@"categoryImageName"];
                 
-                
-                [dataArray addObject:[dataStored copy]];
+                [itemDataList addObject:[itemData copy]];
             }
         }
         sqlite3_finalize(statement);
     }
     sqlite3_close(dataBase);
-    [dataStored release];
     
-    return dataArray;
+    return itemDataList;
 }
 
 
@@ -87,27 +85,24 @@
     NSArray *sortDescriptor = [NSArray arrayWithObject:descriptor];
     NSArray *databaseTableResultSorted = [databaseTableResult sortedArrayUsingDescriptors:sortDescriptor];
     
-    NSManagedObjectContext *context = [[PaleoCoreData sharedInstance] context];
-    
-    for (NSDictionary *dic in databaseTableResultSorted) {
-        if (![self existCategoryInCoreData:dic]) {
-            NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityFoodCategoryModel" inManagedObjectContext:context];
-            EntityFoodCategoryModel *categoryModel = [(EntityFoodCategoryModel*)[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
-            categoryModel.name = [dic objectForKey:@"categoryName"];
-            categoryModel.imageName = [dic objectForKey:@"categoryImageName"];
+    for (NSDictionary *itemData in databaseTableResultSorted) {
+        if (![self existCategoryInCoreData:itemData]) {
+            NSEntityDescription *entity = [NSEntityDescription entityForName:EntityCategory inManagedObjectContext:context];
+            FoodCategoryModel *categoryModel = [(FoodCategoryModel*)[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+            categoryModel.name = [itemData objectForKey:@"categoryName"];
+            categoryModel.imageName = [itemData objectForKey:@"categoryImageName"];
             
             NSLog(@"Categoria %@ adicionada ao coredata",categoryModel.name);
         }
     }
 }
 
--(BOOL)existCategoryInCoreData:(NSDictionary*)itemDict{
-    NSManagedObjectContext *context = [[PaleoCoreData sharedInstance] context];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityFoodCategoryModel" inManagedObjectContext:context];
+-(BOOL)existCategoryInCoreData:(NSDictionary*)itemData{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:EntityCategory inManagedObjectContext:context];
     NSFetchRequest *request = [[[NSFetchRequest alloc] init]autorelease];
     request.entity = entity;
     request.predicate = [NSPredicate predicateWithFormat:@"name == %@ && imageName == %@",
-                         [itemDict objectForKey:@"categoryName"], [itemDict objectForKey:@"categoryImageName"]];
+                         [itemData objectForKey:@"categoryName"], [itemData objectForKey:@"categoryImageName"]];
     
     NSArray *result = [context executeFetchRequest:request error:nil];
     
@@ -118,29 +113,26 @@
     return NO;
 }
 
--(void)createItens{
+-(void)createFoodItemModels{
     NSArray *databaseTableResult = [self readDataFromDatabase];
     
-    NSManagedObjectContext *context = [[PaleoCoreData sharedInstance] context];
-    
-    for (NSDictionary *dic in databaseTableResult) {
-        NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityItemModel" inManagedObjectContext:context];
-        EntityItemModel *itemModel = [(EntityItemModel*)[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
-        itemModel.name = [dic objectForKey:@"item"];
-        itemModel.imageName = [dic objectForKey:@"imageName"];
-        itemModel.about = [dic objectForKey:@"about"];
+    for (NSDictionary *itemData in databaseTableResult) {
+        NSEntityDescription *entity = [NSEntityDescription entityForName:EntityFood inManagedObjectContext:context];
+        FoodItemModel *itemModel = [(FoodItemModel*)[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+        itemModel.name = [itemData objectForKey:@"foodName"];
+        itemModel.imageName = [itemData objectForKey:@"foodImageName"];
+        itemModel.about = [itemData objectForKey:@"foodAbout"];
         itemModel.isFavorite = [NSNumber numberWithBool:NO];
-        itemModel.type = [self getOrCreateType:([dic objectForKey:@"type"])];
-        [self addItem:itemModel ToCoreDataWithCategoryName:[dic objectForKey:@"categoryName"]];
+        itemModel.type = [self getOrCreateFoodType:([itemData objectForKey:@"foodTypeName"])];
+        [self addFoodItem:itemModel ToCoreDataWithCategoryName:[itemData objectForKey:@"categoryName"]];
     }
     
     [context save:nil];
     
 }
 
--(void)addItem:(EntityItemModel*)item ToCoreDataWithCategoryName:(NSString*)categoryName{
-    NSManagedObjectContext *context = [[PaleoCoreData sharedInstance] context];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityFoodCategoryModel" inManagedObjectContext:context];
+-(void)addFoodItem:(FoodItemModel*)foodItem ToCoreDataWithCategoryName:(NSString*)categoryName{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:EntityCategory inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     request.entity = entity;
     request.predicate = [NSPredicate predicateWithFormat:@"name == %@",categoryName];
@@ -151,26 +143,25 @@
         return;
     }
     
-    EntityFoodCategoryModel *categoryModel = [result lastObject];
-    [categoryModel addItensObject:item];
-    NSLog(@"Item %@, adicionado a categoria %@", item.name, categoryName);
+    FoodCategoryModel *categoryModel = [result lastObject];
+    [categoryModel addItensObject:foodItem];
+    NSLog(@"Item %@, adicionado a categoria %@", foodItem.name, categoryName);
 }
 
--(EntityItemType*)getOrCreateType:(NSString*)typeStr{
-    NSManagedObjectContext *context = [[PaleoCoreData sharedInstance] context];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityItemType" inManagedObjectContext:context];
+-(FoodTypeModel*)getOrCreateFoodType:(NSString*)typeName{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:EntityType inManagedObjectContext:context];
     NSFetchRequest *request= [[NSFetchRequest alloc] init];
     request.entity = entity;
-    request.predicate = [NSPredicate predicateWithFormat:@"name == %@", typeStr];
+    request.predicate = [NSPredicate predicateWithFormat:@"name == %@", typeName];
     NSArray *typeList = [context executeFetchRequest:request error:nil];
     
     if (typeList.count > 0) {
-        EntityItemType *typeModel = [typeList lastObject];
-        NSLog(@"Recuperando tipo: %@", typeModel.name);
+        FoodTypeModel *typeModel = [typeList lastObject];
+        NSLog(@"Recuperado tipo: %@", typeModel.name);
         return typeModel;
     }else{
-        EntityItemType *typeModel = [(EntityItemType*)[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
-        typeModel.name = typeStr;
+        FoodTypeModel *typeModel = [(FoodTypeModel*)[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+        typeModel.name = typeName;
         NSLog(@"Inserindo tipo: %@", typeModel.name);
         return typeModel;
     }

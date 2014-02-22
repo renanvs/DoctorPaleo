@@ -8,9 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FoodItemViewController">
             <connections>
                 <outlet property="favoriteButton" destination="ntS-H2-S1u" id="xYS-Iu-x4Y"/>
-                <outlet property="itemAbout" destination="gKN-Hg-xVa" id="xVn-gK-nWM"/>
-                <outlet property="itemImage" destination="sby-cB-eEN" id="cQE-bF-TGZ"/>
-                <outlet property="itemLabel" destination="m9C-0u-dot" id="30u-78-YUc"/>
+                <outlet property="foodAbout" destination="gKN-Hg-xVa" id="SO8-YD-1Uo"/>
+                <outlet property="foodImage" destination="sby-cB-eEN" id="LAt-gg-xPV"/>
+                <outlet property="foodLabel" destination="m9C-0u-dot" id="hMe-HW-TGs"/>
                 <outlet property="typeLabel" destination="9ia-dq-eWq" id="Fjp-DL-1Pq"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>

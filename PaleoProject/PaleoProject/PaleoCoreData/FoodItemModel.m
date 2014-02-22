@@ -1,17 +1,17 @@
 //
-//  EntityItemModel.m
+//  FoodItemModel.m
 //  PaleoProject
 //
-//  Created by renan veloso silva on 20/02/14.
+//  Created by renan veloso silva on 22/02/14.
 //  Copyright (c) 2014 renan veloso silva. All rights reserved.
 //
 
-#import "EntityItemModel.h"
-#import "EntityFoodCategoryModel.h"
-#import "EntityItemType.h"
+#import "FoodItemModel.h"
+#import "FoodTypeModel.h"
+#import "FoodCategoryModel.h"
 
 
-@implementation EntityItemModel
+@implementation FoodItemModel
 
 @dynamic about;
 @dynamic imageName;

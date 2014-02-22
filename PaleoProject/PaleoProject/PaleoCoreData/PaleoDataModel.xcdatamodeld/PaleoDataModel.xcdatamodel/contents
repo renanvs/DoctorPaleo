@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A603" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="EntityFoodCategoryModel" representedClassName="EntityFoodCategoryModel" syncable="YES">
+    <entity name="FoodCategoryModel" representedClassName="FoodCategoryModel" syncable="YES">
         <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="itens" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EntityItemModel" inverseName="category" inverseEntity="EntityItemModel" syncable="YES"/>
+        <relationship name="itens" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FoodItemModel" inverseName="category" inverseEntity="FoodItemModel" syncable="YES"/>
     </entity>
-    <entity name="EntityItemModel" representedClassName="EntityItemModel" syncable="YES">
+    <entity name="FoodItemModel" representedClassName="FoodItemModel" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EntityFoodCategoryModel" inverseName="itens" inverseEntity="EntityFoodCategoryModel" syncable="YES"/>
-        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EntityItemType" inverseName="itens" inverseEntity="EntityItemType" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodCategoryModel" inverseName="itens" inverseEntity="FoodCategoryModel" syncable="YES"/>
+        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FoodTypeModel" inverseName="itens" inverseEntity="FoodTypeModel" syncable="YES"/>
     </entity>
-    <entity name="EntityItemType" representedClassName="EntityItemType" syncable="YES">
+    <entity name="FoodTypeModel" representedClassName="FoodTypeModel" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="itens" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EntityItemModel" inverseName="type" inverseEntity="EntityItemModel" syncable="YES"/>
+        <relationship name="itens" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FoodItemModel" inverseName="type" inverseEntity="FoodItemModel" syncable="YES"/>
     </entity>
     <elements>
-        <element name="EntityFoodCategoryModel" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="EntityItemModel" positionX="367" positionY="-27" width="128" height="133"/>
-        <element name="EntityItemType" positionX="160" positionY="192" width="128" height="73"/>
+        <element name="FoodTypeModel" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="FoodCategoryModel" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="FoodItemModel" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

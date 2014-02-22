@@ -9,46 +9,24 @@
 #import "SearchViewController.h"
 #import "FoodSubcategoriesCell.h"
 
-@interface SearchViewController ()
-
-@end
-
 @implementation SearchViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     tableView.delegateList = self;
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView_ cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellName = @"FoodSubcategoriesCell";
+    static NSString *cellName = CellFoodItemName;
     
     FoodSubcategoriesCell * cell = [tableView_ dequeueReusableCellWithIdentifier:cellName];
-    
     if (!cell){
         cell = [[[NSBundle mainBundle] loadNibNamed:cellName owner:self options:nil]objectAtIndex:0];
     }
     
-    EntityItemModel *itemModel = [tableView getItemModelByIndexPath:indexPath];
-    
-    [cell setItemModel:itemModel];
+    FoodItemModel *foodModel = [tableView getFoodModelByIndexPath:indexPath];
+    [cell setItemModel:foodModel];
     
     return cell;
 }
@@ -61,8 +39,8 @@
     return [tableView getSectionCount];
 }
 
--(NSArray *)itemList{
-    return itemList;
+-(NSArray *)foodItemList{
+    return foodItemList;
 }
 
 - (void)dealloc {
@@ -71,19 +49,18 @@
 }
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    itemList = [[PaleoFoodManager sharedInstance] getItensWithSearchQuery:searchText];
+    foodItemList = [[PaleoFoodManager sharedInstance] getFoodWithSearchQuery:searchText];
     [tableView reloadData];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self.navigationItem setTitle:@"Busca"];
+    [self.navigationItem setTitle:NavNameSearch];
 }
 
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar_{
     for (UITextField *field in searchBar_.subviews) {
         [field resignFirstResponder];
     }
-    NSLog(@"test");
 }
 
 

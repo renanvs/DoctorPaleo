@@ -8,57 +8,41 @@
 
 #import "FoodItemViewController.h"
 
-@interface FoodItemViewController ()
-
-@end
-
 @implementation FoodItemViewController
 
-- (id)initWithItemModel:(EntityItemModel*)item
+- (id)initWithItemModel:(FoodItemModel*)foodModel_
 {
     self = [super init];
     if (self) {
-        itemModel = item;
+        foodModel = foodModel_;
     }
     return self;
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)dealloc {
     [typeLabel release];
     [favoriteButton release];
-    [itemImage release];
-    [itemLabel release];
-    [itemAbout release];
+    [foodImage release];
+    [foodLabel release];
+    [foodAbout release];
     [super dealloc];
 }
 
 - (IBAction)favoriteHandler:(id)sender {
-    BOOL isFavorite = [itemModel.isFavorite boolValue];
-    itemModel.isFavorite = [NSNumber numberWithBool:!isFavorite];
-    NSString *favoriteTitle = [itemModel.isFavorite boolValue] ? @"Desfavoritar" : @"Favoritar";
+    BOOL isFavorite = [foodModel.isFavorite boolValue];
+    foodModel.isFavorite = [NSNumber numberWithBool:!isFavorite];
+    NSString *favoriteTitle = [foodModel.isFavorite boolValue] ? @"Desfavoritar" : @"Favoritar";
     [favoriteButton setTitle:favoriteTitle forState:UIControlStateNormal];
     [[[PaleoCoreData sharedInstance]context] save:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self.navigationItem setTitle:itemModel.name];
-    typeLabel.text = itemModel.type.name;
-    itemImage.image = [UIImage imageNamed:itemModel.imageName];
-    itemLabel.text = itemModel.name;
-    itemAbout.text = itemModel.about;
-    NSString *favoriteTitle = [itemModel.isFavorite boolValue] ? @"Desfavoritar" : @"Favoritar";
+    [self.navigationItem setTitle:foodModel.name];
+    typeLabel.text = foodModel.type.name;
+    foodImage.image = [UIImage imageNamed:foodModel.imageName];
+    foodLabel.text = foodModel.name;
+    foodAbout.text = foodModel.about;
+    NSString *favoriteTitle = [foodModel.isFavorite boolValue] ? @"Desfavoritar" : @"Favoritar";
     [favoriteButton setTitle:favoriteTitle forState:UIControlStateNormal];
 }
 

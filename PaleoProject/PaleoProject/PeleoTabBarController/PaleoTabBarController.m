@@ -17,12 +17,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //TODO: Criar classe Utils
     float iOSVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
     if (iOSVersion >= 7) {
         self.tabBar.translucent = NO;
     }
-    
-	// Do any additional setup after loading the view.
 }
 
 -(id)init{
@@ -71,20 +70,19 @@
 -(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
     PaleoNavigationController *navCont = (PaleoNavigationController*)viewController;
     if (navCont == favoritesPaleoNavigationController) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"tabBarSelected" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:TabBarFavoriteSelected object:nil];
     }
 }
 
 -(void)addIcons{
     NSArray *itens = self.tabBar.items;
-    NSArray *itemImage = [NSArray arrayWithObjects:@"Food", @"Search", @"Favorites", @"Settings", nil];
-    NSArray *itemLabel = [NSArray arrayWithObjects:@"Alimentos", @"Busca", @"Favoritos", @"Ajustes", nil];
+    NSArray *itemImage = [NSArray arrayWithObjects:ImageFood, ImageSearch, ImageFavorites, ImageSettings, nil];
+    NSArray *itemLabel = [NSArray arrayWithObjects:BaseNameFoodCategory, BaseNameSearch, BaseNameFavorites, BaseNameSettings, nil];
     
     for (UITabBarItem *tabItem in itens) {
-        [tabItem setImage:[UIImage imageNamed:[NSString stringWithFormat:@"tabBarItem%@.png",[itemImage objectAtIndex:[itens indexOfObject:tabItem]]]]];
+        [tabItem setImage:[UIImage imageNamed:[NSString stringWithFormat:FormatBaseBarImage,[itemImage objectAtIndex:[itens indexOfObject:tabItem]]]]];
         [tabItem setTitle:[itemLabel objectAtIndex:[itens indexOfObject:tabItem]]];
     }
-    NSLog(@"itens");
 }
 
 @end

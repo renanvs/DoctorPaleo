@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PaleoItemTableView.h"
+#import "PaleoFoodTableView.h"
 
-@interface SearchViewController : UIViewController <UITableViewDataSource, PaleoItemTableViewDelegate, UISearchBarDelegate>{
-    NSArray *itemList;
-    IBOutlet PaleoItemTableView *tableView;
+@interface SearchViewController : UIViewController <UITableViewDataSource, PaleoFoodTableViewDelegate, UISearchBarDelegate>{
+    NSArray *foodItemList;
+    IBOutlet PaleoFoodTableView *tableView;
     IBOutlet UISearchBar *searchBar;
 }
 

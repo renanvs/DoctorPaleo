@@ -10,31 +10,15 @@
 
 @implementation FoodSubcategoriesCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
--(void)setItemModel:(EntityItemModel*)itemModel{
-    item = itemModel;
-    itemLabel.text = itemModel.name;
-    itemImage.image = [UIImage imageNamed:itemModel.imageName];
+-(void)setItemModel:(FoodItemModel*)foodModel_{
+    foodModel = foodModel_;
+    foodLabel.text = foodModel_.name;
+    foodImage.image = [UIImage imageNamed:foodModel_.imageName];
 }
 
 - (void)dealloc {
-    [itemImage release];
-    [itemLabel release];
+    [foodImage release];
+    [foodLabel release];
     [super dealloc];
 }
 @end

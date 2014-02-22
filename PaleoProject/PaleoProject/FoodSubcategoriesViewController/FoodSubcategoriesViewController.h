@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PaleoItemTableView.h"
+#import "PaleoFoodTableView.h"
 
-@interface FoodSubcategoriesViewController : UIViewController <UITableViewDataSource, PaleoItemTableViewDelegate>{
-    NSArray *itemModelList;
-    IBOutlet PaleoItemTableView *tableViewPaleo;
+@interface FoodSubcategoriesViewController : UIViewController <UITableViewDataSource, PaleoFoodTableViewDelegate>{
+    NSArray *foodModelList;
+    IBOutlet PaleoFoodTableView *tableViewPaleo;
 }
 
-- (id)initWithItemList:(NSArray*)itemList;
+- (id)initWithItemList:(NSArray*)foodModelList_;
 
 @end
