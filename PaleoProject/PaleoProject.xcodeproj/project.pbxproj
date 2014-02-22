@@ -64,6 +64,8 @@
 		1E9DD6F918B901F00076F3DC /* FoodSubcategoryHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9DD6F818B901F00076F3DC /* FoodSubcategoryHeadView.m */; };
 		1E9DD6FD18B902180076F3DC /* FoodSubcategoryHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E9DD6FC18B902180076F3DC /* FoodSubcategoryHeadView.xib */; };
 		1E9DD70118B9270F0076F3DC /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9DD70018B9270F0076F3DC /* Utils.m */; };
+		1E9DD70518B931260076F3DC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9DD70318B930790076F3DC /* MessageUI.framework */; };
+		1E9DD70818B931A00076F3DC /* PaleoMailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9DD70718B931A00076F3DC /* PaleoMailController.m */; };
 		1EC1253A18B2E7D60063C1CB /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC1253818B2E7D60063C1CB /* SearchViewController.m */; };
 		1EC1253E18B2E8680063C1CB /* PaleoTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC1253D18B2E8680063C1CB /* PaleoTabBarController.m */; };
 		1EC1254018B2E98F0063C1CB /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EC1253918B2E7D60063C1CB /* SearchViewController.xib */; };
@@ -152,6 +154,9 @@
 		1E9DD6FC18B902180076F3DC /* FoodSubcategoryHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FoodSubcategoryHeadView.xib; path = FoodSubcategoryHeadCell/FoodSubcategoryHeadView.xib; sourceTree = "<group>"; };
 		1E9DD6FF18B9270F0076F3DC /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = PaleoProject/Utils/Utils.h; sourceTree = "<group>"; };
 		1E9DD70018B9270F0076F3DC /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = PaleoProject/Utils/Utils.m; sourceTree = "<group>"; };
+		1E9DD70318B930790076F3DC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		1E9DD70618B931A00076F3DC /* PaleoMailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoMailController.h; path = PaleoMailController/PaleoMailController.h; sourceTree = "<group>"; };
+		1E9DD70718B931A00076F3DC /* PaleoMailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaleoMailController.m; path = PaleoMailController/PaleoMailController.m; sourceTree = "<group>"; };
 		1EC1253718B2E7D60063C1CB /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = SearchViewController/SearchViewController.h; sourceTree = "<group>"; };
 		1EC1253818B2E7D60063C1CB /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = SearchViewController/SearchViewController.m; sourceTree = "<group>"; };
 		1EC1253918B2E7D60063C1CB /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchViewController.xib; path = SearchViewController/SearchViewController.xib; sourceTree = "<group>"; };
@@ -174,6 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E9DD70518B931260076F3DC /* MessageUI.framework in Frameworks */,
 				1E56B20018B443E1004E8523 /* libsqlite3.0.dylib in Frameworks */,
 				1E56B1EF18B43DEB004E8523 /* CoreData.framework in Frameworks */,
 				1ECCC4CC18B06B7F0073992A /* CoreGraphics.framework in Frameworks */,
@@ -381,6 +387,7 @@
 		1E8EE26418B3B8EA000A01AF /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				1E9DD70218B9301B0076F3DC /* PaleoMailController */,
 				1E8EE26518B3B902000A01AF /* SettingsViewController.h */,
 				1E8EE26618B3B902000A01AF /* SettingsViewController.m */,
 				1E8EE26718B3B902000A01AF /* SettingsViewController.xib */,
@@ -422,6 +429,15 @@
 				1E9DD70018B9270F0076F3DC /* Utils.m */,
 			);
 			name = Others;
+			sourceTree = "<group>";
+		};
+		1E9DD70218B9301B0076F3DC /* PaleoMailController */ = {
+			isa = PBXGroup;
+			children = (
+				1E9DD70618B931A00076F3DC /* PaleoMailController.h */,
+				1E9DD70718B931A00076F3DC /* PaleoMailController.m */,
+			);
+			name = PaleoMailController;
 			sourceTree = "<group>";
 		};
 		1EC1253418B2E7950063C1CB /* Food */ = {
@@ -485,6 +501,7 @@
 		1ECCC4C818B06B7F0073992A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1E9DD70318B930790076F3DC /* MessageUI.framework */,
 				1E56B1FF18B443E1004E8523 /* libsqlite3.0.dylib */,
 				1E56B1EE18B43DEB004E8523 /* CoreData.framework */,
 				1ECCC4C918B06B7F0073992A /* Foundation.framework */,
@@ -627,6 +644,7 @@
 				1E8EE26118B390C5000A01AF /* FavoritesViewController.m in Sources */,
 				1E9DD6F918B901F00076F3DC /* FoodSubcategoryHeadView.m in Sources */,
 				1E56B20418B44417004E8523 /* PaleoSqlite.m in Sources */,
+				1E9DD70818B931A00076F3DC /* PaleoMailController.m in Sources */,
 				1E0E6E3318B8DCCA00A3E28D /* PaleoDefines.m in Sources */,
 				1E9DD6D218B8E78A0076F3DC /* FoodCategoryModel.m in Sources */,
 				1ECCC4DA18B06B7F0073992A /* AppDelegate.m in Sources */,

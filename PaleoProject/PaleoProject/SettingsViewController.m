@@ -7,6 +7,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "PaleoMailController.h"
 
 @implementation SettingsViewController
 
@@ -20,6 +21,16 @@
 
 - (IBAction)contact:(id)sender {
     //TODO: Mostrar controller de email (talvez custom para a aplicação)
+    if (![PaleoMailController canSendMail]) {
+        [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Verifique existe alguma conta de email cadastrada no dispositivo" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    }else{
+        PaleoMailController *mailController = [[PaleoMailController alloc] init];
+        [mailController setMessageBody:@"Teste de mensagem" isHTML:NO];
+        [mailController setToRecipients:[NSArray arrayWithObject:@"renanvelososilva@gmail.com"]];
+        [mailController setSubject:@"Teste de assunto"];
+        [[[mailController navigationBar] topItem]setTitle:@"custom title"];
+        [self presentViewController:mailController animated:YES completion:nil];
+    }
 }
 
 - (IBAction)cleanData:(id)sender {
