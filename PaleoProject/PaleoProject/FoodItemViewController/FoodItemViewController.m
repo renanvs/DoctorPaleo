@@ -31,8 +31,7 @@
 - (IBAction)favoriteHandler:(id)sender {
     BOOL isFavorite = [foodModel.isFavorite boolValue];
     foodModel.isFavorite = [NSNumber numberWithBool:!isFavorite];
-    NSString *favoriteTitle = [foodModel.isFavorite boolValue] ? @"Desfavoritar" : @"Favoritar";
-    [favoriteButton setTitle:favoriteTitle forState:UIControlStateNormal];
+    [self setFavoriteImage];
     [[[PaleoCoreData sharedInstance]context] save:nil];
 }
 
@@ -42,8 +41,12 @@
     foodImage.image = [UIImage imageNamed:foodModel.imageName];
     foodLabel.text = foodModel.name;
     foodAbout.text = foodModel.about;
-    NSString *favoriteTitle = [foodModel.isFavorite boolValue] ? @"Desfavoritar" : @"Favoritar";
-    [favoriteButton setTitle:favoriteTitle forState:UIControlStateNormal];
+    [self setFavoriteImage];
+}
+
+-(void)setFavoriteImage{
+    NSString *favoriteImageName = [foodModel.isFavorite boolValue] ? @"favoritedNot" : @"favorited";
+    [favoriteButton setImage:[UIImage imageNamed:favoriteImageName] forState:UIControlStateNormal];
 }
 
 @end

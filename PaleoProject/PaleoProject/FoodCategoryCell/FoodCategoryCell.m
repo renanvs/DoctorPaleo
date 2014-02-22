@@ -18,6 +18,9 @@
 
 -(void)setCategoryModel:(FoodCategoryModel*)categoryModel_{
     categoryModel = categoryModel_;
+    if ([categoryModel_.imageName isEqualToString:@"default.png"]) {
+        categoryModel_.imageName = @"defaultImage.png";
+    }
     self.categoryImageView.image = [UIImage imageNamed:categoryModel_.imageName];
     self.categoryLabel.text = categoryModel_.name;
 }

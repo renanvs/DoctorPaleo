@@ -8,6 +8,7 @@
 
 #import "PaleoFoodTableView.h"
 #import "FoodItemViewController.h"
+#import "FoodSubcategoryHeadView.h"
 
 @implementation PaleoFoodTableView
 @synthesize delegateList;
@@ -41,23 +42,36 @@
 
 }
 
-//TODO: Fazer Headers
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+    FoodSubcategoryHeadView *topView = [[[NSBundle mainBundle] loadNibNamed:@"FoodSubcategoryHeadView" owner:self options:nil] lastObject];
     
     if (section == 0) {
-        [view setBackgroundColor:[UIColor redColor]];
+        [topView setBackgroundColor:[UIColor redColor]];
     }
     
     if (section == 1) {
-        [view setBackgroundColor:[UIColor greenColor]];
+        [topView setBackgroundColor:[UIColor greenColor]];
     }
     
     if (section == 2) {
-        [view setBackgroundColor:[UIColor blueColor]];
+        [topView setBackgroundColor:[UIColor blueColor]];
     }
     
-    return view;
+    if ([delegateList respondsToSelector:@selector(foodItemList)]) {
+        foodList = [delegateList foodItemList];
+    }
+    
+    if (!foodList || foodList.count == 0) {
+        UIView *clearView = [[UIView alloc] init];
+        [clearView setBackgroundColor:[UIColor clearColor]];
+        return clearView;
+    }
+    
+    NSArray *typeList = [[PaleoFoodManager sharedInstance] getFoodTypeListWithFoodList:foodList];
+    FoodTypeModel *typeModel = [typeList objectAtIndex:section];
+    [topView setTypeName:typeModel.name];
+    
+    return topView;
 }
 
 -(int)getSectionCount{
@@ -110,6 +124,14 @@
     FoodItemModel *foodModel = [itemListWithType objectAtIndex:indexPath.row];
 
     return foodModel;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 55;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 30;
 }
 
 @end

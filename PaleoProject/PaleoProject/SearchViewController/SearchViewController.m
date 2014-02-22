@@ -55,10 +55,15 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationItem setTitle:NavNameSearch];
+    [self removeKeyboard];
 }
 
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar_{
-    for (UITextField *field in searchBar_.subviews) {
+    [self removeKeyboard];
+}
+
+-(void)removeKeyboard{
+    for (UITextField *field in searchBar.subviews) {
         [field resignFirstResponder];
     }
 }

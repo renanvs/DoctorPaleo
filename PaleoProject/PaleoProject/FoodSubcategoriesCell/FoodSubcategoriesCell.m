@@ -13,6 +13,9 @@
 -(void)setItemModel:(FoodItemModel*)foodModel_{
     foodModel = foodModel_;
     foodLabel.text = foodModel_.name;
+    if ([foodModel_.imageName isEqualToString:@"default.png"]) {
+        foodModel_.imageName = @"defaultImage.png";
+    }
     foodImage.image = [UIImage imageNamed:foodModel_.imageName];
 }
 

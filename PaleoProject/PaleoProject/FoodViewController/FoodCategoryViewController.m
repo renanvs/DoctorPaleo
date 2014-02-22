@@ -39,4 +39,8 @@
     [self.navigationController pushViewController:foodSubcategoryViewContoller animated:YES];
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 65;
+}
+
 @end
