@@ -30,6 +30,7 @@
     if (self) {
         self.delegate = self;
         [self addViewControllers];
+        [self addIcons];
     }
     return self;
 }
@@ -74,6 +75,16 @@
     }
 }
 
-
+-(void)addIcons{
+    NSArray *itens = self.tabBar.items;
+    NSArray *itemImage = [NSArray arrayWithObjects:@"Food", @"Search", @"Favorites", @"Settings", nil];
+    NSArray *itemLabel = [NSArray arrayWithObjects:@"Alimentos", @"Busca", @"Favoritos", @"Ajustes", nil];
+    
+    for (UITabBarItem *tabItem in itens) {
+        [tabItem setImage:[UIImage imageNamed:[NSString stringWithFormat:@"tabBarItem%@.png",[itemImage objectAtIndex:[itens indexOfObject:tabItem]]]]];
+        [tabItem setTitle:[itemLabel objectAtIndex:[itens indexOfObject:tabItem]]];
+    }
+    NSLog(@"itens");
+}
 
 @end
