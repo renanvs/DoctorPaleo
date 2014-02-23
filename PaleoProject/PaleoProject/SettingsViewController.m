@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "PaleoMailController.h"
+#import "AboutAppView.h"
 
 @implementation SettingsViewController
 
@@ -17,6 +18,8 @@
 
 - (IBAction)about:(id)sender {
     //TODO: Implementar view de sobre a aplicação
+    AboutAppView *aboutAppview = [[[NSBundle mainBundle] loadNibNamed:@"AboutAppView" owner:self options:nil] lastObject];
+    [[self findTopRootViewController].view addSubview:aboutAppview];
 }
 
 - (IBAction)contact:(id)sender {
@@ -34,7 +37,18 @@
 }
 
 - (IBAction)cleanData:(id)sender {
-    //TODO: Implementar default para a aplicação, e testar o reset do banco
+    [[[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Deseja apagar todos os dados do aplicativo" delegate:self cancelButtonTitle:@"Não" otherButtonTitles:@"Sim", nil] show];
+    
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        //Procurar como ajustar isso, testar e implementar atualizações
+        [[PaleoCoreData sharedInstance] flushDatabase];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"ApplicationAlreadyRunned"];
+        NSLog(@"Removendo dados do aplicativo");
+    }
+    
 }
 
 - (void)dealloc {
