@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UIViewController
+@interface SettingsViewController : UIViewController <UIAlertViewDelegate>
 
 - (IBAction)share:(id)sender;
 - (IBAction)about:(id)sender;

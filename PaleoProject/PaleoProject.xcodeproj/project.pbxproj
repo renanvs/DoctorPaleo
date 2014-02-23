@@ -66,6 +66,11 @@
 		1E9DD70118B9270F0076F3DC /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9DD70018B9270F0076F3DC /* Utils.m */; };
 		1E9DD70518B931260076F3DC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9DD70318B930790076F3DC /* MessageUI.framework */; };
 		1E9DD70818B931A00076F3DC /* PaleoMailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9DD70718B931A00076F3DC /* PaleoMailController.m */; };
+		1E9DD70C18B935340076F3DC /* AboutAppView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9DD70B18B935340076F3DC /* AboutAppView.m */; };
+		1E9DD70E18B935430076F3DC /* AboutAppView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E9DD70D18B935430076F3DC /* AboutAppView.xib */; };
+		1E9DD71018B936AD0076F3DC /* closeX in Resources */ = {isa = PBXBuildFile; fileRef = 1E9DD70F18B936AC0076F3DC /* closeX */; };
+		1E9DD71418B99CF30076F3DC /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 1E9DD71218B99CF30076F3DC /* about.html */; };
+		1E9DD71518B99CF30076F3DC /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E9DD71318B99CF30076F3DC /* test.png */; };
 		1EC1253A18B2E7D60063C1CB /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC1253818B2E7D60063C1CB /* SearchViewController.m */; };
 		1EC1253E18B2E8680063C1CB /* PaleoTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC1253D18B2E8680063C1CB /* PaleoTabBarController.m */; };
 		1EC1254018B2E98F0063C1CB /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EC1253918B2E7D60063C1CB /* SearchViewController.xib */; };
@@ -157,6 +162,12 @@
 		1E9DD70318B930790076F3DC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		1E9DD70618B931A00076F3DC /* PaleoMailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoMailController.h; path = PaleoMailController/PaleoMailController.h; sourceTree = "<group>"; };
 		1E9DD70718B931A00076F3DC /* PaleoMailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaleoMailController.m; path = PaleoMailController/PaleoMailController.m; sourceTree = "<group>"; };
+		1E9DD70A18B935340076F3DC /* AboutAppView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutAppView.h; path = AboutAppView/AboutAppView.h; sourceTree = "<group>"; };
+		1E9DD70B18B935340076F3DC /* AboutAppView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutAppView.m; path = AboutAppView/AboutAppView.m; sourceTree = "<group>"; };
+		1E9DD70D18B935430076F3DC /* AboutAppView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AboutAppView.xib; path = AboutAppView/AboutAppView.xib; sourceTree = "<group>"; };
+		1E9DD70F18B936AC0076F3DC /* closeX */ = {isa = PBXFileReference; lastKnownFileType = file; path = closeX; sourceTree = "<group>"; };
+		1E9DD71218B99CF30076F3DC /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
+		1E9DD71318B99CF30076F3DC /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		1EC1253718B2E7D60063C1CB /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = SearchViewController/SearchViewController.h; sourceTree = "<group>"; };
 		1EC1253818B2E7D60063C1CB /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = SearchViewController/SearchViewController.m; sourceTree = "<group>"; };
 		1EC1253918B2E7D60063C1CB /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchViewController.xib; path = SearchViewController/SearchViewController.xib; sourceTree = "<group>"; };
@@ -194,6 +205,7 @@
 		1E01CE9018B0BB9A00AD741B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				1E9DD70F18B936AC0076F3DC /* closeX */,
 				1E9DD6E318B8FF080076F3DC /* ImagesTest */,
 				1E9DD6D918B8F4FD0076F3DC /* bolo1.png */,
 				1E9DD6DA18B8F4FD0076F3DC /* bolo2.png */,
@@ -387,6 +399,7 @@
 		1E8EE26418B3B8EA000A01AF /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				1E9DD70918B935120076F3DC /* AboutAppView */,
 				1E9DD70218B9301B0076F3DC /* PaleoMailController */,
 				1E8EE26518B3B902000A01AF /* SettingsViewController.h */,
 				1E8EE26618B3B902000A01AF /* SettingsViewController.m */,
@@ -440,6 +453,26 @@
 			name = PaleoMailController;
 			sourceTree = "<group>";
 		};
+		1E9DD70918B935120076F3DC /* AboutAppView */ = {
+			isa = PBXGroup;
+			children = (
+				1E9DD70A18B935340076F3DC /* AboutAppView.h */,
+				1E9DD70B18B935340076F3DC /* AboutAppView.m */,
+				1E9DD70D18B935430076F3DC /* AboutAppView.xib */,
+			);
+			name = AboutAppView;
+			sourceTree = "<group>";
+		};
+		1E9DD71118B99CF30076F3DC /* html */ = {
+			isa = PBXGroup;
+			children = (
+				1E9DD71218B99CF30076F3DC /* about.html */,
+				1E9DD71318B99CF30076F3DC /* test.png */,
+			);
+			name = html;
+			path = PaleoProject/html;
+			sourceTree = "<group>";
+		};
 		1EC1253418B2E7950063C1CB /* Food */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,6 +515,7 @@
 		1ECCC4BD18B06B7E0073992A = {
 			isa = PBXGroup;
 			children = (
+				1E9DD71118B99CF30076F3DC /* html */,
 				1E9DD6FE18B926E60076F3DC /* Others */,
 				1ECCC4CF18B06B7F0073992A /* PaleoProject */,
 				1ECCC4C818B06B7F0073992A /* Frameworks */,
@@ -590,6 +624,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E9DD71018B936AD0076F3DC /* closeX in Resources */,
 				1E9DD6E218B8F4FD0076F3DC /* maca3.png in Resources */,
 				1E9DD6FD18B902180076F3DC /* FoodSubcategoryHeadView.xib in Resources */,
 				1E9DD6F018B8FF080076F3DC /* favorited.png in Resources */,
@@ -597,11 +632,13 @@
 				1ECCC4D418B06B7F0073992A /* InfoPlist.strings in Resources */,
 				1E01CE9418B0BB9A00AD741B /* baseBarIcons@2x in Resources */,
 				1E01CEB018B0CD2800AD741B /* FoodSubcategoriesCell.xib in Resources */,
+				1E9DD71418B99CF30076F3DC /* about.html in Resources */,
 				1E01CEA718B0CBBE00AD741B /* FoodSubcategoriesViewController.xib in Resources */,
 				1E0E6E2D18B855BF00A3E28D /* tabBarItemSearch.png in Resources */,
 				1E9DD6F518B8FF080076F3DC /* foodItemTopCellBorder.png in Resources */,
 				1E9DD6DE18B8F4FD0076F3DC /* bolo1.png in Resources */,
 				1E8EE26218B390C5000A01AF /* FavoritesViewController.xib in Resources */,
+				1E9DD71518B99CF30076F3DC /* test.png in Resources */,
 				1E01CE9A18B0C0F800AD741B /* FoodCategoryViewController.xib in Resources */,
 				1E9DD6DF18B8F4FD0076F3DC /* bolo2.png in Resources */,
 				1E8EE26918B3B902000A01AF /* SettingsViewController.xib in Resources */,
@@ -610,6 +647,7 @@
 				1E8C6B2F18B59B6C00E251CC /* maca.jpg in Resources */,
 				1E01CE9318B0BB9A00AD741B /* default in Resources */,
 				1E9DD6F218B8FF080076F3DC /* foodInfobackground.png in Resources */,
+				1E9DD70E18B935430076F3DC /* AboutAppView.xib in Resources */,
 				1E01CEA418B0CA0B00AD741B /* FoodCategoryCell.xib in Resources */,
 				1E0E6E2C18B855BF00A3E28D /* tabBarItemFood@2x.png in Resources */,
 				1E9DD6F118B8FF080076F3DC /* favoritedNot.png in Resources */,
@@ -653,6 +691,7 @@
 				1E01CEAE18B0CD0C00AD741B /* FoodSubcategoriesCell.m in Sources */,
 				1E01CEB518B0D41400AD741B /* FoodItemViewController.m in Sources */,
 				1E56B1E818B43620004E8523 /* PaleoUtils.m in Sources */,
+				1E9DD70C18B935340076F3DC /* AboutAppView.m in Sources */,
 				1E01CE9D18B0C1DD00AD741B /* PaleoNavigationController.m in Sources */,
 				1E01CEA218B0C9F300AD741B /* FoodCategoryCell.m in Sources */,
 				1E56B1E418B432D1004E8523 /* PaleoFoodTableView.m in Sources */,
