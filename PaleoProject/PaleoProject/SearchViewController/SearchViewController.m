@@ -15,6 +15,8 @@
 {
     [super viewDidLoad];
     tableView.delegateList = self;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidDisappear:) name:UIKeyboardDidHideNotification object:nil];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView_ cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -68,5 +70,55 @@
     }
 }
 
+
+-(void)keyboardDidShow:(NSNotification*)notification{
+    
+    //todo extract method
+    NSDictionary* keyboardInfo = [notification userInfo];
+    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+    CGFloat keyboardHeight = keyboardFrameBeginRect.size.height;
+    
+    CGFloat tabBarHeight = self.tabBarController.tabBar.frame.size.height;
+    CGFloat tableViewCurrentHeight = tableView.frame.size.height;
+    
+    CGFloat tableViewNewHeight = tableViewCurrentHeight + tabBarHeight - keyboardHeight;
+    
+    tableView.height = tableViewNewHeight;
+    
+}
+
+-(void)keyboardDidDisappear:(NSNotification*)notification{
+    
+    NSDictionary* keyboardInfo = [notification userInfo];
+    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+    CGFloat keyboardHeight = keyboardFrameBeginRect.size.height;
+    
+    CGFloat tabBarHeight = self.tabBarController.tabBar.frame.size.height;
+    CGFloat tableViewCurrentHeight = tableView.frame.size.height;
+    
+    CGFloat tableViewNewHeight = tableViewCurrentHeight + keyboardHeight - tabBarHeight;
+    
+    tableView.height = tableViewNewHeight;
+    
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [self removeKeyboard];
+}
+
+//-(NSUInteger)supportedInterfaceOrientations{
+//    
+//    return UIInterfaceOrientationMaskPortraitUpsideDown;
+//}
+//
+//-(BOOL)shouldAutorotate{
+//    return NO;
+//}
+//
+//-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
+//    return UIInterfaceOrientationPortrait;
+//}
 
 @end

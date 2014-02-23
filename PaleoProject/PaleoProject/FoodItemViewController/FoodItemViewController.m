@@ -44,8 +44,12 @@
     [self setFavoriteImage];
 }
 
+-(void)viewDidLoad{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setFavoriteImage) name:TabBarSelected object:nil];
+}
+
 -(void)setFavoriteImage{
-    NSString *favoriteImageName = [foodModel.isFavorite boolValue] ? @"favoritedNot" : @"favorited";
+    NSString *favoriteImageName = [foodModel.isFavorite boolValue] ? @"favorited" : @"favoritedNot";
     [favoriteButton setImage:[UIImage imageNamed:favoriteImageName] forState:UIControlStateNormal];
 }
 

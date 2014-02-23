@@ -40,7 +40,6 @@
     NSURL *path = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"about" ofType:@"html"]];
     NSString *html = [NSString stringWithContentsOfURL:path encoding:NSUTF8StringEncoding error:nil];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:path];
     [aboutWebView loadHTMLString:html baseURL:nil];
 }
 

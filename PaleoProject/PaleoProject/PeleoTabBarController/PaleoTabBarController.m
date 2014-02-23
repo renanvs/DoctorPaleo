@@ -75,6 +75,7 @@
     if (navCont == favoritesPaleoNavigationController) {
         [[NSNotificationCenter defaultCenter] postNotificationName:TabBarFavoriteSelected object:nil];
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:TabBarSelected object:nil];
 }
 
 -(void)addIcons{
@@ -87,5 +88,28 @@
         [tabItem setTitle:[itemLabel objectAtIndex:[itens indexOfObject:tabItem]]];
     }
 }
+
+//-(NSUInteger)supportedInterfaceOrientations{
+//    UIViewController *vc = [self selectedViewController];
+//    
+//    if (vc == searchPaleoNavigationController) {
+//        return UIInterfaceOrientationMaskPortraitUpsideDown;
+//    }
+//    return UIInterfaceOrientationMaskAll;
+//}
+//
+//-(BOOL)shouldAutorotate{
+//    UIViewController *vc = [self selectedViewController];
+//    
+//    if (vc == searchPaleoNavigationController) {
+//        return NO;
+//    }
+//    
+//    return YES;
+//}
+//
+//-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
+//    return UIInterfaceOrientationPortrait;
+//}
 
 @end

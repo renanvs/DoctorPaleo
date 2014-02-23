@@ -14,6 +14,10 @@
 
 -(NSString*)getSafeLiteralString:(NSString*)text;
 
++(CGRect) screenBoundsOnOrientation;
+
++(UIInterfaceOrientation)getDeviceOrientation;
+
 @end
 
 @interface NSString (custom)
