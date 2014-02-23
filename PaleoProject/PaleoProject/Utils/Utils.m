@@ -47,3 +47,98 @@ static id _instance;
 }
 
 @end
+
+@implementation UIView (Additions)
+
+-(void)setX:(float)newX{
+    CGRect frame = self.frame;
+    frame.origin.x = newX;
+    self.frame = frame;
+}
+
+-(float)x{
+    return self.frame.origin.x;
+}
+
+-(void) setY:(float) newY{
+    CGRect frame = self.frame;
+    frame.origin.x = newY;
+    self.frame = frame;
+}
+-(float)y{
+    return self.frame.origin.y;
+}
+
+-(void) setWidth:(float) newWidth{
+    CGRect frame = self.frame;
+    frame.size.width = newWidth;
+    self.frame = frame;
+}
+-(float)width{
+    return self.frame.size.width;
+}
+
+-(void) setHeight:(float) newHeight{
+    CGRect frame = self.frame;
+    frame.size.height = newHeight;
+    self.frame = frame;
+}
+-(float)height{
+    return self.frame.size.height;
+}
+
+@end
+
+@implementation UIResponder (Aditions)
+-(UIViewController *) findTopRootViewController {
+	UIWindow *topWindow = [[UIApplication sharedApplication] keyWindow];
+	
+	if (topWindow.windowLevel != UIWindowLevelNormal) {
+		NSArray *windows = [[UIApplication sharedApplication] windows];
+		
+		for(topWindow in windows) {
+			if (topWindow.windowLevel == UIWindowLevelNormal) {
+				break;
+			}
+		}
+	}
+	
+    UIView *rootView = nil;
+    
+    if ([[topWindow subviews] count] != 0){
+        rootView = [[topWindow subviews] objectAtIndex:0];
+    }
+    
+	id nextResponder = [rootView nextResponder];
+	
+	return [nextResponder isKindOfClass:[UIViewController class]]
+	? nextResponder
+	: nil;
+}
+@end
+
+@implementation NSString (JRAdditions)
+
++ (BOOL)isStringEmpty:(NSString *)string {
+    if([string length] == 0) { //string is empty or nil
+        return YES;
+    }
+    
+    if(![[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]) {
+        //string is all whitespace
+        return YES;
+    }
+    
+    return NO;
+}
+
++ (BOOL)isStringWithNumeric:(NSString*)string{
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    NSNumber *number = [formatter numberFromString:string];
+    bool status = number != nil;
+    
+    return status;
+}
+
+@end
