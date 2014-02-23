@@ -23,7 +23,7 @@
 @property (nonatomic, assign) id <PaleoFoodTableViewDelegate> delegateList;
 
 -(FoodItemModel*)getFoodModelByIndexPath:(NSIndexPath*)indexPath;
--(int)getNumberOfRowsInSection:(int)section;
--(int)getSectionCount;
+-(NSInteger)getNumberOfRowsInSection:(NSInteger)section;
+-(NSInteger)getSectionCount;
 
 @end

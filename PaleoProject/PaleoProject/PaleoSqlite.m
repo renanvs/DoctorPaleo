@@ -29,8 +29,6 @@
     }else{
         NSLog(@"Não é criado novo banco");
     }
-    
-    
 }
 
 - (NSMutableArray*) readDataFromDatabase

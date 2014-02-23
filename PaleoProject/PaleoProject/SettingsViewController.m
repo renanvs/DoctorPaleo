@@ -10,10 +10,15 @@
 #import "PaleoMailController.h"
 #import "AboutAppView.h"
 
+#import "SHKActionSheet.h"
+#import "SHKItem.h"
+
 @implementation SettingsViewController
 
 - (IBAction)share:(id)sender {
-    //TODO: Implementar ShareKit
+    SHKItem *item = [SHKItem text:@"Test Share"];
+    SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
+    [actionSheet showFromRect:[self findTopRootViewController].view.frame inView:[self findTopRootViewController].view animated:YES];
 }
 
 - (IBAction)about:(id)sender {

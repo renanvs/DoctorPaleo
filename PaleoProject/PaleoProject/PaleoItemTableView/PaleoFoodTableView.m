@@ -74,7 +74,7 @@
     return topView;
 }
 
--(int)getSectionCount{
+-(NSInteger)getSectionCount{
 
     if ([delegateList respondsToSelector:@selector(foodItemList)]) {
         foodList = [delegateList foodItemList];
@@ -90,7 +90,7 @@
 
 }
 
--(int)getNumberOfRowsInSection:(int)section{
+-(NSInteger)getNumberOfRowsInSection:(NSInteger)section{
     if ([delegateList respondsToSelector:@selector(foodItemList)]) {
         foodList = [delegateList foodItemList];
     }

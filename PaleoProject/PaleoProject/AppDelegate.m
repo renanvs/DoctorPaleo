@@ -10,6 +10,9 @@
 #import "PaleoTabBarController.h"
 #import "PaleoCoreData.h"
 
+#import "SHKConfiguration.h"
+#import "SharekitCustom.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -18,7 +21,7 @@
     
     //TODO: ver se é necessario
     //[PaleoCoreData sharedInstance];
-    
+    [self loadDefaultSocialConfiguration];
     PaleoTabBarController *tabBarController = [[PaleoTabBarController alloc] init];
     
     self.window.rootViewController = tabBarController;
@@ -27,6 +30,21 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+
+- (void) loadDefaultSocialConfiguration
+{
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"SHK_FAVS_1"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"SHK_FAVS_2"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"SHK_FAVS_3"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"SHK_FAVS_4"];
+    
+    
+    
+    SharekitCustom *customSharer = [[SharekitCustom alloc] init];
+    [SHKConfiguration sharedInstanceWithConfigurator:customSharer];
 }
 
 @end
