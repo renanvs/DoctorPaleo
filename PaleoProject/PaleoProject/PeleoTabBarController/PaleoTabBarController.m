@@ -19,6 +19,7 @@
     [super viewDidLoad];
     //TODO: Criar classe Utils
     float iOSVersion = [[[UIDevice currentDevice] systemVersion] floatValue];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:NO];
     if (iOSVersion >= 7) {
         self.tabBar.translucent = NO;
     }
@@ -39,6 +40,8 @@
     searchPaleoNavigationController = [self createSearchItemController];
     favoritesPaleoNavigationController = [self createFavoriteItemController];
     settingsPaleoNavigationController = [self createSettingsController];
+    
+    //self.viewControllers = [NSArray arrayWithObjects:settingsPaleoNavigationController,nil];
     
     self.viewControllers = [NSArray arrayWithObjects:categoriesPaleoNavigationController, searchPaleoNavigationController, favoritesPaleoNavigationController, settingsPaleoNavigationController,nil];
 }

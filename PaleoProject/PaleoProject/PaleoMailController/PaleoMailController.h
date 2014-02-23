@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <MessageUI/MessageUI.h>
 
-@interface PaleoMailController : MFMailComposeViewController
+@interface PaleoMailController : MFMailComposeViewController <MFMailComposeViewControllerDelegate>
 
 @end

@@ -10,4 +10,18 @@
 
 @implementation PaleoMailController
 
+-(id)init{
+    self =[super init];
+    
+    if (self) {
+        self.mailComposeDelegate = self;
+    }
+    
+    return self;
+}
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end
