@@ -44,7 +44,7 @@
 }
 
 - (NSString*)linkedInCallbackUrl {
-	return @"";
+	return @"http://www.digitalpages.com.br";
 }
 
 

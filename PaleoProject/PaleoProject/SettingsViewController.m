@@ -12,6 +12,9 @@
 
 #import "SHKActionSheet.h"
 #import "SHKItem.h"
+#import "SHKiOSFacebook.h"
+#import "SHKiOSTwitter.h"
+#import "SHKLinkedIn.h"
 
 @implementation SettingsViewController
 
@@ -22,28 +25,22 @@
 }
 
 - (IBAction)about:(id)sender {
+    SHKItem *item = [SHKItem text:@"Test Share"];
+    [SHKLinkedIn shareItem:item];
     //TODO: Implementar view de sobre a aplicação
-    AboutAppView *aboutAppview = [[[NSBundle mainBundle] loadNibNamed:@"AboutAppView" owner:self options:nil] lastObject];
-    [[self findTopRootViewController].view addSubview:aboutAppview];
+ //   AboutAppView *aboutAppview = [[[NSBundle mainBundle] loadNibNamed:@"AboutAppView" owner:self options:nil] lastObject];
+   // [[self findTopRootViewController].view addSubview:aboutAppview];
 }
 
 - (IBAction)contact:(id)sender {
-    //TODO: Mostrar controller de email (talvez custom para a aplicação)
-    if (![PaleoMailController canSendMail]) {
-        [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Verifique existe alguma conta de email cadastrada no dispositivo" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    }else{
-        PaleoMailController *mailController = [[PaleoMailController alloc] init];
-        [mailController setMessageBody:@"Teste de mensagem" isHTML:NO];
-        [mailController setToRecipients:[NSArray arrayWithObject:@"renanvelososilva@gmail.com"]];
-        [mailController setSubject:@"Teste de assunto"];
-        [[[mailController navigationBar] topItem]setTitle:@"custom title"];
-        [self presentViewController:mailController animated:YES completion:nil];
-    }
+    SHKItem *item = [SHKItem text:@"Test Share"];
+    [SHKiOSFacebook shareItem:item];
+
 }
 
 - (IBAction)cleanData:(id)sender {
-    [[[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Deseja apagar todos os dados do aplicativo" delegate:self cancelButtonTitle:@"Não" otherButtonTitles:@"Sim", nil] show];
-    
+    SHKItem *item = [SHKItem text:@"Test Share"];
+    [SHKiOSTwitter shareItem:item];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

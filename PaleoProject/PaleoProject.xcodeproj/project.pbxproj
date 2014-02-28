@@ -33,7 +33,7 @@
 		1E56B1E818B43620004E8523 /* PaleoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E56B1E718B43620004E8523 /* PaleoUtils.m */; };
 		1E56B1EF18B43DEB004E8523 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E56B1EE18B43DEB004E8523 /* CoreData.framework */; };
 		1E56B1F218B43EF5004E8523 /* PaleoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E56B1F018B43EF5004E8523 /* PaleoDataModel.xcdatamodeld */; };
-		1E56B20018B443E1004E8523 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E56B1FF18B443E1004E8523 /* libsqlite3.0.dylib */; };
+		1E56B20018B443E1004E8523 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E56B1FF18B443E1004E8523 /* libsqlite3.0.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
 		1E56B20418B44417004E8523 /* PaleoSqlite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E56B20318B44417004E8523 /* PaleoSqlite.m */; };
 		1E56B20618B44E95004E8523 /* exemplo.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1E56B20518B44E95004E8523 /* exemplo.sqlite */; };
 		1E8C6B2418B593A500E251CC /* PaleoFoodManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E8C6B2318B593A500E251CC /* PaleoFoodManager.m */; };
@@ -87,11 +87,11 @@
 		1EF5F75318BA371400D0D2F1 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF5F75218BA371400D0D2F1 /* MobileCoreServices.framework */; };
 		1EF5F75518BA371C00D0D2F1 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF5F75418BA371C00D0D2F1 /* CoreMedia.framework */; };
 		1EF5F75718BA372200D0D2F1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF5F75618BA372200D0D2F1 /* AVFoundation.framework */; };
-		1EF5F75918BA373600D0D2F1 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF5F75818BA373600D0D2F1 /* Twitter.framework */; };
-		1EF5F75B18BA373B00D0D2F1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF5F75A18BA373A00D0D2F1 /* AdSupport.framework */; };
-		1EF5F75D18BA374600D0D2F1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF5F75C18BA374600D0D2F1 /* Accounts.framework */; };
-		1EF5F75F18BA375400D0D2F1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF5F75E18BA375400D0D2F1 /* Social.framework */; };
-		1EF5F76118BA375A00D0D2F1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF5F76018BA375A00D0D2F1 /* StoreKit.framework */; };
+		1EF5F75918BA373600D0D2F1 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF5F75818BA373600D0D2F1 /* Twitter.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		1EF5F75B18BA373B00D0D2F1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF5F75A18BA373A00D0D2F1 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		1EF5F75D18BA374600D0D2F1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF5F75C18BA374600D0D2F1 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		1EF5F75F18BA375400D0D2F1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF5F75E18BA375400D0D2F1 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		1EF5F76118BA375A00D0D2F1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF5F76018BA375A00D0D2F1 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		1EF5F76618BA37E200D0D2F1 /* SharekitCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF5F76518BA37E200D0D2F1 /* SharekitCustom.m */; };
 		1EF5F76818BA3E1700D0D2F1 /* ShareKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1EF5F76718BA3E1700D0D2F1 /* ShareKit.bundle */; };
 /* End PBXBuildFile section */
