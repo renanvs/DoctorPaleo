@@ -69,25 +69,4 @@ static id _instance;
     [context setPersistentStoreCoordinator:coordinator];
     return context;
 }
-
-
-//TODO: testar funcionalidade
--(void) flushDatabase{
-    [context lock];
-    
-    NSManagedObjectModel *model = [self managedObjectModel];
-    NSPersistentStoreCoordinator *coordinator = [self coordinator];
-    NSArray *stores = [coordinator persistentStores];
-    for(NSPersistentStore *store in stores) {
-        [coordinator removePersistentStore:store error:nil];
-        [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:nil];
-    }
-    [context unlock];
-    
-    model   = nil;
-    context  = nil;
-    coordinator = nil;
-}
-
-
 @end

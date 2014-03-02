@@ -13,7 +13,5 @@
 - (IBAction)share:(id)sender;
 - (IBAction)about:(id)sender;
 - (IBAction)contact:(id)sender;
-- (IBAction)cleanData:(id)sender;
-
 
 @end

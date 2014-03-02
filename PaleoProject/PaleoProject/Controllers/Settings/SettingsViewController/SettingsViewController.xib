@@ -48,17 +48,6 @@
                         <action selector="contact:" destination="-1" eventType="touchUpInside" id="Bv5-E3-lDm"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1f2-iT-Xga">
-                    <rect key="frame" x="20" y="186" width="280" height="43"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.23534443429999999" green="0.88324804320000005" blue="0.27749510360000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Clean all data">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="cleanData:" destination="-1" eventType="touchUpInside" id="kgA-HJ-iSI"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
         </view>

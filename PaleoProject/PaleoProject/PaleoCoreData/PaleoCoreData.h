@@ -16,6 +16,4 @@
 
 + (PaleoCoreData *) sharedInstance;
 
--(void) flushDatabase;
-
 @end
