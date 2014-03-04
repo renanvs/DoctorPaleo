@@ -10,7 +10,10 @@
 
 @interface FoodSubcategoryHeadView : UIView{
     IBOutlet UILabel *typeLabel;
+    UIImageView *headBackgroundImageView;
 }
+
+@property (retain, nonatomic) IBOutlet UIImageView *headBackgroundImageView;
 
 -(void)setTypeName:(NSString*)typeName;
 

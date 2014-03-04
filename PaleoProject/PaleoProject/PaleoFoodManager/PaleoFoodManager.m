@@ -72,16 +72,16 @@ static id _instance;
 }
 
 -(NSArray *)getFoodWithSearchQuery:(NSString*)query{
+    if ([query isEqualToString:@"*"]) {
+        return [self getAllFoodItens];
+    }
+    
     query = [[Utils sharedInstance] getSafeLiteralString:query];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:EntityFood inManagedObjectContext:context];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    request.entity = entity;
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    request.sortDescriptors = [NSArray arrayWithObject:descriptor];
-    NSArray *list = [context executeFetchRequest:request error:nil];
     
     NSMutableArray *foundedItens = [[NSMutableArray alloc] init];
     NSRange range;
+    
+    NSArray *list = [self getAllFoodItens];
     
     for (FoodItemModel *foodItem in list) {
         NSString *foodName = [[Utils sharedInstance] getSafeLiteralString:foodItem.name];
@@ -93,6 +93,16 @@ static id _instance;
     }
     
     return foundedItens;
+}
+
+-(NSArray *)getAllFoodItens{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:EntityFood inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    request.entity = entity;
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    request.sortDescriptors = [NSArray arrayWithObject:descriptor];
+    NSArray *list = [context executeFetchRequest:request error:nil];
+    return list;
 }
 
 -(NSArray *)getTypeList{
@@ -142,6 +152,15 @@ static id _instance;
 
 -(NSArray *)favoriteFoodList{
     return [self getFavoriteFoodList];
+}
+
+-(FoodItemModel*)findFoodItemByIndex:(NSIndexPath*)index AtList:(NSArray*)list{
+    NSArray *type = [self getFoodTypeListWithFoodList:list];
+    NSDictionary *dic = [self getDictionaryWithFoodTypeList:type AndFoodList:list];
+    NSString *keyDesire = [[dic allKeys] objectAtIndex:index.section];
+    FoodItemModel *currentFood = [[dic objectForKey:keyDesire] lastObject];
+    
+    return currentFood;
 }
 
 @end

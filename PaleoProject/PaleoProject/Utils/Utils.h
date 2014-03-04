@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#define debugAlert(message) \
+[Utils debugAlert:(message)]
+
 @interface Utils : NSObject
 
 + (Utils *) sharedInstance;
@@ -17,6 +20,8 @@
 +(CGRect) screenBoundsOnOrientation;
 
 +(UIInterfaceOrientation)getDeviceOrientation;
+
++(void)debugAlert:(NSString*)message;
 
 @end
 

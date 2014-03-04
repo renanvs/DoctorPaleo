@@ -16,6 +16,7 @@
     IBOutlet UIImageView *foodImage;
     IBOutlet UILabel *foodLabel;
     IBOutlet UITextView *foodAbout;
+    IBOutlet UIImageView *typeImageView;
     FoodItemModel *foodModel;
 }
 

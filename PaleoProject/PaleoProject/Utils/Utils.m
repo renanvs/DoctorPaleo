@@ -65,6 +65,10 @@ static id _instance;
     return interfaceOrientation;
 }
 
++(void)debugAlert:(NSString*)message{
+    [[[[UIAlertView alloc] initWithTitle:@"Debbug" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] autorelease]show];
+}
+
 @end
 
 @implementation UIView (Additions)

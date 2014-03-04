@@ -51,7 +51,7 @@
 }
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-    foodItemList = [[PaleoFoodManager sharedInstance] getFoodWithSearchQuery:searchText];
+    foodItemList = [[NSArray alloc ]initWithArray: [[PaleoFoodManager sharedInstance] getFoodWithSearchQuery:searchText]];
     [tableView reloadData];
 }
 
@@ -107,18 +107,5 @@
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     [self removeKeyboard];
 }
-
-//-(NSUInteger)supportedInterfaceOrientations{
-//    
-//    return UIInterfaceOrientationMaskPortraitUpsideDown;
-//}
-//
-//-(BOOL)shouldAutorotate{
-//    return NO;
-//}
-//
-//-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
-//    return UIInterfaceOrientationPortrait;
-//}
 
 @end

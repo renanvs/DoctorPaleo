@@ -11,6 +11,7 @@
                 <outlet property="foodAbout" destination="gKN-Hg-xVa" id="SO8-YD-1Uo"/>
                 <outlet property="foodImage" destination="sby-cB-eEN" id="LAt-gg-xPV"/>
                 <outlet property="foodLabel" destination="m9C-0u-dot" id="hMe-HW-TGs"/>
+                <outlet property="typeImageView" destination="4Nb-gH-w7g" id="nqH-mg-tv4"/>
                 <outlet property="typeLabel" destination="9ia-dq-eWq" id="Fjp-DL-1Pq"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>

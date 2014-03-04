@@ -77,6 +77,9 @@
 		1E157B0C18C050AC00E0BC61 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E157AC818C050AC00E0BC61 /* Utils.m */; };
 		1E56B1EF18B43DEB004E8523 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E56B1EE18B43DEB004E8523 /* CoreData.framework */; };
 		1E56B20018B443E1004E8523 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E56B1FF18B443E1004E8523 /* libsqlite3.0.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
+		1E92781118C3CEBE0056B4FB /* foodItemTopCellBorder1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E92780E18C3CEBE0056B4FB /* foodItemTopCellBorder1.png */; };
+		1E92781218C3CEBE0056B4FB /* foodItemTopCellBorder2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E92780F18C3CEBE0056B4FB /* foodItemTopCellBorder2.png */; };
+		1E92781318C3CEBE0056B4FB /* foodItemTopCellBorder3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E92781018C3CEBE0056B4FB /* foodItemTopCellBorder3.png */; };
 		1E9DD70518B931260076F3DC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9DD70318B930790076F3DC /* MessageUI.framework */; };
 		1ECCC4CA18B06B7F0073992A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ECCC4C918B06B7F0073992A /* Foundation.framework */; };
 		1ECCC4CC18B06B7F0073992A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ECCC4CB18B06B7F0073992A /* CoreGraphics.framework */; };
@@ -253,6 +256,9 @@
 		1E157AC818C050AC00E0BC61 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		1E56B1EE18B43DEB004E8523 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		1E56B1FF18B443E1004E8523 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		1E92780E18C3CEBE0056B4FB /* foodItemTopCellBorder1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodItemTopCellBorder1.png; sourceTree = "<group>"; };
+		1E92780F18C3CEBE0056B4FB /* foodItemTopCellBorder2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodItemTopCellBorder2.png; sourceTree = "<group>"; };
+		1E92781018C3CEBE0056B4FB /* foodItemTopCellBorder3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodItemTopCellBorder3.png; sourceTree = "<group>"; };
 		1E9DD70318B930790076F3DC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		1ECCC4C618B06B7F0073992A /* PaleoProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaleoProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ECCC4C918B06B7F0073992A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -656,6 +662,9 @@
 		1E157A9418C050AC00E0BC61 /* ImagesTest */ = {
 			isa = PBXGroup;
 			children = (
+				1E92780E18C3CEBE0056B4FB /* foodItemTopCellBorder1.png */,
+				1E92780F18C3CEBE0056B4FB /* foodItemTopCellBorder2.png */,
+				1E92781018C3CEBE0056B4FB /* foodItemTopCellBorder3.png */,
 				1E157A9518C050AC00E0BC61 /* categoryCellBorder.png */,
 				1E157A9618C050AC00E0BC61 /* defaultImage.png */,
 				1E157A9718C050AC00E0BC61 /* defaultMoreCellButton.png */,
@@ -877,6 +886,7 @@
 				1E157AEB18C050AC00E0BC61 /* default in Resources */,
 				1E157AFC18C050AC00E0BC61 /* tabBarItemFood@2x.png in Resources */,
 				1E157AF518C050AC00E0BC61 /* maca.jpg in Resources */,
+				1E92781118C3CEBE0056B4FB /* foodItemTopCellBorder1.png in Resources */,
 				1E157AED18C050AC00E0BC61 /* defaultImage.png in Resources */,
 				1E157AD018C050AC00E0BC61 /* FoodCategoryViewController.xib in Resources */,
 				1E157AF418C050AC00E0BC61 /* foodItemTopCellBorder.png in Resources */,
@@ -906,6 +916,7 @@
 				1E157AEE18C050AC00E0BC61 /* defaultMoreCellButton.png in Resources */,
 				1E157AEC18C050AC00E0BC61 /* categoryCellBorder.png in Resources */,
 				1E157ADD18C050AC00E0BC61 /* FoodSubcategoryHeadView.xib in Resources */,
+				1E92781218C3CEBE0056B4FB /* foodItemTopCellBorder2.png in Resources */,
 				1E157AE518C050AC00E0BC61 /* test.png in Resources */,
 				1E157AD418C050AC00E0BC61 /* AboutAppView.xib in Resources */,
 				1E157AE818C050AC00E0BC61 /* bolo1.png in Resources */,
@@ -914,6 +925,7 @@
 				1E157AFF18C050AC00E0BC61 /* tabBarItemSettings.png in Resources */,
 				1E157ACC18C050AC00E0BC61 /* FoodItemViewController.xib in Resources */,
 				1E157ACE18C050AC00E0BC61 /* FoodSubcategoriesViewController.xib in Resources */,
+				1E92781318C3CEBE0056B4FB /* foodItemTopCellBorder3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

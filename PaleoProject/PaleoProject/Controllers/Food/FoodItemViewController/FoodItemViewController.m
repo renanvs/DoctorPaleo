@@ -42,6 +42,7 @@
     foodLabel.text = foodModel.name;
     foodAbout.text = foodModel.about;
     [self setFavoriteImage];
+    [self setFoodTypeImage];
 }
 
 -(void)viewDidLoad{
@@ -51,6 +52,18 @@
 -(void)setFavoriteImage{
     NSString *favoriteImageName = [foodModel.isFavorite boolValue] ? @"favorited" : @"favoritedNot";
     [favoriteButton setImage:[UIImage imageNamed:favoriteImageName] forState:UIControlStateNormal];
+}
+
+-(void)setFoodTypeImage{
+    NSString *type = foodModel.type.name;
+    
+    if ([type isEqualToString:@"Paleo"]) {
+        typeImageView.image = [UIImage imageNamed:@"foodItemTopCellBorder1.png"];
+    }else if ([type isEqualToString:@"Low-Carb"]) {
+        typeImageView.image = [UIImage imageNamed:@"foodItemTopCellBorder2.png"];
+    }else if ([type isEqualToString:@"Não LowCarb"]) {
+        typeImageView.image = [UIImage imageNamed:@"foodItemTopCellBorder3.png"];
+    }
 }
 
 @end

@@ -9,9 +9,15 @@
 #import "FoodSubcategoryHeadView.h"
 
 @implementation FoodSubcategoryHeadView
+@synthesize headBackgroundImageView;
 
 -(void)setTypeName:(NSString*)typeName{
     typeLabel.text = typeName;
 }
 
+
+- (void)dealloc {
+    [headBackgroundImageView release];
+    [super dealloc];
+}
 @end
