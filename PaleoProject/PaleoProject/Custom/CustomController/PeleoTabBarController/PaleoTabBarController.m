@@ -74,6 +74,8 @@
     PaleoNavigationController *navCont = (PaleoNavigationController*)viewController;
     if (navCont == favoritesPaleoNavigationController) {
         [[NSNotificationCenter defaultCenter] postNotificationName:TabBarFavoriteSelected object:nil];
+    }else if (navCont == categoriesPaleoNavigationController){
+        [[NSNotificationCenter defaultCenter] postNotificationName:TabBarFoodSelected object:nil];
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:TabBarSelected object:nil];
 }
@@ -88,28 +90,4 @@
         [tabItem setTitle:[itemLabel objectAtIndex:[itens indexOfObject:tabItem]]];
     }
 }
-
-//-(NSUInteger)supportedInterfaceOrientations{
-//    UIViewController *vc = [self selectedViewController];
-//    
-//    if (vc == searchPaleoNavigationController) {
-//        return UIInterfaceOrientationMaskPortraitUpsideDown;
-//    }
-//    return UIInterfaceOrientationMaskAll;
-//}
-//
-//-(BOOL)shouldAutorotate{
-//    UIViewController *vc = [self selectedViewController];
-//    
-//    if (vc == searchPaleoNavigationController) {
-//        return NO;
-//    }
-//    
-//    return YES;
-//}
-//
-//-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
-//    return UIInterfaceOrientationPortrait;
-//}
-
 @end

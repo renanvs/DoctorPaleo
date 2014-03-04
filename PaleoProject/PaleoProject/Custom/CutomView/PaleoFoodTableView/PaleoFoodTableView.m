@@ -156,10 +156,6 @@
     }else{
         [self deleteRowsAtIndexPaths:indexPathList withRowAnimation:UITableViewRowAnimationLeft];
     }
-    
-    
-    
-    
 }
 
 @end

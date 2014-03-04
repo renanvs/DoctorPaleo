@@ -26,6 +26,7 @@
 //Nome das Notifications
 #define TabBarFavoriteSelected  @"TabBarFavoriteSelected"
 #define TabBarSelected          @"TabBarSelected"
+#define TabBarFoodSelected      @"TabBarFoodSelected"
 
 //Titulo do BaseBar
 #define BaseNameSettings         @"Ajustes"
