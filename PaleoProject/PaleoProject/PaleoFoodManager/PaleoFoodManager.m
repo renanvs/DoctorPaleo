@@ -163,4 +163,11 @@ static id _instance;
     return currentFood;
 }
 
+-(void)removeAllFavorites{
+    NSArray *favoriteList = [self favoriteFoodList];
+    for (FoodItemModel *foodItem in favoriteList) {
+        foodItem.isFavorite = [NSNumber numberWithBool:NO];
+    }
+}
+
 @end

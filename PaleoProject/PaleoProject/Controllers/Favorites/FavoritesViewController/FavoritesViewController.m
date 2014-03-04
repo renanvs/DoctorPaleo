@@ -44,7 +44,9 @@
 }
 
 -(void)removeAllFavorites{
-    debugAlert(@"remove tudo");
+    
+    [[PaleoFoodManager sharedInstance] removeAllFavorites];
+    [tableView reloadData];
 }
 
 -(NSArray *)foodItemList{
@@ -58,6 +60,7 @@
 
 -(void)tabBarSelected{
     [tableView reloadData];
+    [self adjustNavigationBarIsEditMode:NO];
 }
 
 -(void)adjustNavigationBarIsEditMode:(BOOL)value{
