@@ -45,31 +45,28 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     FoodSubcategoryHeadView *topView = [[[NSBundle mainBundle] loadNibNamed:@"FoodSubcategoryHeadView" owner:self options:nil] lastObject];
     
-    if (section == 0) {
-        [topView setBackgroundColor:[UIColor redColor]];
-    }
-    
-    if (section == 1) {
-        [topView setBackgroundColor:[UIColor greenColor]];
-    }
-    
-    if (section == 2) {
-        [topView setBackgroundColor:[UIColor blueColor]];
-    }
-    
     if ([delegateList respondsToSelector:@selector(foodItemList)]) {
         foodList = [delegateList foodItemList];
     }
     
-    if (!foodList || foodList.count == 0) {
+    if (!foodList) {
         UIView *clearView = [[UIView alloc] init];
         [clearView setBackgroundColor:[UIColor clearColor]];
         return clearView;
     }
     
+    
     NSArray *typeList = [[PaleoFoodManager sharedInstance] getFoodTypeListWithFoodList:foodList];
     FoodTypeModel *typeModel = [typeList objectAtIndex:section];
     [topView setTypeName:typeModel.name];
+    
+    if ([typeModel.name isEqualToString:@"Paleo"]) {
+        topView.headBackgroundImageView.image = [UIImage imageNamed:@"foodItemTopCellBorder1.png"];
+    }else if ([typeModel.name isEqualToString:@"Low-Carb"]) {
+        topView.headBackgroundImageView.image = [UIImage imageNamed:@"foodItemTopCellBorder2.png"];
+    }else if ([typeModel.name isEqualToString:@"Não LowCarb"]) {
+        topView.headBackgroundImageView.image = [UIImage imageNamed:@"foodItemTopCellBorder3.png"];
+    }
     
     return topView;
 }
@@ -81,7 +78,7 @@
     }
     
     if (!foodList || foodList.count == 0) {
-        return 1;
+        return 0;
     }
 
     NSArray *typeList = [[PaleoFoodManager sharedInstance] getFoodTypeListWithFoodList:foodList];
@@ -131,7 +128,38 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 30;
+    return 60;
+}
+
+-(void)removeItemFromTableViewAtIndex:(NSIndexPath*)index{
+    if ([delegateList respondsToSelector:@selector(foodItemList)]) {
+        foodList = [delegateList foodItemList];
+    }
+    
+    if (!foodList || foodList.count == 0) {
+        return;
+    }
+    
+    NSArray *indexPathList = [NSArray arrayWithObject:index];
+    FoodItemModel *foodItem = [[PaleoFoodManager sharedInstance] findFoodItemByIndex:index AtList:foodList];
+    foodItem.isFavorite = [NSNumber numberWithBool:NO];
+    
+    NSArray *types = [[PaleoFoodManager sharedInstance] getFoodTypeListWithFoodList:foodList];
+    NSDictionary *dic = [[PaleoFoodManager sharedInstance] getDictionaryWithFoodTypeList:types AndFoodList:foodList];
+    
+    NSString *desireKey = [[dic allKeys] objectAtIndex:index.section];
+    NSArray *currentList = [dic objectForKey:desireKey];
+    
+    if (currentList.count == 1) {
+        NSIndexSet *set = [NSIndexSet indexSetWithIndex:index.section];
+        [self deleteSections:set withRowAnimation:UITableViewRowAnimationLeft];
+    }else{
+        [self deleteRowsAtIndexPaths:indexPathList withRowAnimation:UITableViewRowAnimationLeft];
+    }
+    
+    
+    
+    
 }
 
 @end

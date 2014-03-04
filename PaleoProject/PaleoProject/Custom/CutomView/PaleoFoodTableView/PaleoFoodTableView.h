@@ -25,5 +25,6 @@
 -(FoodItemModel*)getFoodModelByIndexPath:(NSIndexPath*)indexPath;
 -(NSInteger)getNumberOfRowsInSection:(NSInteger)section;
 -(NSInteger)getSectionCount;
+-(void)removeItemFromTableViewAtIndex:(NSIndexPath*)index;
 
 @end

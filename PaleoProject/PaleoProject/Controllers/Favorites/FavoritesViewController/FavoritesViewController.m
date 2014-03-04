@@ -35,9 +35,16 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationItem setTitle:NavNameFavorites];
+    
+    [self adjustNavigationBarIsEditMode:NO];
+    
     tableView.delegateList = self;
     [tableView reloadData];
     
+}
+
+-(void)removeAllFavorites{
+    debugAlert(@"remove tudo");
 }
 
 -(NSArray *)foodItemList{
@@ -51,6 +58,47 @@
 
 -(void)tabBarSelected{
     [tableView reloadData];
+}
+
+-(void)adjustNavigationBarIsEditMode:(BOOL)value{
+    self.navigationItem.leftBarButtonItem = nil;
+    self.navigationItem.rightBarButtonItem = nil;
+    
+    if (value) {
+        UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Apagar Tudo" style:UIBarButtonItemStyleBordered target:self action:@selector(removeAllFavorites)];
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancelar" style:UIBarButtonItemStyleBordered target:self action:@selector(tempHandler1)];
+        
+        self.navigationItem.rightBarButtonItem = rightButton;
+        self.navigationItem.leftBarButtonItem = leftButton;
+        
+        [tableView setEditing:YES animated:YES];
+    }else{
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Editar" style:UIBarButtonItemStyleBordered target:self action:@selector(tempHandler)];
+        
+        self.navigationItem.rightBarButtonItem = rightButton;
+        [tableView setEditing:NO animated:YES];
+    }
+}
+
+-(void)tempHandler{
+    [self adjustNavigationBarIsEditMode:YES];
+}
+
+-(void)tempHandler1{
+    [self adjustNavigationBarIsEditMode:NO];
+}
+
+-(void)setEditing:(BOOL)editing animated:(BOOL)animated{
+    [super setEditing:editing animated:animated];
+    
+}
+
+-(void)tableView:(UITableView *)tableView_ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"sdfsdf");
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [tableView removeItemFromTableViewAtIndex:indexPath];
+    }
 }
 
 @end
