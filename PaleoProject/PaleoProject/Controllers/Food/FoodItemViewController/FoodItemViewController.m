@@ -43,6 +43,7 @@
     foodAbout.text = foodModel.about;
     [self setFavoriteImage];
     [self setFoodTypeImage];
+    [PaleoGA trackScreen:@"FoodItemScreen"];
 }
 
 -(void)viewDidLoad{

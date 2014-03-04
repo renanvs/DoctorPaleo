@@ -14,6 +14,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationItem setTitle:NavNameFoodCategory];
+    [PaleoGA trackScreen:@"FoodCategoryScreen"];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

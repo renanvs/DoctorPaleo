@@ -18,4 +18,5 @@
     #import "PaleoFoodManager.h"
     #import "PaleoDefines.h"
     #import "Utils.h"
+    #import "PaleoGA.h"
 #endif

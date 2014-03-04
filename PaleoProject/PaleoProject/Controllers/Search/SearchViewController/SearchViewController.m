@@ -58,6 +58,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationItem setTitle:NavNameSearch];
     [self removeKeyboard];
+    [PaleoGA trackScreen:@"SearchScreen"];
 }
 
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar_{

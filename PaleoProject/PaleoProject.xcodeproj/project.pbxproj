@@ -97,6 +97,9 @@
 		1EF5F75D18BA374600D0D2F1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF5F75C18BA374600D0D2F1 /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		1EF5F75F18BA375400D0D2F1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF5F75E18BA375400D0D2F1 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		1EF5F76118BA375A00D0D2F1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF5F76018BA375A00D0D2F1 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		1EFCA23818C66412006979A8 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EFCA23018C66412006979A8 /* libGoogleAnalyticsServices.a */; };
+		1EFCA23A18C6645A006979A8 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EFCA23918C6645A006979A8 /* libz.dylib */; };
+		1EFCA23E18C66873006979A8 /* PaleoGA.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EFCA23D18C66873006979A8 /* PaleoGA.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -280,6 +283,16 @@
 		1EF5F75C18BA374600D0D2F1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		1EF5F75E18BA375400D0D2F1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		1EF5F76018BA375A00D0D2F1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		1EFCA23018C66412006979A8 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		1EFCA23218C66412006979A8 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		1EFCA23318C66412006979A8 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		1EFCA23418C66412006979A8 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		1EFCA23518C66412006979A8 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		1EFCA23618C66412006979A8 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		1EFCA23718C66412006979A8 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		1EFCA23918C6645A006979A8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		1EFCA23C18C66873006979A8 /* PaleoGA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaleoGA.h; path = PaleoProject/PaleoGA/PaleoGA.h; sourceTree = "<group>"; };
+		1EFCA23D18C66873006979A8 /* PaleoGA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaleoGA.m; path = PaleoProject/PaleoGA/PaleoGA.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +300,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EFCA23A18C6645A006979A8 /* libz.dylib in Frameworks */,
 				1EF5F76118BA375A00D0D2F1 /* StoreKit.framework in Frameworks */,
 				1EF5F75F18BA375400D0D2F1 /* Social.framework in Frameworks */,
 				1EF5F75D18BA374600D0D2F1 /* Accounts.framework in Frameworks */,
@@ -301,6 +315,7 @@
 				1EF5F74F18BA36F800D0D2F1 /* SystemConfiguration.framework in Frameworks */,
 				1E9DD70518B931260076F3DC /* MessageUI.framework in Frameworks */,
 				1E56B20018B443E1004E8523 /* libsqlite3.0.dylib in Frameworks */,
+				1EFCA23818C66412006979A8 /* libGoogleAnalyticsServices.a in Frameworks */,
 				1E56B1EF18B43DEB004E8523 /* CoreData.framework in Frameworks */,
 				1ECCC4CC18B06B7F0073992A /* CoreGraphics.framework in Frameworks */,
 				1ECCC4CE18B06B7F0073992A /* UIKit.framework in Frameworks */,
@@ -536,6 +551,7 @@
 		1E157A4618C050AB00E0BC61 /* External Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				1EFCA22F18C66412006979A8 /* GoogleAnalytics */,
 				1E157A4718C050AB00E0BC61 /* ShareKit */,
 			);
 			name = "External Libraries";
@@ -767,6 +783,7 @@
 		1ECCC4BD18B06B7E0073992A = {
 			isa = PBXGroup;
 			children = (
+				1EFCA23B18C66846006979A8 /* PaleoGA */,
 				1ECCC4D818B06B7F0073992A /* AppDelegate.h */,
 				1ECCC4D918B06B7F0073992A /* AppDelegate.m */,
 				1E157A0918C050AB00E0BC61 /* Controllers */,
@@ -798,6 +815,7 @@
 		1ECCC4C818B06B7F0073992A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1EFCA23918C6645A006979A8 /* libz.dylib */,
 				1EF5F76018BA375A00D0D2F1 /* StoreKit.framework */,
 				1EF5F75E18BA375400D0D2F1 /* Social.framework */,
 				1EF5F75C18BA374600D0D2F1 /* Accounts.framework */,
@@ -828,6 +846,37 @@
 			);
 			name = "Supporting Files";
 			path = PaleoProject;
+			sourceTree = "<group>";
+		};
+		1EFCA22F18C66412006979A8 /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				1EFCA23018C66412006979A8 /* libGoogleAnalyticsServices.a */,
+				1EFCA23118C66412006979A8 /* Library */,
+			);
+			path = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
+		1EFCA23118C66412006979A8 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				1EFCA23218C66412006979A8 /* GAI.h */,
+				1EFCA23318C66412006979A8 /* GAIDictionaryBuilder.h */,
+				1EFCA23418C66412006979A8 /* GAIFields.h */,
+				1EFCA23518C66412006979A8 /* GAILogger.h */,
+				1EFCA23618C66412006979A8 /* GAITrackedViewController.h */,
+				1EFCA23718C66412006979A8 /* GAITracker.h */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		1EFCA23B18C66846006979A8 /* PaleoGA */ = {
+			isa = PBXGroup;
+			children = (
+				1EFCA23C18C66873006979A8 /* PaleoGA.h */,
+				1EFCA23D18C66873006979A8 /* PaleoGA.m */,
+			);
+			name = PaleoGA;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -961,6 +1010,7 @@
 				1E157B0118C050AC00E0BC61 /* FoodCategoryModel.m in Sources */,
 				1E157AD618C050AC00E0BC61 /* SettingsViewController.m in Sources */,
 				1E157ADE18C050AC00E0BC61 /* PaleoNavigationController.m in Sources */,
+				1EFCA23E18C66873006979A8 /* PaleoGA.m in Sources */,
 				1E157AC918C050AC00E0BC61 /* FavoritesViewController.m in Sources */,
 				1E157AD118C050AC00E0BC61 /* SearchViewController.m in Sources */,
 			);
@@ -1078,6 +1128,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/renansilva/Projects/DoctorPaleo/PaleoProject/PaleoProject/External\\ Libraries/ShareKit",
+					"/Users/renansilva/Projects/DoctorPaleo/PaleoProject/PaleoProject/External\\ Libraries/GoogleAnalytics",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1099,6 +1150,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/renansilva/Projects/DoctorPaleo/PaleoProject/PaleoProject/External\\ Libraries/ShareKit",
+					"/Users/renansilva/Projects/DoctorPaleo/PaleoProject/PaleoProject/External\\ Libraries/GoogleAnalytics",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

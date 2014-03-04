@@ -40,7 +40,7 @@
     
     tableView.delegateList = self;
     [tableView reloadData];
-    
+    [PaleoGA trackScreen:@"FavoriteScreen"];
 }
 
 -(void)removeAllFavorites{

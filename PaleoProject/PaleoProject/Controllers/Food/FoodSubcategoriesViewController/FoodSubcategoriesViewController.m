@@ -27,6 +27,7 @@
     //TODO: Subcategorias deve ser o titulo da categoria
     [self.navigationItem setTitle:@"Subcategorias"];
     tableViewPaleo.delegateList = self;
+    [PaleoGA trackScreen:@"FoodSubcategoriesScreen"];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
