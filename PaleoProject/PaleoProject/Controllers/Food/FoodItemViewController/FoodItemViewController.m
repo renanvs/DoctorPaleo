@@ -7,6 +7,7 @@
 //
 
 #import "FoodItemViewController.h"
+#import <CoreGraphics/CoreGraphics.h>
 
 @implementation FoodItemViewController
 
@@ -31,8 +32,21 @@
 - (IBAction)favoriteHandler:(id)sender {
     BOOL isFavorite = [foodModel.isFavorite boolValue];
     foodModel.isFavorite = [NSNumber numberWithBool:!isFavorite];
-    [self setFavoriteImage];
     [[[PaleoCoreData sharedInstance]context] save:nil];
+    favoriteButton.userInteractionEnabled = NO;
+    [self setFavoriteImage];
+
+    [UIView animateWithDuration:.5 animations:^{
+        favoriteButton.transform = CGAffineTransformRotate(CGAffineTransformMakeScale(1.6, 1.6), Degrees_To_Radians(180));
+    }completion:^(BOOL finished){
+        [UIView animateWithDuration:.5 animations:^{
+            [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+            favoriteButton.transform = CGAffineTransformMakeScale(1, 1);
+            favoriteButton.userInteractionEnabled = YES;
+        }];
+    }];
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -52,7 +66,7 @@
 
 -(void)setFavoriteImage{
     NSString *favoriteImageName = [foodModel.isFavorite boolValue] ? @"favorited" : @"favoritedNot";
-    [favoriteButton setImage:[UIImage imageNamed:favoriteImageName] forState:UIControlStateNormal];
+    [favoriteButton setBackgroundImage:[UIImage imageNamed:favoriteImageName] forState:UIControlStateNormal];
 }
 
 -(void)setFoodTypeImage{

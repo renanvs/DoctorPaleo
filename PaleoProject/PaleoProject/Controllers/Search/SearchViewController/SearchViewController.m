@@ -16,6 +16,8 @@
     [super viewDidLoad];
     tableView.delegateList = self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidDisappear:) name:UIKeyboardDidHideNotification object:nil];
 }
 
@@ -55,6 +57,10 @@
     [tableView reloadData];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationItem setTitle:NavNameSearch];
     [self removeKeyboard];
@@ -74,6 +80,33 @@
 
 -(void)keyboardDidShow:(NSNotification*)notification{
     
+    
+}
+
+-(void)keyboardDidDisappear:(NSNotification*)notification{
+    
+    
+    
+}
+
+-(void)keyboardWillDisappear:(NSNotification*)notification{
+    NSDictionary* keyboardInfo = [notification userInfo];
+    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+    CGFloat keyboardHeight = keyboardFrameBeginRect.size.height;
+    
+    CGFloat tabBarHeight = self.tabBarController.tabBar.frame.size.height;
+    CGFloat tableViewCurrentHeight = tableView.frame.size.height;
+    
+    CGFloat tableViewNewHeight = tableViewCurrentHeight + keyboardHeight - tabBarHeight;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    tableView.height = tableViewNewHeight;
+    [UIView commitAnimations];
+}
+
+-(void)keyboardWillShow:(NSNotification*)notification{
     //todo extract method
     NSDictionary* keyboardInfo = [notification userInfo];
     NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
@@ -85,24 +118,11 @@
     
     CGFloat tableViewNewHeight = tableViewCurrentHeight + tabBarHeight - keyboardHeight;
     
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
     tableView.height = tableViewNewHeight;
-    
-}
+    [UIView commitAnimations];
 
--(void)keyboardDidDisappear:(NSNotification*)notification{
-    
-    NSDictionary* keyboardInfo = [notification userInfo];
-    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
-    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
-    CGFloat keyboardHeight = keyboardFrameBeginRect.size.height;
-    
-    CGFloat tabBarHeight = self.tabBarController.tabBar.frame.size.height;
-    CGFloat tableViewCurrentHeight = tableView.frame.size.height;
-    
-    CGFloat tableViewNewHeight = tableViewCurrentHeight + keyboardHeight - tabBarHeight;
-    
-    tableView.height = tableViewNewHeight;
-    
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{

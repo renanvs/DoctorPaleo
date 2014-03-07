@@ -66,8 +66,44 @@ static id _instance;
 }
 
 +(void)debugAlert:(NSString*)message{
-    [[[[UIAlertView alloc] initWithTitle:@"Debbug" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] autorelease]show];
+    [[[[UIAlertView alloc] initWithTitle:@"Debug" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] autorelease]show];
 }
+
+//-(void)keepAnimationState:(UIView*)view{
+//    CGRect rect = [self getBlankRect];
+//    
+//    rect = view.frame;
+//    //CGRect screenRect = screenBounds();
+//    //[foodTableView setY:-screenRect.size.height];
+//}
+//
+//-(CGRect)getBlankRect{
+//    if (animationRect0.size.width == 0) {
+//        return animationRect0;
+//    }else if (animationRect1.size.width == 0) {
+//        return animationRect1;
+//    }else if (animationRect2.size.width == 0) {
+//        return animationRect2;
+//    }else if (animationRect3.size.width == 0) {
+//        return animationRect3;
+//    }else if (animationRect4.size.width == 0) {
+//        return animationRect4;
+//    }else{
+//        animationRect0 = CGRectMake(0, 0, 0, 0);
+//        animationRect1 = CGRectMake(0, 0, 0, 0);
+//        animationRect2 = CGRectMake(0, 0, 0, 0);
+//        animationRect3 = CGRectMake(0, 0, 0, 0);
+//        animationRect4 = CGRectMake(0, 0, 0, 0);
+//    }
+//    return animationRect0;
+//}
+//
+//-(void)commitAnimetion:(UIView*)view{
+//    [UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationDuration:1.3];
+//    [view setY:originaRect.origin.y];
+//    [UIView commitAnimations];
+//}
 
 @end
 
@@ -85,7 +121,7 @@ static id _instance;
 
 -(void) setY:(float) newY{
     CGRect frame = self.frame;
-    frame.origin.x = newY;
+    frame.origin.y = newY;
     self.frame = frame;
 }
 -(float)y{

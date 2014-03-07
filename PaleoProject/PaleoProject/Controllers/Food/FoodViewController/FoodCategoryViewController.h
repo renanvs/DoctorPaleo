@@ -10,6 +10,7 @@
 
 @interface FoodCategoryViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>{
     IBOutlet UITableView *foodTableView;
+    CGRect originaRect;
 }
 
 @end

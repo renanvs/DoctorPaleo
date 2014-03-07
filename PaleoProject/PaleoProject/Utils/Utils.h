@@ -11,6 +11,12 @@
 #define debugAlert(message) \
 [Utils debugAlert:(message)]
 
+#define screenBounds() \
+[Utils screenBoundsOnOrientation]
+
+#define PI 3.14159265358979 /* pi */
+#define Degrees_To_Radians(angle) (angle / 180.0 * PI)
+
 @interface Utils : NSObject
 
 + (Utils *) sharedInstance;

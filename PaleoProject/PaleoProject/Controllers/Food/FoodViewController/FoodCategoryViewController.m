@@ -15,6 +15,9 @@
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationItem setTitle:NavNameFoodCategory];
     [PaleoGA trackScreen:@"FoodCategoryScreen"];
+    originaRect = foodTableView.frame;
+    CGRect screenRect = screenBounds();
+    [foodTableView setY:-screenRect.size.height];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -42,6 +45,14 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 65;
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1.1];
+    [foodTableView setY:originaRect.origin.y];
+    [UIView commitAnimations];
 }
 
 @end

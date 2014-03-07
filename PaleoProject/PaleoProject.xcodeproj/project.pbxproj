@@ -300,6 +300,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ECCC4CC18B06B7F0073992A /* CoreGraphics.framework in Frameworks */,
 				1EFCA23A18C6645A006979A8 /* libz.dylib in Frameworks */,
 				1EF5F76118BA375A00D0D2F1 /* StoreKit.framework in Frameworks */,
 				1EF5F75F18BA375400D0D2F1 /* Social.framework in Frameworks */,
@@ -317,7 +318,6 @@
 				1E56B20018B443E1004E8523 /* libsqlite3.0.dylib in Frameworks */,
 				1EFCA23818C66412006979A8 /* libGoogleAnalyticsServices.a in Frameworks */,
 				1E56B1EF18B43DEB004E8523 /* CoreData.framework in Frameworks */,
-				1ECCC4CC18B06B7F0073992A /* CoreGraphics.framework in Frameworks */,
 				1ECCC4CE18B06B7F0073992A /* UIKit.framework in Frameworks */,
 				1ECCC4CA18B06B7F0073992A /* Foundation.framework in Frameworks */,
 			);
@@ -361,7 +361,7 @@
 			children = (
 				1E157A1018C050AB00E0BC61 /* FoodItemViewController */,
 				1E157A1418C050AB00E0BC61 /* FoodSubcategoriesViewController */,
-				1E157A1818C050AB00E0BC61 /* FoodViewController */,
+				1E157A1818C050AB00E0BC61 /* FoodCategoryViewController */,
 			);
 			path = Food;
 			sourceTree = "<group>";
@@ -386,13 +386,14 @@
 			path = FoodSubcategoriesViewController;
 			sourceTree = "<group>";
 		};
-		1E157A1818C050AB00E0BC61 /* FoodViewController */ = {
+		1E157A1818C050AB00E0BC61 /* FoodCategoryViewController */ = {
 			isa = PBXGroup;
 			children = (
 				1E157A1918C050AB00E0BC61 /* FoodCategoryViewController.h */,
 				1E157A1A18C050AB00E0BC61 /* FoodCategoryViewController.m */,
 				1E157A1B18C050AB00E0BC61 /* FoodCategoryViewController.xib */,
 			);
+			name = FoodCategoryViewController;
 			path = FoodViewController;
 			sourceTree = "<group>";
 		};
@@ -1047,7 +1048,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Rafael Steil (9SQJCZD6ZQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Rafael Steil (9SQJCZD6ZQ)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1069,7 +1071,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PROVISIONING_PROFILE = "7067423D-0940-4F87-B5C6-195521FC9993";
+				PROVISIONING_PROFILE = "70B1304F-1858-4650-A56A-B7AEB40072BF";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1107,7 +1109,7 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PROVISIONING_PROFILE = "7067423D-0940-4F87-B5C6-195521FC9993";
+				PROVISIONING_PROFILE = "70B1304F-1858-4650-A56A-B7AEB40072BF";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

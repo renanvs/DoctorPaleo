@@ -21,8 +21,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     [self loadDefaultSocialConfiguration];
-    //[[PaleoGA sharedInstance] setTrackId:@"UA-48609840-1"];
-    [[PaleoGA sharedInstance] setTrackId:@""];
+    NSString *ga =@"";
+    //NSString *ga = @"UA-48609840-1";
+    [[PaleoGA sharedInstance] setTrackId:ga];
     PaleoTabBarController *tabBarController = [[PaleoTabBarController alloc] init];
     
     self.window.rootViewController = tabBarController;
