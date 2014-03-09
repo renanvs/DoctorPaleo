@@ -66,6 +66,10 @@
     self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.rightBarButtonItem = nil;
     
+    if ([self foodItemList].count == 0) {
+        return;
+    }
+    
     if (value) {
         UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Apagar Tudo" style:UIBarButtonItemStyleBordered target:self action:@selector(removeAllFavorites)];
         UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancelar" style:UIBarButtonItemStyleBordered target:self action:@selector(tempHandler1)];
@@ -99,6 +103,7 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [tableView removeItemFromTableViewAtIndex:indexPath];
+        [self adjustNavigationBarIsEditMode:NO];
     }
 }
 
@@ -106,6 +111,7 @@
     if (buttonIndex == 1) {
         [[PaleoFoodManager sharedInstance] removeAllFavorites];
         [tableView reloadData];
+        [self adjustNavigationBarIsEditMode:NO];
     }
 }
 
