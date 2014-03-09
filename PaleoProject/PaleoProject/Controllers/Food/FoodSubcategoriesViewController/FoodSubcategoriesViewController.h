@@ -12,8 +12,9 @@
 @interface FoodSubcategoriesViewController : UIViewController <UITableViewDataSource, PaleoFoodTableViewDelegate>{
     NSArray *foodModelList;
     IBOutlet PaleoFoodTableView *tableViewPaleo;
+    FoodCategoryModel *foodCategoryModel;
 }
 
-- (id)initWithItemList:(NSArray*)foodModelList_;
+- (id)initWithCategory:(FoodCategoryModel*)foodCategoryModel_;
 
 @end

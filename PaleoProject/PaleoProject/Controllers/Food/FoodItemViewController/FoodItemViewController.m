@@ -18,6 +18,7 @@
     self = [super init];
     if (self) {
         foodModel = foodModel_;
+        //gatodo: mostrando o model, model.name e model.category
     }
     return self;
 }
@@ -51,6 +52,8 @@
             favoriteButton.userInteractionEnabled = YES;
         }];
     }];
+    
+    //gatodo: model.name model.category model.isfavorited
 }
 
 #pragma mark - when view did/will appear

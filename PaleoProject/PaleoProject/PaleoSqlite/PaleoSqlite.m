@@ -28,7 +28,9 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"ApplicationAlreadyRunned"];
         [context save:nil];
         NSLog(@"Primeira vez que o aplicativo é aberto ou dados resetados");
+        //gatodo: primeira vez que aplicativo abre
     }else{
+        //gatodo: aplicativo aberto
         NSLog(@"Não é criado novo banco");
     }
 }

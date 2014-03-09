@@ -41,6 +41,9 @@
     //Pega o FoodItemModel pelo indexPath e apresenta o FoodItemViewController passando o FoodItemModel
     FoodItemModel *foodModel = [self getFoodModelByIndexPath:indexPath];
     FoodItemViewController *foodItemViewController = [[FoodItemViewController alloc] initWithItemModel:foodModel];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:CellFoodItemSelectd object:foodModel];
+    //gatodo: foodmodel.name foodmodel.category.name selected
     [[PaleoUtils sharedInstance] pushViewControllerInCurrentNavigationController:foodItemViewController];
 
 }
@@ -155,6 +158,7 @@
     FoodItemModel *foodItem = [[PaleoFoodManager sharedInstance] findFoodItemByIndex:index AtList:foodList];
     [[PaleoFoodManager sharedInstance] removeItemFromFavorites:foodItem];
     
+    //gatodo: removendo item dos favoritos, passar o nome do item e a categoria
     
     //Pega a lista de FoodItemModel baseado na seção atual para saber se remove a seção (se houver apenas um item na lista)
     // ou remove a linha (caso haja mais de um item lista)

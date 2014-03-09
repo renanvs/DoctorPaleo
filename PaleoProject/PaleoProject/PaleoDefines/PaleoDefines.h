@@ -27,6 +27,7 @@
 #define TabBarFavoriteSelected  @"TabBarFavoriteSelected"
 #define TabBarSelected          @"TabBarSelected"
 #define TabBarFoodSelected      @"TabBarFoodSelected"
+#define CellFoodItemSelectd     @"CellFoodItemSelectd"
 
 //Titulo do BaseBar
 #define BaseNameSettings         @"Ajustes"

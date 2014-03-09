@@ -76,8 +76,14 @@
     PaleoNavigationController *navCont = (PaleoNavigationController*)viewController;
     if (navCont == favoritesPaleoNavigationController) {
         [[NSNotificationCenter defaultCenter] postNotificationName:TabBarFavoriteSelected object:nil];
+        //gatodo: tabbar selected favorites
     }else if (navCont == categoriesPaleoNavigationController){
         [[NSNotificationCenter defaultCenter] postNotificationName:TabBarFoodSelected object:nil];
+        //gatodo: tabbar selected categories
+    }else if  (navCont == settingsPaleoNavigationController){
+        //gatodo: tabbar selected settings
+    }else if  (navCont == searchPaleoNavigationController){
+        //gatodo: tabbar selected search
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:TabBarSelected object:nil];
 }

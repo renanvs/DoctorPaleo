@@ -16,10 +16,13 @@
 
 #pragma mark - initial method's
 
-- (id)initWithItemList:(NSArray*)foodModelList_{
+- (id)initWithCategory:(FoodCategoryModel*)foodCategoryModel_{
     self = [super init];
     if (self) {
-        foodModelList = [[NSArray alloc] initWithArray:foodModelList_];
+        foodModelList = [[NSArray alloc] initWithArray: [[PaleoFoodManager sharedInstance] getFoodListByCategory:foodCategoryModel_]];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellSelected:) name:CellFoodItemSelectd object:nil];
+        foodCategoryModel = foodCategoryModel_;
+        //gatodo: foodCategorymodel.name
     }
     return self;
 }
@@ -28,7 +31,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     //TODO: Subcategorias deve ser o titulo da categoria
-    [self.navigationItem setTitle:@"Subcategorias"];
+    [self.navigationItem setTitle:foodCategoryModel.name];
     tableViewPaleo.delegateList = self;
     [PaleoGA trackScreen:FoodSubcategoriesScreen];
 }
@@ -59,6 +62,17 @@
 
 -(NSArray *)foodItemList{
     return foodModelList;
+}
+
+#pragma mark - Notification's
+
+-(void)cellSelected:(NSNotification*)notification{
+    
+    if ([[PaleoUtils sharedInstance] currentNavigationController] == [self navigationController]) {
+        FoodItemModel *foodItemModel = (FoodItemModel*)notification.object;
+        //gatodo: model.name model.category from foodsub
+    }
+
 }
 
 @end

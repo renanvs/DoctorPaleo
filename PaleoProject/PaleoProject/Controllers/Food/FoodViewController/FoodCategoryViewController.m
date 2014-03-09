@@ -23,7 +23,6 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:1.1];
     [foodTableView setY:originaRect.origin.y];
@@ -51,7 +50,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     FoodCategoryModel *category = [[[PaleoFoodManager sharedInstance] categoryList] objectAtIndex:indexPath.row];
-    FoodSubcategoriesViewController *foodSubcategoryViewContoller = [[FoodSubcategoriesViewController alloc] initWithItemList:[[PaleoFoodManager sharedInstance] getFoodListByCategory:category]];
+    FoodSubcategoriesViewController *foodSubcategoryViewContoller = [[FoodSubcategoriesViewController alloc] initWithCategory:category];
+    //gatodo: category.name selected
     [self.navigationController pushViewController:foodSubcategoryViewContoller animated:YES];
 }
 

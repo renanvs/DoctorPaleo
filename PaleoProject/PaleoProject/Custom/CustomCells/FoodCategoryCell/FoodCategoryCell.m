@@ -25,6 +25,7 @@
     categoryModel = categoryModel_;
     //todo: criar method auxiliar para verificar a existencia de imagens no projeto
     if ([categoryModel_.imageName isEqualToString:@"default.png"]) {
+        //gatodo: categoryMode.name sem imagem
         categoryModel_.imageName = @"defaultImage.png";
     }
     self.categoryImageView.image = [UIImage imageNamed:categoryModel_.imageName];

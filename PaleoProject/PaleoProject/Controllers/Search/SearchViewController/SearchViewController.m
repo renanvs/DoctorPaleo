@@ -19,6 +19,7 @@
     tableView.delegateList = self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellSelected:) name:CellFoodItemSelectd object:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -63,10 +64,12 @@
 }
 
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar_{
+    //gatodo: searchBar.text with current time
     [self removeKeyboard];
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    //gatodo: searchBar.text with current time
     [self removeKeyboard];
 }
 
@@ -114,6 +117,16 @@
     [UIView setAnimationDuration:0.3];
     tableView.height = tableViewNewHeight;
     [UIView commitAnimations];
+}
+
+#pragma mark - Selector's
+
+-(void)cellSelected:(NSNotification*)notification{
+    if ([[PaleoUtils sharedInstance] currentNavigationController] == [self navigationController]) {
+        FoodItemModel *foodItemModel = (FoodItemModel*)notification.object;
+        //gatodo: model.name model.category from search
+    }
+    //gatodo: searchBar.text with current time
 }
 
 #pragma mark - finishing method's

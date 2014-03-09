@@ -192,11 +192,14 @@ static id _instance;
         foodItem.isFavorite = [NSNumber numberWithBool:NO];
     }
     
+    //gatodo: remover todos os favoritos
+    
     [context save:nil];
 }
 
 //Muda os status de favoritado para NO (false) no foodItem
 -(void)removeItemFromFavorites:(FoodItemModel*)foodItem{
+    //gatodo: remover fooditem.name fooditem.category.name
     foodItem.isFavorite = [NSNumber numberWithBool:NO];
     [context save:nil];
 }

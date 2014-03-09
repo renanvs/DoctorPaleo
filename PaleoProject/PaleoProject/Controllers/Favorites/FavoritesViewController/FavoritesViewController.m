@@ -63,6 +63,7 @@
 -(void)viewDidLoad{
     [super viewDidLoad];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarSelected) name:TabBarFavoriteSelected object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellSelected:) name:CellFoodItemSelectd object:nil];
 }
 
 #pragma mark - selectors
@@ -75,6 +76,7 @@
 //todo ajustar
 -(void)tempHandler{
     [self adjustNavigationBarIsEditMode:YES];
+    //gatodo: Botão editar pressionado
 }
 
 
@@ -116,6 +118,18 @@
         self.navigationItem.rightBarButtonItem = rightButton;
         [tableView setEditing:NO animated:YES];
     }
+}
+
+#pragma mark - Notfication's
+
+-(void)cellSelected:(NSNotification*)notification{
+    
+    
+    if ([[PaleoUtils sharedInstance] currentNavigationController] == [self navigationController]) {
+        FoodItemModel *foodItemModel = (FoodItemModel*)notification.object;
+        //gatodo: model.name model.category from favorites
+    }
+    
 }
 
 #pragma mark - AlertView Delegate
