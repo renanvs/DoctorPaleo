@@ -63,8 +63,7 @@ static id _instance;
 }
 
 //Pega o tamanho da tela na orientação atual
-//todo: rename method
-+(CGRect) screenBoundsOnOrientation{
++(CGRect) screenBoundsOnCurrentOrientation{
     CGRect screenBounds = [UIScreen mainScreen].bounds ;
     CGFloat width = CGRectGetWidth(screenBounds)  ;
     CGFloat height = CGRectGetHeight(screenBounds) ;

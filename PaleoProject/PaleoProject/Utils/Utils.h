@@ -12,7 +12,7 @@
 [Utils debugAlert:(message)]
 
 #define screenBounds() \
-[Utils screenBoundsOnOrientation]
+[Utils screenBoundsOnCurrentOrientation]
 
 #define PI 3.14159265358979 /* pi */
 #define Degrees_To_Radians(angle) (angle / 180.0 * PI)
@@ -23,7 +23,7 @@
 
 -(NSString*)getSafeLiteralString:(NSString*)text;
 
-+(CGRect) screenBoundsOnOrientation;
++(CGRect) screenBoundsOnCurrentOrientation;
 
 +(UIInterfaceOrientation)getDeviceOrientation;
 
