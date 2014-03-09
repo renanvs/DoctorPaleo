@@ -16,7 +16,7 @@
 -(void)setItemModel:(FoodItemModel*)foodModel_{
     foodModel = foodModel_;
     foodLabel.text = foodModel_.name;
-    if ([foodModel_.imageName isEqualToString:@"default.png"]) {
+    if (![Utils existThisImage:foodModel.imageName]) {
         //gatodo: foodmodel.name sem imagem
         foodModel_.imageName = @"defaultImage.png";
     }
