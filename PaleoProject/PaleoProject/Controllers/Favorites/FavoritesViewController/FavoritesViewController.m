@@ -8,6 +8,8 @@
 
 #import "FavoritesViewController.h"
 #import "FoodSubcategoriesCell.h"
+#import "SHKItem.h"
+#import "SHKActionSheet.h"
 
 @implementation FavoritesViewController
 
@@ -73,13 +75,17 @@
     [[[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Deseja apagar todos os favoritos?" delegate:self cancelButtonTitle:@"Não" otherButtonTitles:@"Sim", nil] show];
 }
 
+//compartilha os favoritos
+-(void)shareFavorites{
+    SHKItem *item = [SHKItem text:@"test"];
+    SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
+    [actionSheet showFromRect:screenBounds() inView:[self findTopRootViewController].view animated:YES];
+
+}
+
 //Método chamado ao precionar o rightButton do navigationBar
--(void)rightButtonHandler{
-    [self adjustNavigationBarIsEditMode:rightButtonValue];
-    
-    if (rightButtonValue) {
-        //gatodo: Botão editar pressionado
-    }
+-(void)buttonBarHandler{
+    [self adjustNavigationBarIsEditMode:!isInEditMode];
 }
 
 //Quando o tabBar é selecionando a tabela é recarregada e o modo de edições é desabilitado
@@ -103,17 +109,20 @@
     
     if (value) {
         UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Apagar Tudo" style:UIBarButtonItemStyleBordered target:self action:@selector(removeAllFavorites)];
-        rightButtonValue = NO;
-        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancelar" style:UIBarButtonItemStyleBordered target:self action:@selector(rightButtonHandler)];
+        isInEditMode = YES;
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancelar" style:UIBarButtonItemStyleBordered target:self action:@selector(buttonBarHandler)];
         
         self.navigationItem.rightBarButtonItem = rightButton;
         self.navigationItem.leftBarButtonItem = leftButton;
         
         [tableView setEditing:YES animated:YES];
     }else{
-        rightButtonValue = YES;
-        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Editar" style:UIBarButtonItemStyleBordered target:self action:@selector(rightButtonHandler)];
+        isInEditMode = NO;
+        UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Editar" style:UIBarButtonItemStyleBordered target:self action:@selector(buttonBarHandler)];
         
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareFavorites)];
+        
+        self.navigationItem.leftBarButtonItem = leftButton;
         self.navigationItem.rightBarButtonItem = rightButton;
         [tableView setEditing:NO animated:YES];
     }
