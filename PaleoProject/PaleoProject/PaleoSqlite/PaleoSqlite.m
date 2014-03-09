@@ -7,7 +7,6 @@
 //
 
 #import "PaleoSqlite.h"
-
 #import "FoodCategoryModel.h"
 #import "FoodItemModel.h"
 #import "FoodTypeModel.h"
@@ -15,8 +14,10 @@
 
 @implementation PaleoSqlite
 
-//TODO criar melhor forma de chamar o log
+#pragma mark - Validate Info
 
+//Método que valida se o aplicativo já foi aberto pelo menos uma vez,
+//caso não, cria o coreData com base no SQLite e grava no UserDefaults que o app já foi aberto
 -(void)validateInfo{
     BOOL alreadyRunned = [[NSUserDefaults standardUserDefaults] boolForKey:@"ApplicationAlreadyRunned"];
     
@@ -25,12 +26,16 @@
         [self createFoodCategories];
         [self createFoodItemModels];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"ApplicationAlreadyRunned"];
+        [context save:nil];
         NSLog(@"Primeira vez que o aplicativo é aberto ou dados resetados");
     }else{
         NSLog(@"Não é criado novo banco");
     }
 }
 
+#pragma mark - Extract SQLite
+
+//retorna a lista com dicionarios, que são os itens que serão separados por models do CoreData
 - (NSMutableArray*) readDataFromDatabase
 {
     NSString *foodName;
@@ -76,7 +81,9 @@
     return itemDataList;
 }
 
+#pragma mark - Extract to Model's
 
+//Cria os FoodCategoryModel's
 -(void)createFoodCategories{
     NSArray *databaseTableResult = [self readDataFromDatabase];
     NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"categoryName" ascending:YES];
@@ -95,6 +102,7 @@
     }
 }
 
+//Verifica se já existe uma categoria igual no CoreData
 -(BOOL)existCategoryInCoreData:(NSDictionary*)itemData{
     NSEntityDescription *entity = [NSEntityDescription entityForName:EntityCategory inManagedObjectContext:context];
     NSFetchRequest *request = [[[NSFetchRequest alloc] init]autorelease];
@@ -111,6 +119,7 @@
     return NO;
 }
 
+//Cria os FoodItemModel's
 -(void)createFoodItemModels{
     NSArray *databaseTableResult = [self readDataFromDatabase];
     
@@ -124,11 +133,9 @@
         itemModel.type = [self getOrCreateFoodType:([itemData objectForKey:@"foodTypeName"])];
         [self addFoodItem:itemModel ToCoreDataWithCategoryName:[itemData objectForKey:@"categoryName"]];
     }
-    
-    [context save:nil];
-    
 }
 
+//Adiciona o FoodItemModel com base no nome da categoria
 -(void)addFoodItem:(FoodItemModel*)foodItem ToCoreDataWithCategoryName:(NSString*)categoryName{
     NSEntityDescription *entity = [NSEntityDescription entityForName:EntityCategory inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -146,6 +153,7 @@
     NSLog(@"Item %@, adicionado a categoria %@", foodItem.name, categoryName);
 }
 
+//Pega ou cria um novo FoodTypeModel com base no nome do tipo
 -(FoodTypeModel*)getOrCreateFoodType:(NSString*)typeName{
     NSEntityDescription *entity = [NSEntityDescription entityForName:EntityType inManagedObjectContext:context];
     NSFetchRequest *request= [[NSFetchRequest alloc] init];
@@ -163,7 +171,6 @@
         NSLog(@"Inserindo tipo: %@", typeModel.name);
         return typeModel;
     }
-    
 }
 
 @end

@@ -14,6 +14,8 @@
 
 @implementation PaleoTabBarController
 
+#pragma mark - when view will/did appear
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

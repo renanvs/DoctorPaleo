@@ -11,6 +11,8 @@
 @implementation PaleoUtils
 @synthesize currentNavigationController;
 
+#pragma mark - Initial method's
+
 static id _instance;
 + (PaleoUtils *) sharedInstance{
     @synchronized(self){
@@ -32,10 +34,14 @@ static id _instance;
     return self;
 }
 
+#pragma mark - Auxiliar Method's
+
+//Armazena a referência do navigationController atual
 -(void)setCurrentNavigationController:(PaleoNavigationController *)_currentNavigationController{
     currentNavigationController = _currentNavigationController;
 }
 
+//Chama o viewController solicitado no currentNavigationController
 -(void)pushViewControllerInCurrentNavigationController:(UIViewController*)viewController{
     [currentNavigationController pushViewController:viewController animated:YES];
 }

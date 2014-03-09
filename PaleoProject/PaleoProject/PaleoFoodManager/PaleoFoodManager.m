@@ -11,6 +11,8 @@
 @implementation PaleoFoodManager
 @synthesize categoryList, favoriteFoodList, typeList;
 
+#pragma mark - initial method's
+
 static id _instance;
 + (PaleoFoodManager *) sharedInstance{
     @synchronized(self){
@@ -33,6 +35,9 @@ static id _instance;
     return self;
 }
 
+#pragma mark - get method's
+
+//Pega a lista de Categorias do banco
 -(NSArray *)getCategoryList{
     NSEntityDescription *entity = [NSEntityDescription entityForName:EntityCategory inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -45,6 +50,7 @@ static id _instance;
     return list;
 }
 
+//Pega a lista de FoodItemModel no banco com base na Categoria
 -(NSArray *)getFoodListByCategory:(FoodCategoryModel*)categoryModel{
     NSEntityDescription *entity = [NSEntityDescription entityForName:EntityFood inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -58,6 +64,7 @@ static id _instance;
     return list;
 }
 
+//Pega a lista de FoodItemModel no banco que seja favoritado
 -(NSArray *)getFavoriteFoodList{
     NSEntityDescription *entity = [NSEntityDescription entityForName:EntityFood inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -71,6 +78,10 @@ static id _instance;
     return list;
 }
 
+//Pega a lista de FoodItemModel no banco com base numa string
+//Essa string é comparada com o nome do FoodItemModel, e se tiver alguma ocorrencia dessa string
+//no nome do FoodItemModel, então é inserida na lista de encontrados
+//obs.: se for digitado "*" então retorna todos os itens
 -(NSArray *)getFoodWithSearchQuery:(NSString*)query{
     if ([query isEqualToString:@"*"]) {
         return [self getAllFoodItens];
@@ -95,6 +106,7 @@ static id _instance;
     return foundedItens;
 }
 
+//Pega todos os fooditemModel do banco
 -(NSArray *)getAllFoodItens{
     NSEntityDescription *entity = [NSEntityDescription entityForName:EntityFood inManagedObjectContext:context];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -105,18 +117,7 @@ static id _instance;
     return list;
 }
 
--(NSArray *)getTypeList{
-    NSEntityDescription *entity = [NSEntityDescription entityForName:EntityType inManagedObjectContext:context];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    request.entity = entity;
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    request.sortDescriptors = [NSArray arrayWithObject:descriptor];
-    
-    NSArray *list = [context executeFetchRequest:request error:nil];
-    
-    return list;
-}
-
+//Retona a lista de FoodTypeModel com base na lista de FoodItemModel
 -(NSArray*)getFoodTypeListWithFoodList:(NSArray*)list{
     NSMutableArray *typesFounded = [[NSMutableArray alloc] init];
     
@@ -131,6 +132,21 @@ static id _instance;
     return typesFounded;
 }
 
+//Pega a lista de FoodTypeModel no banco
+-(NSArray *)getTypeList{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:EntityType inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    request.entity = entity;
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    request.sortDescriptors = [NSArray arrayWithObject:descriptor];
+    
+    NSArray *list = [context executeFetchRequest:request error:nil];
+    
+    return list;
+}
+
+//Pega o dicionario (que contem como chave o foodType.name e o objeto é um array com a lista de edições desse foodType),
+//com base na lista de FoodTypeModel e a lista de FoodItemModel
 -(NSDictionary*)getDictionaryWithFoodTypeList:(NSArray*)typeList_ AndFoodList:(NSArray*)foodList{
     NSMutableDictionary *categoryDictionary = [[NSMutableDictionary alloc] init];
     NSMutableArray *tempFoodList = nil;
@@ -150,10 +166,14 @@ static id _instance;
     return categoryDictionary;
 }
 
+#pragma mark - auxiliar method's
+
+//Setter da lista de favoritos
 -(NSArray *)favoriteFoodList{
     return [self getFavoriteFoodList];
 }
 
+//Procura o FoodItemModel com base no NSIndexPath e da lista de FoodItemModel
 -(FoodItemModel*)findFoodItemByIndex:(NSIndexPath*)index AtList:(NSArray*)list{
     NSArray *type = [self getFoodTypeListWithFoodList:list];
     NSDictionary *dic = [self getDictionaryWithFoodTypeList:type AndFoodList:list];
@@ -163,6 +183,9 @@ static id _instance;
     return currentFood;
 }
 
+#pragma mark - remove method's
+
+//Muda os status de favoritado para NO (false) em todos os FoodItemModel do banco
 -(void)removeAllFavorites{
     NSArray *favoriteList = [self favoriteFoodList];
     for (FoodItemModel *foodItem in favoriteList) {
@@ -172,6 +195,7 @@ static id _instance;
     [context save:nil];
 }
 
+//Muda os status de favoritado para NO (false) no foodItem
 -(void)removeItemFromFavorites:(FoodItemModel*)foodItem{
     foodItem.isFavorite = [NSNumber numberWithBool:NO];
     [context save:nil];

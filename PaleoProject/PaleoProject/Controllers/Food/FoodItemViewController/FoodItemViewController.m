@@ -11,6 +11,8 @@
 
 @implementation FoodItemViewController
 
+#pragma mark - initial methods
+
 - (id)initWithItemModel:(FoodItemModel*)foodModel_
 {
     self = [super init];
@@ -20,6 +22,8 @@
     return self;
 }
 
+#pragma mark - Finishing method
+
 - (void)dealloc {
     [typeLabel release];
     [favoriteButton release];
@@ -28,6 +32,8 @@
     [foodAbout release];
     [super dealloc];
 }
+
+#pragma mark - IBAction's
 
 - (IBAction)favoriteHandler:(id)sender {
     BOOL isFavorite = [foodModel.isFavorite boolValue];
@@ -45,9 +51,9 @@
             favoriteButton.userInteractionEnabled = YES;
         }];
     }];
-    
-    
 }
+
+#pragma mark - when view did/will appear
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationItem setTitle:foodModel.name];
@@ -57,13 +63,16 @@
     foodAbout.text = foodModel.about;
     [self setFavoriteImage];
     [self setFoodTypeImage];
-    [PaleoGA trackScreen:@"FoodItemScreen"];
+    [PaleoGA trackScreen:FoodItemScreen];
 }
 
 -(void)viewDidLoad{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setFavoriteImage) name:TabBarSelected object:nil];
 }
 
+#pragma mark - Adjusts methods
+
+//Ajusta a imagem dos favoritos de acordo com status de favoritos do model do alimento
 -(void)setFavoriteImage{
     NSString *favoriteImageName = [foodModel.isFavorite boolValue] ? @"favorited" : @"favoritedNot";
     [favoriteButton setBackgroundImage:[UIImage imageNamed:favoriteImageName] forState:UIControlStateNormal];

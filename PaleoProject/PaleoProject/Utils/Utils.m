@@ -10,6 +10,8 @@
 
 @implementation Utils
 
+#pragma mark - initial method's
+
 static id _instance;
 + (Utils *) sharedInstance{
     @synchronized(self){
@@ -20,6 +22,9 @@ static id _instance;
     return _instance;
 }
 
+#pragma mark - NSString auxiliar
+
+//retorna uma NSString minuscula e sem acento
 -(NSString*)getSafeLiteralString:(NSString*)text{
     NSDictionary *typeA= [NSDictionary dictionaryWithObject:[NSArray arrayWithObjects:@"ã", @"â", @"á", @"à", nil] forKey:@"a"];
     NSDictionary *typeE= [NSDictionary dictionaryWithObject:[NSArray arrayWithObjects:@"é", @"ê", @"è", nil] forKey:@"e"];
@@ -46,6 +51,8 @@ static id _instance;
     
 }
 
+//Pega o tamanho da tela na orientação atual
+//todo: rename method
 +(CGRect) screenBoundsOnOrientation{
     CGRect screenBounds = [UIScreen mainScreen].bounds ;
     CGFloat width = CGRectGetWidth(screenBounds)  ;
@@ -60,11 +67,13 @@ static id _instance;
     return screenBounds ;
 }
 
+//retorna a orientação atual do Device
 +(UIInterfaceOrientation)getDeviceOrientation{
     UIInterfaceOrientation interfaceOrientation = [UIApplication sharedApplication].statusBarOrientation;
     return interfaceOrientation;
 }
 
+//Chama um alert com a mensagem passada
 +(void)debugAlert:(NSString*)message{
     [[[[UIAlertView alloc] initWithTitle:@"Debug" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] autorelease]show];
 }

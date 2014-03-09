@@ -10,6 +10,8 @@
 
 @implementation PaleoMailController
 
+#pragma mark - initial method's
+
 -(id)init{
     self =[super init];
     
@@ -20,6 +22,9 @@
     return self;
 }
 
+#pragma mark - mailComposeView Delegate
+
+//Remove o controller
 -(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error{
     [self dismissViewControllerAnimated:YES completion:nil];
 }

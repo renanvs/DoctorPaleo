@@ -15,18 +15,24 @@
 
 @implementation SettingsViewController
 
+#pragma mark - IBAction's
+
+//Compartilhamento de redes sociais
 - (IBAction)share:(id)sender {
+    //todo: ajustar o que será compartilhado
     SHKItem *item = [SHKItem text:@"Test Share"];
     SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
     [actionSheet showFromRect:[self findTopRootViewController].view.frame inView:[self findTopRootViewController].view animated:YES];
 }
 
+//Apresenta as informações do aplicativo (que é uma webView)
 - (IBAction)about:(id)sender {
     //TODO: Implementar view de sobre a aplicação
     AboutAppView *aboutAppview = [[[NSBundle mainBundle] loadNibNamed:@"AboutAppView" owner:self options:nil] lastObject];
     [[self findTopRootViewController].view addSubview:aboutAppview];
 }
 
+//Apresenta o controller de email, isso se o dispositivo estiver habilitado para isso
 - (IBAction)contact:(id)sender {
     if (![PaleoMailController canSendMail]) {
         [[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Verifique existe alguma conta de email cadastrada no dispositivo" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
@@ -41,14 +47,17 @@
 
 }
 
-- (void)dealloc {
-
-    [super dealloc];
-}
+#pragma mark - when view will/did appear
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationItem setTitle:NavNameSettings];
-    [PaleoGA trackScreen:@"SettingsScreen"];
+    [PaleoGA trackScreen:SettingsScreen];
 }
 
+#pragma mark finishing method's
+
+- (void)dealloc {
+    
+    [super dealloc];
+}
 @end

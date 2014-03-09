@@ -11,6 +11,8 @@
 
 @implementation FavoritesViewController
 
+#pragma mark - Table implemetation
+
 -(UITableViewCell *)tableView:(UITableView *)tableView_ cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellName = CellFoodItemName;
     
@@ -33,6 +35,21 @@
     return [tableView getSectionCount];
 }
 
+-(void)tableView:(UITableView *)tableView_ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [tableView removeItemFromTableViewAtIndex:indexPath];
+        [self adjustNavigationBarIsEditMode:NO];
+    }
+}
+
+//Retorna o DataSource da tabela
+-(NSArray *)foodItemList{
+    return [[PaleoFoodManager sharedInstance] favoriteFoodList];
+}
+
+#pragma mark - Adjust when view did/will appear
+
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationItem setTitle:NavNameFavorites];
     
@@ -40,16 +57,7 @@
     
     tableView.delegateList = self;
     [tableView reloadData];
-    [PaleoGA trackScreen:@"FavoriteScreen"];
-}
-
--(void)removeAllFavorites{
-    
-    [[[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Deseja apagar todos os favoritos?" delegate:self cancelButtonTitle:@"Não" otherButtonTitles:@"Sim", nil] show];
-}
-
--(NSArray *)foodItemList{
-    return [[PaleoFoodManager sharedInstance] favoriteFoodList];
+    [PaleoGA trackScreen:FavoriteScreen];
 }
 
 -(void)viewDidLoad{
@@ -57,15 +65,39 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarSelected) name:TabBarFavoriteSelected object:nil];
 }
 
+#pragma mark - selectors
+
+-(void)removeAllFavorites{
+    
+    [[[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Deseja apagar todos os favoritos?" delegate:self cancelButtonTitle:@"Não" otherButtonTitles:@"Sim", nil] show];
+}
+
+//todo ajustar
+-(void)tempHandler{
+    [self adjustNavigationBarIsEditMode:YES];
+}
+
+
+//todo ajustar
+-(void)tempHandler1{
+    [self adjustNavigationBarIsEditMode:NO];
+}
+
+//Quando o tabBar é selecionando a tabela é recarregada e o modo de edições é desabilitado
 -(void)tabBarSelected{
     [tableView reloadData];
     [self adjustNavigationBarIsEditMode:NO];
 }
 
+#pragma mark - Adjust method
+
+//Ajusta os botões de edição do NavigationBar
+//Isso de acordo com o parametro enviado
 -(void)adjustNavigationBarIsEditMode:(BOOL)value{
     self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.rightBarButtonItem = nil;
     
+    //Se não tiver nada no dataSource não é adicionado botões
     if ([self foodItemList].count == 0) {
         return;
     }
@@ -86,26 +118,7 @@
     }
 }
 
--(void)tempHandler{
-    [self adjustNavigationBarIsEditMode:YES];
-}
-
--(void)tempHandler1{
-    [self adjustNavigationBarIsEditMode:NO];
-}
-
--(void)setEditing:(BOOL)editing animated:(BOOL)animated{
-    [super setEditing:editing animated:animated];
-    
-}
-
--(void)tableView:(UITableView *)tableView_ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [tableView removeItemFromTableViewAtIndex:indexPath];
-        [self adjustNavigationBarIsEditMode:NO];
-    }
-}
+#pragma mark - AlertView Delegate
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1) {

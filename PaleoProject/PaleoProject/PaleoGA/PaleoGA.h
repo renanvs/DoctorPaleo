@@ -9,9 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "GAI.h"
 
-@interface PaleoGA : NSObject{
-    
-}
+#define FavoriteScreen              @"FavoriteScreen"
+#define FoodItemScreen              @"FoodItemScreen"
+#define SearchScreen                @"SearchScreen"
+#define FoodSubcategoriesScreen     @"FoodSubcategoriesScreen"
+#define FoodCategoryScreen          @"FoodCategoryScreen"
+#define SettingsScreen              @"SettingsScreen"
+
+@interface PaleoGA : NSObject
 
 + (PaleoGA *) sharedInstance;
 

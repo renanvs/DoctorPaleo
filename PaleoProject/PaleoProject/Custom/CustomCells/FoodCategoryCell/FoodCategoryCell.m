@@ -10,14 +10,20 @@
 
 @implementation FoodCategoryCell
 
+#pragma mark - finishing method's
+
 - (void)dealloc {
     [_categoryImageView release];
     [_categoryLabel release];
     [super dealloc];
 }
 
+#pragma mark - set Model in UI
+
+//Utiliza as informações do model para popular a célula
 -(void)setCategoryModel:(FoodCategoryModel*)categoryModel_{
     categoryModel = categoryModel_;
+    //todo: criar method auxiliar para verificar a existencia de imagens no projeto
     if ([categoryModel_.imageName isEqualToString:@"default.png"]) {
         categoryModel_.imageName = @"defaultImage.png";
     }

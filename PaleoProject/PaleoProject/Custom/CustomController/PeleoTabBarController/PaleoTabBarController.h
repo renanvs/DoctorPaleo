@@ -14,7 +14,6 @@
     PaleoNavigationController *categoriesPaleoNavigationController;
     PaleoNavigationController *searchPaleoNavigationController;
     PaleoNavigationController *settingsPaleoNavigationController;
-    
 }
 
 @end

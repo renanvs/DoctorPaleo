@@ -10,6 +10,8 @@
 
 @implementation PaleoNavigationController
 
+#pragma mark - initial method's
+
 -(id)initWithRootViewController:(UIViewController *)rootViewController{
     self = [super initWithRootViewController:rootViewController];
     
@@ -23,6 +25,7 @@
     return self;
 }
 
+#pragma mark - when view will/did appear
 
 -(void)viewWillAppear:(BOOL)animated{
     [[PaleoUtils sharedInstance] setCurrentNavigationController:self];

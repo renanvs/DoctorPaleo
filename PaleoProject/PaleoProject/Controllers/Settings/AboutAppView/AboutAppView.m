@@ -10,37 +10,28 @@
 
 @implementation AboutAppView
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
+#pragma mark - IBAction's
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
-
-- (void)dealloc {
-    [aboutWebView release];
-    [super dealloc];
-}
+//remove essa view
 - (IBAction)closeButtonHandler:(id)sender {
     [self removeFromSuperview];
 }
 
+#pragma mark - HTML Loading
+
+//Carrega o HTML com as informações do App
 -(void)willMoveToSuperview:(UIView *)newSuperview{
     NSURL *path = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"about" ofType:@"html"]];
     NSString *html = [NSString stringWithContentsOfURL:path encoding:NSUTF8StringEncoding error:nil];
     
     [aboutWebView loadHTMLString:html baseURL:nil];
+}
+
+#pragma mark - finishing method's
+
+- (void)dealloc {
+    [aboutWebView release];
+    [super dealloc];
 }
 
 @end

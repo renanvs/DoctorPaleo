@@ -10,6 +10,9 @@
 
 @implementation FoodSubcategoriesCell
 
+#pragma mark - set Model in UI
+
+//Utiliza as informações do model para popular a célula
 -(void)setItemModel:(FoodItemModel*)foodModel_{
     foodModel = foodModel_;
     foodLabel.text = foodModel_.name;
@@ -18,6 +21,8 @@
     }
     foodImage.image = [UIImage imageNamed:foodModel_.imageName];
 }
+
+#pragma mark - finishing method's
 
 - (void)dealloc {
     [foodImage release];

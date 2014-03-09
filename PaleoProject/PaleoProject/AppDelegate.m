@@ -33,6 +33,7 @@
     return YES;
 }
 
+//Carrega as configurações padrões das redes sociais
 - (void) loadDefaultSocialConfiguration{
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"SHK_FAVS_1"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"SHK_FAVS_2"];

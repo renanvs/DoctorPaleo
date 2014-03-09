@@ -13,6 +13,10 @@
 @implementation PaleoFoodTableView
 @synthesize delegateList;
 
+//todo: tentar extrair chamadas duplicadas nessa classe
+
+#pragma mark - intial method's
+
 -(id)initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if (self) {
@@ -20,6 +24,8 @@
     }
     return self;
 }
+
+#pragma mark - TableView Delegate Method's
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -31,13 +37,10 @@
         return;
     }
     
-    NSArray *typeList = [[PaleoFoodManager sharedInstance] getFoodTypeListWithFoodList:foodList];
-    FoodTypeModel *typeModel = [typeList objectAtIndex:indexPath.section];
-    NSDictionary *foodDictionary = [[PaleoFoodManager sharedInstance] getDictionaryWithFoodTypeList:typeList AndFoodList:foodList];
-    NSArray *foodListInCurrentType = [foodDictionary objectForKey:typeModel.name];
-    FoodItemModel *foodModel = [foodListInCurrentType objectAtIndex:indexPath.row];
-    FoodItemViewController *foodItemViewController = [[FoodItemViewController alloc] initWithItemModel:foodModel];
     
+    //Pega o FoodItemModel pelo indexPath e apresenta o FoodItemViewController passando o FoodItemModel
+    FoodItemModel *foodModel = [self getFoodModelByIndexPath:indexPath];
+    FoodItemViewController *foodItemViewController = [[FoodItemViewController alloc] initWithItemModel:foodModel];
     [[PaleoUtils sharedInstance] pushViewControllerInCurrentNavigationController:foodItemViewController];
 
 }
@@ -55,7 +58,7 @@
         return clearView;
     }
     
-    
+    //Pega a lista de tipos de alimento baseado na lista de FoodItemModel e extrai o FoodTypeModel atraves do section
     NSArray *typeList = [[PaleoFoodManager sharedInstance] getFoodTypeListWithFoodList:foodList];
     FoodTypeModel *typeModel = [typeList objectAtIndex:section];
     [topView setTypeName:typeModel.name];
@@ -71,6 +74,17 @@
     return topView;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 55;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 60;
+}
+
+#pragma mark - Filter Method's
+
+//Retorna o numero de seções baseado na lista de FoodItemModel
 -(NSInteger)getSectionCount{
 
     if ([delegateList respondsToSelector:@selector(foodItemList)]) {
@@ -87,6 +101,7 @@
 
 }
 
+//Retorna o numero de itens na seção, baseado na lista de FoodItemModel e na section
 -(NSInteger)getNumberOfRowsInSection:(NSInteger)section{
     if ([delegateList respondsToSelector:@selector(foodItemList)]) {
         foodList = [delegateList foodItemList];
@@ -104,6 +119,7 @@
     return foodListInCurrentType.count;
 }
 
+//Retorna o FoodItemModel baseado na lista de FoodItemModel e o indexPath
 -(FoodItemModel*)getFoodModelByIndexPath:(NSIndexPath*)indexPath{
 
     if ([delegateList respondsToSelector:@selector(foodItemList)]) {
@@ -123,14 +139,7 @@
     return foodModel;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 55;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 60;
-}
-
+//
 -(void)removeItemFromTableViewAtIndex:(NSIndexPath*)index{
     if ([delegateList respondsToSelector:@selector(foodItemList)]) {
         foodList = [delegateList foodItemList];
@@ -141,13 +150,16 @@
     }
     
     NSArray *indexPathList = [NSArray arrayWithObject:index];
+    
+    //todo: verificar essa chamada findFoofItemByIndex, existe algo parecido nessa classe
     FoodItemModel *foodItem = [[PaleoFoodManager sharedInstance] findFoodItemByIndex:index AtList:foodList];
     [[PaleoFoodManager sharedInstance] removeItemFromFavorites:foodItem];
     
     
+    //Pega a lista de FoodItemModel baseado na seção atual para saber se remove a seção (se houver apenas um item na lista)
+    // ou remove a linha (caso haja mais de um item lista)
     NSArray *types = [[PaleoFoodManager sharedInstance] getFoodTypeListWithFoodList:foodList];
     NSDictionary *dic = [[PaleoFoodManager sharedInstance] getDictionaryWithFoodTypeList:types AndFoodList:foodList];
-    
     NSString *desireKey = [[dic allKeys] objectAtIndex:index.section];
     NSArray *currentList = [dic objectForKey:desireKey];
     

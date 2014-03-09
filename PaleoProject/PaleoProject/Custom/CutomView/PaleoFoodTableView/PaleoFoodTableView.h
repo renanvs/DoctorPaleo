@@ -11,6 +11,8 @@
 @protocol PaleoFoodTableViewDelegate <NSObject>
 
 @required
+//Método que retorna a lista de alimentos
+//É altamente necessario para gerenciar os alimentos por seção, entre outros tratamentos que podem ser visto na implemtação (.m)
 -(NSArray*)foodItemList;
 
 @end

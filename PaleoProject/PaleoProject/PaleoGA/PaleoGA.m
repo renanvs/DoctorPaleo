@@ -42,6 +42,8 @@ static id _instance;
     tracker = [[GAI sharedInstance] trackerWithTrackingId:trackingId];
 }
 
+
+//Tracking das Telas
 +(void)trackScreen:(NSString*)screenName{
     if (isDisabled)return;
     

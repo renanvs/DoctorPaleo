@@ -9,11 +9,12 @@
 #import "FoodSubcategoriesViewController.h"
 #import "FoodSubcategoriesCell.h"
 #import "FoodItemViewController.h"
-
 #import "FoodCategoryModel.h"
 #import "FoodItemModel.h"
 
 @implementation FoodSubcategoriesViewController
+
+#pragma mark - initial method's
 
 - (id)initWithItemList:(NSArray*)foodModelList_{
     self = [super init];
@@ -23,12 +24,16 @@
     return self;
 }
 
+#pragma mark - when view will/did appear
+
 -(void)viewWillAppear:(BOOL)animated{
     //TODO: Subcategorias deve ser o titulo da categoria
     [self.navigationItem setTitle:@"Subcategorias"];
     tableViewPaleo.delegateList = self;
-    [PaleoGA trackScreen:@"FoodSubcategoriesScreen"];
+    [PaleoGA trackScreen:FoodSubcategoriesScreen];
 }
+
+#pragma mark - tableView method's
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellName = CellFoodItemName;

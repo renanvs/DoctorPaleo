@@ -9,7 +9,6 @@
 #import "FoodCategoryModel.h"
 #import "FoodItemModel.h"
 
-
 @implementation FoodCategoryModel
 
 @dynamic imageName;

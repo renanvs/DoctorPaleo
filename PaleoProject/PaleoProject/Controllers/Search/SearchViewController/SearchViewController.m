@@ -11,15 +11,23 @@
 
 @implementation SearchViewController
 
+#pragma mark - when view will/did appear
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     tableView.delegateList = self;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillDisappear:) name:UIKeyboardWillHideNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidDisappear:) name:UIKeyboardDidHideNotification object:nil];
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self.navigationItem setTitle:NavNameSearch];
+    [self removeKeyboard];
+    [PaleoGA trackScreen:SearchScreen];
+}
+
+#pragma mark - tableView method's
 
 -(UITableViewCell *)tableView:(UITableView *)tableView_ cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellName = CellFoodItemName;
@@ -47,48 +55,31 @@
     return foodItemList;
 }
 
-- (void)dealloc {
-    [searchBar release];
-    [super dealloc];
-}
+#pragma mark - SearchBar delegate
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     foodItemList = [[NSArray alloc ]initWithArray: [[PaleoFoodManager sharedInstance] getFoodWithSearchQuery:searchText]];
     [tableView reloadData];
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [self.navigationItem setTitle:NavNameSearch];
-    [self removeKeyboard];
-    [PaleoGA trackScreen:@"SearchScreen"];
-}
-
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar_{
     [self removeKeyboard];
 }
 
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [self removeKeyboard];
+}
+
+#pragma mark keyBoardMethod's
+
+//remove o teclado
 -(void)removeKeyboard{
     for (UITextField *field in searchBar.subviews) {
         [field resignFirstResponder];
     }
 }
 
-
--(void)keyboardDidShow:(NSNotification*)notification{
-    
-    
-}
-
--(void)keyboardDidDisappear:(NSNotification*)notification{
-    
-    
-    
-}
-
+//Ajusta o tamanho da tabela em função do tamanho do teclado
 -(void)keyboardWillDisappear:(NSNotification*)notification{
     NSDictionary* keyboardInfo = [notification userInfo];
     NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
@@ -106,6 +97,7 @@
     [UIView commitAnimations];
 }
 
+//Ajusta o tamanho da tabela em função do tamanho do teclado
 -(void)keyboardWillShow:(NSNotification*)notification{
     //todo extract method
     NSDictionary* keyboardInfo = [notification userInfo];
@@ -122,11 +114,13 @@
     [UIView setAnimationDuration:0.3];
     tableView.height = tableViewNewHeight;
     [UIView commitAnimations];
-
 }
 
--(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    [self removeKeyboard];
+#pragma mark - finishing method's
+
+- (void)dealloc {
+    [searchBar release];
+    [super dealloc];
 }
 
 @end

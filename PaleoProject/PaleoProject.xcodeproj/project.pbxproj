@@ -68,7 +68,6 @@
 		1E157B0318C050AC00E0BC61 /* FoodTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E157AB018C050AC00E0BC61 /* FoodTypeModel.m */; };
 		1E157B0418C050AC00E0BC61 /* PaleoCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E157AB218C050AC00E0BC61 /* PaleoCoreData.m */; };
 		1E157B0518C050AC00E0BC61 /* PaleoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E157AB318C050AC00E0BC61 /* PaleoDataModel.xcdatamodeld */; };
-		1E157B0618C050AC00E0BC61 /* PaleoDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E157AB718C050AC00E0BC61 /* PaleoDefines.m */; };
 		1E157B0718C050AC00E0BC61 /* PaleoFoodManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E157ABA18C050AC00E0BC61 /* PaleoFoodManager.m */; };
 		1E157B0818C050AC00E0BC61 /* exemplo.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1E157ABC18C050AC00E0BC61 /* exemplo.sqlite */; };
 		1E157B0918C050AC00E0BC61 /* PaleoSqlite.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E157ABE18C050AC00E0BC61 /* PaleoSqlite.m */; };
@@ -247,7 +246,6 @@
 		1E157AB218C050AC00E0BC61 /* PaleoCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaleoCoreData.m; sourceTree = "<group>"; };
 		1E157AB418C050AC00E0BC61 /* PaleoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PaleoDataModel.xcdatamodel; sourceTree = "<group>"; };
 		1E157AB618C050AC00E0BC61 /* PaleoDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaleoDefines.h; sourceTree = "<group>"; };
-		1E157AB718C050AC00E0BC61 /* PaleoDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaleoDefines.m; sourceTree = "<group>"; };
 		1E157AB918C050AC00E0BC61 /* PaleoFoodManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaleoFoodManager.h; sourceTree = "<group>"; };
 		1E157ABA18C050AC00E0BC61 /* PaleoFoodManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaleoFoodManager.m; sourceTree = "<group>"; };
 		1E157ABC18C050AC00E0BC61 /* exemplo.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = exemplo.sqlite; sourceTree = "<group>"; };
@@ -722,7 +720,6 @@
 			isa = PBXGroup;
 			children = (
 				1E157AB618C050AC00E0BC61 /* PaleoDefines.h */,
-				1E157AB718C050AC00E0BC61 /* PaleoDefines.m */,
 			);
 			name = PaleoDefines;
 			path = PaleoProject/PaleoDefines;
@@ -999,7 +996,6 @@
 				1ECCC4DA18B06B7F0073992A /* AppDelegate.m in Sources */,
 				1E157B0518C050AC00E0BC61 /* PaleoDataModel.xcdatamodeld in Sources */,
 				1E157ADA18C050AC00E0BC61 /* FoodSubcategoriesCell.m in Sources */,
-				1E157B0618C050AC00E0BC61 /* PaleoDefines.m in Sources */,
 				1E157B0A18C050AC00E0BC61 /* PaleoUtils.m in Sources */,
 				1E157B0318C050AC00E0BC61 /* FoodTypeModel.m in Sources */,
 				1E157ACB18C050AC00E0BC61 /* FoodItemViewController.m in Sources */,
