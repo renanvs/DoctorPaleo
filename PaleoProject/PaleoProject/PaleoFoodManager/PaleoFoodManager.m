@@ -147,9 +147,10 @@ static id _instance;
 
 //Pega o dicionario (que contem como chave o foodType.name e o objeto é um array com a lista de edições desse foodType),
 //com base na lista de FoodTypeModel e a lista de FoodItemModel
--(NSDictionary*)getDictionaryWithFoodTypeList:(NSArray*)typeList_ AndFoodList:(NSArray*)foodList{
+-(NSDictionary*)getDictionaryWithFoodList:(NSArray*)foodList{
     NSMutableDictionary *categoryDictionary = [[NSMutableDictionary alloc] init];
     NSMutableArray *tempFoodList = nil;
+    NSArray *typeList_ = [self getFoodTypeListWithFoodList:foodList];
     
     for (FoodTypeModel *foodType in typeList_) {
         tempFoodList = [[NSMutableArray alloc] init];
@@ -171,16 +172,6 @@ static id _instance;
 //Setter da lista de favoritos
 -(NSArray *)favoriteFoodList{
     return [self getFavoriteFoodList];
-}
-
-//Procura o FoodItemModel com base no NSIndexPath e da lista de FoodItemModel
--(FoodItemModel*)findFoodItemByIndex:(NSIndexPath*)index AtList:(NSArray*)list{
-    NSArray *type = [self getFoodTypeListWithFoodList:list];
-    NSDictionary *dic = [self getDictionaryWithFoodTypeList:type AndFoodList:list];
-    NSString *keyDesire = [[dic allKeys] objectAtIndex:index.section];
-    FoodItemModel *currentFood = [[dic objectForKey:keyDesire] lastObject];
-    
-    return currentFood;
 }
 
 #pragma mark - remove method's

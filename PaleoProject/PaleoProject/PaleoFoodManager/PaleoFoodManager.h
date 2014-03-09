@@ -27,10 +27,9 @@
 
 -(NSArray *)getFoodWithSearchQuery:(NSString*)query;
 -(NSArray *)getFoodListByCategory:(FoodCategoryModel*)categoryModel;
--(NSArray*)getFoodTypeListWithFoodList:(NSArray*)list;
--(NSDictionary*)getDictionaryWithFoodTypeList:(NSArray*)typeList_ AndFoodList:(NSArray*)foodList;
--(FoodItemModel*)findFoodItemByIndex:(NSIndexPath*)index AtList:(NSArray*)list;
+-(NSDictionary*)getDictionaryWithFoodList:(NSArray*)foodList;
 -(void)removeAllFavorites;
 -(void)removeItemFromFavorites:(FoodItemModel*)foodItem;
+-(NSArray*)getFoodTypeListWithFoodList:(NSArray*)list;
 
 @end

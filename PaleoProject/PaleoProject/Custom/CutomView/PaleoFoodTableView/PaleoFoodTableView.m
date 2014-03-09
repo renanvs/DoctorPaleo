@@ -96,8 +96,7 @@
         return 0;
     }
 
-    NSArray *typeList = [[PaleoFoodManager sharedInstance] getFoodTypeListWithFoodList:foodList];
-    NSDictionary *foodDictionary = [[PaleoFoodManager sharedInstance] getDictionaryWithFoodTypeList:typeList AndFoodList:foodList];
+    NSDictionary *foodDictionary = [[PaleoFoodManager sharedInstance] getDictionaryWithFoodList:foodList];
     return foodDictionary.count;
 
 }
@@ -114,7 +113,7 @@
 
     NSArray *typeList = [[PaleoFoodManager sharedInstance] getFoodTypeListWithFoodList:foodList];
     FoodTypeModel *typeModel = [typeList objectAtIndex:section];
-    NSDictionary *foodDictionary = [[PaleoFoodManager sharedInstance] getDictionaryWithFoodTypeList:typeList AndFoodList:foodList];
+    NSDictionary *foodDictionary = [[PaleoFoodManager sharedInstance] getDictionaryWithFoodList:foodList];
     NSArray *foodListInCurrentType = [foodDictionary objectForKey:typeModel.name];
     
     return foodListInCurrentType.count;
@@ -133,7 +132,7 @@
     
     NSArray *typeList = [[PaleoFoodManager sharedInstance] getFoodTypeListWithFoodList:foodList];
     FoodTypeModel *typeModel = [typeList objectAtIndex:indexPath.section];
-    NSDictionary *foodDictionary = [[PaleoFoodManager sharedInstance] getDictionaryWithFoodTypeList:typeList AndFoodList:foodList];
+    NSDictionary *foodDictionary = [[PaleoFoodManager sharedInstance] getDictionaryWithFoodList:foodList];
     NSArray *itemListWithType = [foodDictionary objectForKey:typeModel.name];
     FoodItemModel *foodModel = [itemListWithType objectAtIndex:indexPath.row];
 
@@ -166,16 +165,14 @@
     
     NSArray *indexPathList = [NSArray arrayWithObject:index];
     
-    //todo: verificar essa chamada findFoofItemByIndex, existe algo parecido nessa classe
-    FoodItemModel *foodItem = [[PaleoFoodManager sharedInstance] findFoodItemByIndex:index AtList:foodList];
+    FoodItemModel *foodItem = [self getFoodModelByIndexPath:index];
     [[PaleoFoodManager sharedInstance] removeItemFromFavorites:foodItem];
     
     //gatodo: removendo item dos favoritos, passar o nome do item e a categoria
     
     //Pega a lista de FoodItemModel baseado na seção atual para saber se remove a seção (se houver apenas um item na lista)
     // ou remove a linha (caso haja mais de um item lista)
-    NSArray *types = [[PaleoFoodManager sharedInstance] getFoodTypeListWithFoodList:foodList];
-    NSDictionary *dic = [[PaleoFoodManager sharedInstance] getDictionaryWithFoodTypeList:types AndFoodList:foodList];
+    NSDictionary *dic = [[PaleoFoodManager sharedInstance] getDictionaryWithFoodList:foodList];
     NSString *desireKey = [[dic allKeys] objectAtIndex:index.section];
     NSArray *currentList = [dic objectForKey:desireKey];
     
