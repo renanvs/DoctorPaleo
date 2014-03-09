@@ -73,16 +73,13 @@
     [[[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Deseja apagar todos os favoritos?" delegate:self cancelButtonTitle:@"Não" otherButtonTitles:@"Sim", nil] show];
 }
 
-//todo ajustar
--(void)tempHandler{
-    [self adjustNavigationBarIsEditMode:YES];
-    //gatodo: Botão editar pressionado
-}
-
-
-//todo ajustar
--(void)tempHandler1{
-    [self adjustNavigationBarIsEditMode:NO];
+//Método chamado ao precionar o rightButton do navigationBar
+-(void)rightButtonHandler{
+    [self adjustNavigationBarIsEditMode:rightButtonValue];
+    
+    if (rightButtonValue) {
+        //gatodo: Botão editar pressionado
+    }
 }
 
 //Quando o tabBar é selecionando a tabela é recarregada e o modo de edições é desabilitado
@@ -106,14 +103,16 @@
     
     if (value) {
         UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Apagar Tudo" style:UIBarButtonItemStyleBordered target:self action:@selector(removeAllFavorites)];
-        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancelar" style:UIBarButtonItemStyleBordered target:self action:@selector(tempHandler1)];
+        rightButtonValue = NO;
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancelar" style:UIBarButtonItemStyleBordered target:self action:@selector(rightButtonHandler)];
         
         self.navigationItem.rightBarButtonItem = rightButton;
         self.navigationItem.leftBarButtonItem = leftButton;
         
         [tableView setEditing:YES animated:YES];
     }else{
-        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Editar" style:UIBarButtonItemStyleBordered target:self action:@selector(tempHandler)];
+        rightButtonValue = YES;
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Editar" style:UIBarButtonItemStyleBordered target:self action:@selector(rightButtonHandler)];
         
         self.navigationItem.rightBarButtonItem = rightButton;
         [tableView setEditing:NO animated:YES];

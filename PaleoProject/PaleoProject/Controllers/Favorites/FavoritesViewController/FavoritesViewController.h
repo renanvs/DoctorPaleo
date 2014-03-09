@@ -11,6 +11,7 @@
 
 @interface FavoritesViewController : UIViewController <UITableViewDataSource, PaleoFoodTableViewDelegate, UIAlertViewDelegate>{
     IBOutlet PaleoFoodTableView *tableView;
+    BOOL rightButtonValue;
 }
 
 @end
