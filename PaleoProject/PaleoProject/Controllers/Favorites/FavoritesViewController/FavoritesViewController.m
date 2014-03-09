@@ -45,8 +45,7 @@
 
 -(void)removeAllFavorites{
     
-    [[PaleoFoodManager sharedInstance] removeAllFavorites];
-    [tableView reloadData];
+    [[[UIAlertView alloc] initWithTitle:@"Atenção" message:@"Deseja apagar todos os favoritos?" delegate:self cancelButtonTitle:@"Não" otherButtonTitles:@"Sim", nil] show];
 }
 
 -(NSArray *)foodItemList{
@@ -97,10 +96,16 @@
 }
 
 -(void)tableView:(UITableView *)tableView_ commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"sdfsdf");
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [tableView removeItemFromTableViewAtIndex:indexPath];
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        [[PaleoFoodManager sharedInstance] removeAllFavorites];
+        [tableView reloadData];
     }
 }
 

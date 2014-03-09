@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PaleoFoodTableView.h"
 
-@interface FavoritesViewController : UIViewController <UITableViewDataSource, PaleoFoodTableViewDelegate>{
+@interface FavoritesViewController : UIViewController <UITableViewDataSource, PaleoFoodTableViewDelegate, UIAlertViewDelegate>{
     IBOutlet PaleoFoodTableView *tableView;
 }
 
