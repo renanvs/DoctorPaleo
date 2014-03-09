@@ -8,6 +8,8 @@
 
 #import "FoodItemViewController.h"
 #import <CoreGraphics/CoreGraphics.h>
+#import "SHKItem.h"
+#import "SHKActionSheet.h"
 
 @implementation FoodItemViewController
 
@@ -60,6 +62,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationItem setTitle:foodModel.name];
+    [self navigationItem].rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(shareItem)];
+    
     typeLabel.text = foodModel.type.name;
     foodImage.image = [UIImage imageNamed:foodModel.imageName];
     foodLabel.text = foodModel.name;
@@ -91,6 +95,15 @@
     }else if ([type isEqualToString:@"Não LowCarb"]) {
         typeImageView.image = [UIImage imageNamed:@"foodItemTopCellBorder3.png"];
     }
+}
+
+#pragma mark - share method
+
+//compartilha o FoodItemModel
+-(void)shareItem{
+    SHKItem *item = [SHKItem text:@"test"];
+    SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
+    [actionSheet showFromRect:screenBounds() inView:[self findTopRootViewController].view animated:YES];
 }
 
 @end
