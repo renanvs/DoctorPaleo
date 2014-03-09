@@ -37,7 +37,6 @@
         return;
     }
     
-    
     //Pega o FoodItemModel pelo indexPath e apresenta o FoodItemViewController passando o FoodItemModel
     FoodItemModel *foodModel = [self getFoodModelByIndexPath:indexPath];
     FoodItemViewController *foodItemViewController = [[FoodItemViewController alloc] initWithItemModel:foodModel];
@@ -61,9 +60,8 @@
         return clearView;
     }
     
-    //Pega a lista de tipos de alimento baseado na lista de FoodItemModel e extrai o FoodTypeModel atraves do section
-    NSArray *typeList = [[PaleoFoodManager sharedInstance] getFoodTypeListWithFoodList:foodList];
-    FoodTypeModel *typeModel = [typeList objectAtIndex:section];
+    
+    FoodTypeModel *typeModel = [self getTypeModelWithSection:section];
     [topView setTypeName:typeModel.name];
     
     if ([typeModel.name isEqualToString:@"Paleo"]) {
@@ -142,7 +140,21 @@
     return foodModel;
 }
 
-//
+//Pega FoodTypeModel atraves do section
+-(FoodTypeModel*)getTypeModelWithSection:(int)section{
+    if ([delegateList respondsToSelector:@selector(foodItemList)]) {
+        foodList = [delegateList foodItemList];
+    }
+    
+    NSArray *typeList = [[PaleoFoodManager sharedInstance] getFoodTypeListWithFoodList:foodList];
+    FoodTypeModel *typeModel = [typeList objectAtIndex:section];
+    
+    return typeModel;
+}
+
+#pragma mark - remove cell and item
+
+//remove a linha ou seção da tabela
 -(void)removeItemFromTableViewAtIndex:(NSIndexPath*)index{
     if ([delegateList respondsToSelector:@selector(foodItemList)]) {
         foodList = [delegateList foodItemList];

@@ -41,7 +41,6 @@
 		1E157AE818C050AC00E0BC61 /* bolo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E157A9018C050AC00E0BC61 /* bolo1.png */; };
 		1E157AE918C050AC00E0BC61 /* bolo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E157A9118C050AC00E0BC61 /* bolo2.png */; };
 		1E157AEA18C050AC00E0BC61 /* closeX in Resources */ = {isa = PBXBuildFile; fileRef = 1E157A9218C050AC00E0BC61 /* closeX */; };
-		1E157AEB18C050AC00E0BC61 /* default in Resources */ = {isa = PBXBuildFile; fileRef = 1E157A9318C050AC00E0BC61 /* default */; };
 		1E157AEC18C050AC00E0BC61 /* categoryCellBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E157A9518C050AC00E0BC61 /* categoryCellBorder.png */; };
 		1E157AED18C050AC00E0BC61 /* defaultImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E157A9618C050AC00E0BC61 /* defaultImage.png */; };
 		1E157AEE18C050AC00E0BC61 /* defaultMoreCellButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E157A9718C050AC00E0BC61 /* defaultMoreCellButton.png */; };
@@ -214,7 +213,6 @@
 		1E157A9018C050AC00E0BC61 /* bolo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bolo1.png; sourceTree = "<group>"; };
 		1E157A9118C050AC00E0BC61 /* bolo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bolo2.png; sourceTree = "<group>"; };
 		1E157A9218C050AC00E0BC61 /* closeX */ = {isa = PBXFileReference; lastKnownFileType = file; path = closeX; sourceTree = "<group>"; };
-		1E157A9318C050AC00E0BC61 /* default */ = {isa = PBXFileReference; lastKnownFileType = file; path = default; sourceTree = "<group>"; };
 		1E157A9518C050AC00E0BC61 /* categoryCellBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = categoryCellBorder.png; sourceTree = "<group>"; };
 		1E157A9618C050AC00E0BC61 /* defaultImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultImage.png; sourceTree = "<group>"; };
 		1E157A9718C050AC00E0BC61 /* defaultMoreCellButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultMoreCellButton.png; sourceTree = "<group>"; };
@@ -662,7 +660,6 @@
 				1E157A9018C050AC00E0BC61 /* bolo1.png */,
 				1E157A9118C050AC00E0BC61 /* bolo2.png */,
 				1E157A9218C050AC00E0BC61 /* closeX */,
-				1E157A9318C050AC00E0BC61 /* default */,
 				1E157A9418C050AC00E0BC61 /* ImagesTest */,
 				1E157A9E18C050AC00E0BC61 /* maca.jpg */,
 				1E157A9F18C050AC00E0BC61 /* maca1.png */,
@@ -937,7 +934,6 @@
 			files = (
 				1E157AF718C050AC00E0BC61 /* maca2.png in Resources */,
 				1E157AF618C050AC00E0BC61 /* maca1.png in Resources */,
-				1E157AEB18C050AC00E0BC61 /* default in Resources */,
 				1E157AFC18C050AC00E0BC61 /* tabBarItemFood@2x.png in Resources */,
 				1E157AF518C050AC00E0BC61 /* maca.jpg in Resources */,
 				1E92781118C3CEBE0056B4FB /* foodItemTopCellBorder1.png in Resources */,
