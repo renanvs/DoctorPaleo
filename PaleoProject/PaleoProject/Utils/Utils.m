@@ -88,6 +88,13 @@ static id _instance;
     [[[[UIAlertView alloc] initWithTitle:@"Debug" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] autorelease]show];
 }
 
++(CGRect)getKeyboardRectWithNotification:(NSNotification*)notification{
+    NSDictionary* keyboardInfo = [notification userInfo];
+    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
+    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+    return keyboardFrameBeginRect;
+}
+
 //-(void)keepAnimationState:(UIView*)view{
 //    CGRect rect = [self getBlankRect];
 //    

@@ -19,7 +19,7 @@
 
 //Compartilhamento de redes sociais
 - (IBAction)share:(id)sender {
-    //todo: ajustar o que será compartilhado
+    //sharetodo: ajustar o que será compartilhado
     SHKItem *item = [SHKItem text:@"Test Share"];
     SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
     [actionSheet showFromRect:[self findTopRootViewController].view.frame inView:[self findTopRootViewController].view animated:YES];

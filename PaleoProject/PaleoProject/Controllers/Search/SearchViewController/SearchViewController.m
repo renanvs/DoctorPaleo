@@ -84,9 +84,7 @@
 
 //Ajusta o tamanho da tabela em função do tamanho do teclado
 -(void)keyboardWillDisappear:(NSNotification*)notification{
-    NSDictionary* keyboardInfo = [notification userInfo];
-    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
-    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+    CGRect keyboardFrameBeginRect = keyboardRect(notification);
     CGFloat keyboardHeight = keyboardFrameBeginRect.size.height;
     
     CGFloat tabBarHeight = self.tabBarController.tabBar.frame.size.height;
@@ -102,10 +100,7 @@
 
 //Ajusta o tamanho da tabela em função do tamanho do teclado
 -(void)keyboardWillShow:(NSNotification*)notification{
-    //todo extract method
-    NSDictionary* keyboardInfo = [notification userInfo];
-    NSValue* keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
-    CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
+    CGRect keyboardFrameBeginRect = keyboardRect(notification);
     CGFloat keyboardHeight = keyboardFrameBeginRect.size.height;
     
     CGFloat tabBarHeight = self.tabBarController.tabBar.frame.size.height;

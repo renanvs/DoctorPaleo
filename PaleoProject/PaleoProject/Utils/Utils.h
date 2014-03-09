@@ -11,6 +11,9 @@
 #define debugAlert(message) \
 [Utils debugAlert:(message)]
 
+#define keyboardRect(notification) \
+[Utils getKeyboardRectWithNotification:(notification)]
+
 #define screenBounds() \
 [Utils screenBoundsOnCurrentOrientation]
 
@@ -30,6 +33,8 @@
 +(void)debugAlert:(NSString*)message;
 
 +(BOOL)existThisImage:(NSString*)imageName;
+
++(CGRect)getKeyboardRectWithNotification:(NSNotification*)notification;
 
 @end
 

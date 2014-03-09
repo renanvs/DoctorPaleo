@@ -111,8 +111,7 @@
         return 0;
     }
 
-    NSArray *typeList = [[PaleoFoodManager sharedInstance] getFoodTypeListWithFoodList:foodList];
-    FoodTypeModel *typeModel = [typeList objectAtIndex:section];
+    FoodTypeModel *typeModel = [self getTypeModelWithSection:section];
     NSDictionary *foodDictionary = [[PaleoFoodManager sharedInstance] getDictionaryWithFoodList:foodList];
     NSArray *foodListInCurrentType = [foodDictionary objectForKey:typeModel.name];
     
@@ -130,8 +129,7 @@
         return nil;
     }
     
-    NSArray *typeList = [[PaleoFoodManager sharedInstance] getFoodTypeListWithFoodList:foodList];
-    FoodTypeModel *typeModel = [typeList objectAtIndex:indexPath.section];
+    FoodTypeModel *typeModel = [self getTypeModelWithSection:indexPath.section];
     NSDictionary *foodDictionary = [[PaleoFoodManager sharedInstance] getDictionaryWithFoodList:foodList];
     NSArray *itemListWithType = [foodDictionary objectForKey:typeModel.name];
     FoodItemModel *foodModel = [itemListWithType objectAtIndex:indexPath.row];
