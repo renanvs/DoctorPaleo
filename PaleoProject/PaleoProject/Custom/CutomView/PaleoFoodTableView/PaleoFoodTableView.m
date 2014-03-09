@@ -142,7 +142,8 @@
     
     NSArray *indexPathList = [NSArray arrayWithObject:index];
     FoodItemModel *foodItem = [[PaleoFoodManager sharedInstance] findFoodItemByIndex:index AtList:foodList];
-    foodItem.isFavorite = [NSNumber numberWithBool:NO];
+    [[PaleoFoodManager sharedInstance] removeItemFromFavorites:foodItem];
+    
     
     NSArray *types = [[PaleoFoodManager sharedInstance] getFoodTypeListWithFoodList:foodList];
     NSDictionary *dic = [[PaleoFoodManager sharedInstance] getDictionaryWithFoodTypeList:types AndFoodList:foodList];

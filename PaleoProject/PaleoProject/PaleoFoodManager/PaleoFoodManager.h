@@ -31,5 +31,6 @@
 -(NSDictionary*)getDictionaryWithFoodTypeList:(NSArray*)typeList_ AndFoodList:(NSArray*)foodList;
 -(FoodItemModel*)findFoodItemByIndex:(NSIndexPath*)index AtList:(NSArray*)list;
 -(void)removeAllFavorites;
+-(void)removeItemFromFavorites:(FoodItemModel*)foodItem;
 
 @end

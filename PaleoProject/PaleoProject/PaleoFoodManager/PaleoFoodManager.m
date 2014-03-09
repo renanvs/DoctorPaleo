@@ -168,6 +168,13 @@ static id _instance;
     for (FoodItemModel *foodItem in favoriteList) {
         foodItem.isFavorite = [NSNumber numberWithBool:NO];
     }
+    
+    [context save:nil];
+}
+
+-(void)removeItemFromFavorites:(FoodItemModel*)foodItem{
+    foodItem.isFavorite = [NSNumber numberWithBool:NO];
+    [context save:nil];
 }
 
 @end
