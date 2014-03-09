@@ -22,6 +22,17 @@ static id _instance;
     return _instance;
 }
 
+#pragma mark - UIImage
+
+//Verifica se existe no projeto, alguma imagem com esse nome
++(BOOL)existThisImage:(NSString*)imageName{
+    UIImage *image = [UIImage imageNamed:imageName];
+    if (image) {
+        return YES;
+    }
+    return NO;
+}
+
 #pragma mark - NSString auxiliar
 
 //retorna uma NSString minuscula e sem acento

@@ -23,8 +23,7 @@
 //Utiliza as informações do model para popular a célula
 -(void)setCategoryModel:(FoodCategoryModel*)categoryModel_{
     categoryModel = categoryModel_;
-    //todo: criar method auxiliar para verificar a existencia de imagens no projeto
-    if ([categoryModel_.imageName isEqualToString:@"default.png"]) {
+    if (![Utils existThisImage:categoryModel_.imageName]) {
         //gatodo: categoryMode.name sem imagem
         categoryModel_.imageName = @"defaultImage.png";
     }

@@ -29,6 +29,8 @@
 
 +(void)debugAlert:(NSString*)message;
 
++(BOOL)existThisImage:(NSString*)imageName;
+
 @end
 
 @interface NSString (custom)
